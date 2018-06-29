@@ -6,7 +6,7 @@ const devs = ['326532533380579339','337629134371160065'];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`By: Roses`,"http://twitch.tv/S-F")
+client.user.setGame(`discord.jpel`,"http://twitch.tv/discord")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -79,4 +79,4 @@ client.on("ready",() => {
 
 
 
-client.login(BOT_TOKEN);
+client.login('token');
