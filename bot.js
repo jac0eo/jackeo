@@ -4,6 +4,7 @@ const ytdl = require('ytdl-core');
 const request = require('request');
 const devs = ['326532533380579339','337629134371160065'];
 
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`discord.jpel`,"http://twitch.tv/discord")
@@ -34,31 +35,31 @@ client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
-  if (message.content.startsWith(adminprefix + 'ply')) {
+  if (message.content.startsWith('/ply')) {
     client.user.setGame(argresult);
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-    if (message.content === (adminprefix + "Percie")) {
+    if (message.content === ("/Percie")) {
     message.guild.leave();        
   } else  
-  if (message.content.startsWith(adminprefix + 'wt')) {
+  if (message.content.startsWith('/wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
+  if (message.content.startsWith('/ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else     
-    if (message.content.startsWith(adminprefix + 'setname')) {
+    if (message.content.startsWith('/setname')) {
   client.user.setUsername(argresult).then
       message.channel.sendMessage(`**${argresult}** : Done :>`)
   return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
 } else
-    if (message.content.startsWith(adminprefix + 'setavatar')) {
+    if (message.content.startsWith('/setavatar')) {
   client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
         } else     
-  if (message.content.startsWith(adminprefix + 'st')) {
+  if (message.content.startsWith('/st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/google");
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   }
@@ -75,6 +76,68 @@ client.on("ready",() => {
     })
 });
 
+client.on('message', message => {
+if (message.content.startsWith("/uptime")) {
+    let uptime = client.uptime;
+
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let notCompleted = true;
+
+    while (notCompleted) {
+
+        if (uptime >= 8.64e+7) {
+
+            days++;
+            uptime -= 8.64e+7;
+
+        } else if (uptime >= 3.6e+6) {
+
+            hours++;
+            uptime -= 3.6e+6;
+
+        } else if (uptime >= 60000) {
+
+            minutes++;
+            uptime -= 60000;
+
+        } else if (uptime >= 1000) {
+            seconds++;
+            uptime -= 1000;
+
+        }
+
+        if (uptime < 1000)  notCompleted = false;
+
+    }
+
+    message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`");
+
+
+}
+});
+
+client.on('message' , async (message) => {
+ if (message.content.startsWith('/info-bot')) {
+ const os = require('os');
+    const arch = os.arch()
+    const used = process.memoryUsage().heapUsed / 1024 / 1024;
+
+    let totalSeconds = process.uptime();
+    let realTotalSecs = Math.floor(totalSeconds % 60);
+    let days = Math.floor((totalSeconds % 31536000) / 86400);
+    let hours = Math.floor((totalSeconds / 3600) % 24);
+    let mins = Math.floor((totalSeconds / 60) % 60);
+
+    var ping = client.ping
+    message.channel.send(`\n= Memory usage: ${Math.round(used * 100) / 100}MB\n= Ping: ${ping}\n= Uptime: Days: ${days} | Hours: ${hours} | Minutes: ${mins} | Seconds: ${realTotalSecs}\n= Node: ${process.version}\n= Library: discord.js\n= ARCH: ${arch}\n= Plataform: ${os.platform}\n= Servers: ${client.guilds.size}\n= Users: ${client.users.size}`, {
+        code: 'AsciiDoc'
+    })
+
+}
+});
 
 
 
