@@ -62,7 +62,7 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 }
 });
 
-const devs = ['211969554061066243' , '' , '' , ''];
+
 
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
