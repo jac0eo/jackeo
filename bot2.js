@@ -63,7 +63,6 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 });
 
 
-
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
