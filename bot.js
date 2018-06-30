@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
 const request = require('request');
-const devs = ['326532533380579339','337629134371160065'];
 
 
 client.on('ready', () => {
@@ -32,38 +31,47 @@ client.user.setGame(`discord.jpel`,"http://twitch.tv/discord")
 });
 
 client.on('message', message => {
+var prefix = "/";
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (!message.author.id === "211969554061066243") return;
+
+if (message.content.startsWith(prefix + 'SET-name')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : تم بنجاح تغيير الاسم ?`)
+  return message.reply("**تم تغيير الاسم البوت بنجاح ?**");
+} else
+if (message.content.startsWith(prefix + 'SET-pic')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغيير صورة البوت بنجاح ?`);
+
+}
+});
+
+const devs = ['211969554061066243' , '' , '' , ''];
+const adminprefix = "/";
+client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
-  if (message.content.startsWith('/ply')) {
+  if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-    if (message.content === ("/Percie")) {
-    message.guild.leave();        
-  } else  
-  if (message.content.startsWith('/wt')) {
+  if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-  if (message.content.startsWith('/ls')) {
+  if (message.content.startsWith(adminprefix + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else     
-    if (message.content.startsWith('/setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.sendMessage(`**${argresult}** : Done :>`)
-  return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
-} else
-    if (message.content.startsWith('/setavatar')) {
-  client.user.setAvatar(argresult);
-    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-        } else     
-  if (message.content.startsWith('/st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/google");
+  } else 
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/Discord.jpel");
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   }
-});
+  });
 
 
 var Sserver = "431397251445817345" // أيدي السيرفر , أنا حطيته
