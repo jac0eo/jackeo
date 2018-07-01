@@ -139,6 +139,35 @@ if (message.content.startsWith("/uptime")) {
 }
 });
 
+client.on('message', message => {
+if(message.content === adminprefix + "restart") {
+      if (!devs.includes(message.author.id)) return;
+          message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
+        console.log(`⚠️ جاري اعادة تشغيل البوت... ⚠️`);
+        client.destroy();
+        child_process.fork(__dirname + "/الملف.js");
+        console.log(`تم اعادة تشغيل البوت`);
+    }
+  
+  });
+
+client.on('message', message => {
+    if (message.content.startsWith("^avatar")) {
+        var mentionned = message.mentions.users.first();
+    var jac;
+      if(mentionned){
+          var jac = mentionned;
+      } else {
+          var jackeo = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${jackeo.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
 client.on('message' , async (message) => {
  if (message.content.startsWith('/info-bot')) {
  const os = require('os');
