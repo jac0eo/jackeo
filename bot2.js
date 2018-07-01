@@ -271,7 +271,7 @@ client.on('message', function(message) {
 		if (args > 100) return message.reply(':x: **100**');
 		if (args < 1) return message.reply(":x: **1**");
 		dispatcher.setVolume(1 * args / 50);
-		message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*50}**`);
+		message.channel.sendMessage(` **${dispatcher.volume*50}** قمت بتحديث الصوت الى:`);
 	}
 	else if (mess.startsWith('-^pause')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
