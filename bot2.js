@@ -152,7 +152,7 @@ if(message.content === adminprefix + "restart") {
   });
 
 client.on('message', message => {
-    if (message.content.startsWith("^avatar")) {
+    if (message.content.startsWith("-^av")) {
         var mentionned = message.mentions.users.first();
     var jac;
       if(mentionned){
