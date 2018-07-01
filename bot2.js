@@ -39,7 +39,7 @@ client.user.setGame(`-^play | اغاني`,"https://www.twitch.tv/music bot")
 });
 
 
-
+//music
 
 
 
