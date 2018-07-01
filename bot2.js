@@ -166,6 +166,9 @@ client.on('message' , async (message) => {
 
 
 
+
+
+
 /*
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -204,13 +207,13 @@ client.on('message', function(message) {
 	const mess = message.content.toLowerCase();
 	const args = message.content.split(' ').slice(1).join(' ');
 
-	if (mess.startsWith(prefix + 'play')) {
+	if (mess.startsWith('-^play')) {
 		if (!message.member.voiceChannel) return message.reply('** You Are Not In VoiceChannel **');
 		// if user is not insert the URL or song title
 		if (args.length == 0) {
 			let play_info = new Discord.RichEmbed()
 				.setAuthor(client.user.username, client.user.avatarURL)
-				.setDescription('**please put the name of the song or link of it**')
+				.setDescription('**قم بوضع الرابط , او  الاسم**')
 			message.channel.sendEmbed(play_info)
 			return;
 		}
@@ -220,7 +223,7 @@ client.on('message', function(message) {
 				fetchVideoInfo(id, function(err, videoInfo) {
 					if (err) throw new Error(err);
 					let play_info = new Discord.RichEmbed()
-						.setAuthor("added to the waiting list", message.author.avatarURL)
+						.setAuthor("أضيف إلى قائمة الانتظار", message.author.avatarURL)
 						.setDescription(`**${videoInfo.title}**`)
 						.setColor("RANDOM")
 						.setFooter('Requested By:' + message.author.tag)
@@ -246,7 +249,7 @@ client.on('message', function(message) {
 						.setAuthor(`Added To Queue`, message.author.avatarURL)
 						.setDescription(`**${videoInfo.title}**`)
 						.setColor("RANDOM")
-						.setFooter('Requested by: ' + message.author.tag)
+						.setFooter('بطلب من: ' + message.author.tag)
 						.setThumbnail(videoInfo.thumbnailUrl)
 					//.setDescription('?')
 					message.channel.sendEmbed(play_info);
@@ -254,50 +257,50 @@ client.on('message', function(message) {
 			});
 		}
 	}
-	else if (mess.startsWith(prefix + 'skip')) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
-		message.reply(':gear: **Song has been skipped**').then(() => {
+	else if (mess.startsWith('-^skip')) {
+		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
+		message.reply(':gear: **تم التخطي**').then(() => {
 			skip_song(message);
 			var server = server = servers[message.guild.id];
 			if (message.guild.voiceConnection) message.guild.voiceConnection.end();
 		});
 	}
-	else if (message.content.startsWith(prefix + 'vol')) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
+	else if (message.content.startsWith('-^vol')) {
+		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		// console.log(args)
-		if (args > 10) return message.reply(':x: **10**');
+		if (args > 100) return message.reply(':x: **100**');
 		if (args < 1) return message.reply(":x: **1**");
-		dispatcher.setVolume(1 * args / 10);
-		message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*10}**`);
+		dispatcher.setVolume(1 * args / 50);
+		message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*50}**`);
 	}
-	else if (mess.startsWith(prefix + 'pause')) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
-		message.reply(':gear: **the sound is currently Paused**').then(() => {
+	else if (mess.startsWith('-^pause')) {
+		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
+		message.reply(':gear: **تم الايقاف مؤقت**').then(() => {
 			dispatcher.pause();
 		});
 	}
-	else if (mess.startsWith(prefix + 'unpause')) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
-		message.reply(':gear: **You have replayed the music**').then(() => {
+	else if (mess.startsWith('-^unpause')) {
+		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
+		message.reply(':gear: **تم اعاده التشغيل**').then(() => {
 			dispatcher.resume();
 		});
 	}
-	else if (mess.startsWith(prefix + 'stop')) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
-		message.reply(':name_badge: **the music has been stopped,i hope you did enjoy!**');
+	else if (mess.startsWith('-^stop')) {
+		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
+		message.reply(':name_badge: **تم الايقاف**');
 		var server = server = servers[message.guild.id];
 		if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 	}
-	else if (mess.startsWith(prefix + 'join')) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
+	else if (mess.startsWith('-^join')) {
+		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.member.voiceChannel.join().then(message.react('✅'));
 	}
-	else if (mess.startsWith(prefix + 'play')) {
+	else if (mess.startsWith('-^play')) {
 		getID(args, function(id) {
 			add_to_queue(id);
 			fetchVideoInfo(id, function(err, videoInfo) {
 				if (err) throw new Error(err);
-				if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
+				if (!message.member.voiceChannel) return message.reply('**عفوا, انت غير موجود في روم صوتي**');
 				if (isPlaying == false) return message.reply(':x:');
 				let playing_now_info = new Discord.RichEmbed()
 					.setAuthor(client.user.username, client.user.avatarURL)
@@ -316,7 +319,7 @@ client.on('message', function(message) {
 	}
 
 	function skip_song(message) {
-		if (!message.member.voiceChannel) return message.reply('**Sorry,youre not on a voice channel**');
+		if (!message.member.voiceChannel) return message.reply('**عفوا, انت غير موجود في روم صوتي**');
 		dispatcher.end();
 	}
 
@@ -383,24 +386,6 @@ client.on('message', function(message) {
 		return str.toLowerCase().indexOf('youtube.com') > -1;
 	}
 });
-
-
- client.on('message', message => { //ping
-                                if(!message.channel.guild) return;
-                        if (message.content.startsWith(prefix + 'ping')) {
-                            if(!message.channel.guild) return;
-                            var msg = `${Date.now() - message.createdTimestamp}`
-                            var api = `${Math.round(client.ping)}`
-                            if (message.author.bot) return;
-                        let embed = new Discord.RichEmbed()
-                        .setAuthor(message.author.username,message.author.avatarURL)
-                        .setColor('#5016f3')
-                        .addField('**Time Taken:**',msg + " ms :signal_strength: ")
-                        .addField('**WebSocket:**',api + " ms :signal_strength: ")
-                        .setTimestamp()
-		message.channel.send({embed:embed});
-                        }
-                    });
 
 
 
