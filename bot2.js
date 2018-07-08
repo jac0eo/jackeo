@@ -86,15 +86,7 @@ client.on('message', message => {
   });
 
 
-var Sserver = "431397251445817345" // أيدي السيرفر , أنا حطيته
-const role = "Support" // أسم الرتبة , أنا حطيتها
-client.on("ready",() => {
-    client.guilds.get(Sserver).members.forEach(m => {
-        m.roles.forEach(r => {
-            if (r.name == role) m.setNickname(`D.J➺ ${m.user.username}`)
-        })
-    })
-});
+
 
 client.on('message', message => {
 if (message.content.startsWith("/uptime")) {
