@@ -139,7 +139,7 @@ client.on('message',async message => {
 ${thisMessage}\`\`\`
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 **وصف الكود**: ${boi}
-**تم النشر بواسطة**: {message.author.username}
+**تم النشر بواسطة**: {client.user}
 **المصدر / الشخص الذي صنع الكود**: ${boi2}`); 
           }
         }
