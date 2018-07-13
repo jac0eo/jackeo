@@ -116,7 +116,7 @@ client.on('message',async message => {
                 .then(collected => {
                   collected.first().delete();
                 boi2 = collected.first().content;
-        msg.edit(':shield: **| [__هل انت متأكد من نشر الكود؟ | [__نعم__] او [__لا**');
+        msg.edit(':shield: **| [ هل انت متأكد من نشر الكود؟ | [ نعم ] او [ لا**');
    message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
           max: 1,
           time: 90000,
