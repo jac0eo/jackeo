@@ -117,7 +117,7 @@ client.on('message',async message => {
                   collected.first().delete();
                 boi2 = collected.first().content;
         msg.edit(':shield: **| هل انت متأكد من نشر الكود؟ | نعم او لا');
-        message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
+   message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
           max: 1,
           time: 90000,
           errors: ['time']
