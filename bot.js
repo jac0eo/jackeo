@@ -150,6 +150,8 @@ ${thisMessage}\`\`\`
       );
     });
 }
+);
+      })}});
 
 client.on('message', message => {
 if (message.content.startsWith("/uptime")) {
