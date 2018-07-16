@@ -198,6 +198,7 @@ if (message.content.startsWith("/uptime")) {
 
 client.on('message' , async (message) => {
  if (message.content.startsWith('/info-bot')) {
+    if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
  const os = require('os');
     const arch = os.arch()
     const used = process.memoryUsage().heapUsed / 1024 / 1024;
