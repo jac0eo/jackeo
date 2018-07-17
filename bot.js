@@ -257,20 +257,7 @@ message.author.sendEmbed(embed)
 }
 });
 
-client.on('message', message => {
-if (message.content === "-^help") {
-message.react("✅")
 
-}
-});
-
-
-client.on('message', message => {
-if (message.content === "-^help") {
-message.react("📩")
-
-}
-});
 
 
 
