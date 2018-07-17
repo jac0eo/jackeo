@@ -218,5 +218,25 @@ client.on('message' , async (message) => {
 });
 
 
+client.on('message', message => {
+  if message.content.startsWith("/");
+  message.channel.send('**Hi Wlc TO server D.jpel**')
+    message.channel.awaitMessages(filter, {
+      max: 1,
+      time: 90000,
+      errors: ['time']
+    })
+    .then(collected => {
+      collected.first().delete();
+      thisMessage = collected.first().content;
+      let boi;
+      msg.edit(':scroll: **| من فضلك اكتب وصف الكود الأن... :pencil2: **').then(msg => {
+
+          message.channel.awaitMessages(filter, {
+            max: 1,
+            time: 90000,
+            errors: ['time']
+          })
+        });
 
 client.login(process.env.BOT_TOKEN);
