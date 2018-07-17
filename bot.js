@@ -197,6 +197,180 @@ if (message.content.startsWith("/uptime")) {
 }
 });
 
+
+
+const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
+
+
+client.on('message', message => {
+	if(message.content.startsWith('القرآن')) {
+		message.delete();
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) return message.reply(`**يحب ان تكون في روم صوتي**`);
+
+	let embed = new Discord.RichEmbed()
+    .setAuthor(`${message.author.tag}`, message.author.avatarURL)
+	.setColor('#000000')
+	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqVT5PZAfcy8qZxlr3SQv3mmCw9zPiu2YBLIQ4bBePL2jLm7h')
+      .setDescription(` 
+     🕋 اوامر بوت القرآن الكريم 🕋
+      
+     1⃣ ألقران الكريم كامل بصوت الشيخ عبد الباسط عبد الصمد
+     2⃣ ألقران الكريم كامل بصوت الشيخ ياسر الدوسري  
+     3⃣ ألقران الكريم كامل بصوت الشيخ ماهر المعيقلي
+     🚫 Stop
+     4⃣ ألقران الكريم كامل بصوت الشيخ فارس عباد
+     5⃣ ألقران الكريم كامل بصوت الشيخ العيون الكوشي`)
+	
+	message.channel.sendEmbed(embed).then(msg => {
+			msg.react('🇦')
+		.then(() => msg.react('1⃣'))
+		.then(() => msg.react('2⃣'))
+		.then(() => msg.react('3⃣'))
+		.then(() => msg.react('🚫'))
+		.then(() => msg.react('4⃣'))
+		.then(() => msg.react('5⃣'))
+        
+// Filters		
+	let filter1 = (reaction, user) => reaction.emoji.name === '1⃣' && user.id === message.author.id;
+	let filter2 = (reaction, user) => reaction.emoji.name === '2⃣' && user.id === message.author.id;
+	let filter3 = (reaction, user) => reaction.emoji.name === '3⃣' && user.id === message.author.id;
+	let filter4 = (reaction, user) => reaction.emoji.name === '🚫' && user.id === message.author.id;
+	let filter5 = (reaction, user) => reaction.emoji.name === '5⃣' && user.id === message.author.id;
+	let filter6 = (reaction, user) => reaction.emoji.name === '6⃣' && user.id === message.author.id;
+	let filter7 = (reaction, user) => reaction.emoji.name === '7⃣' && user.id === message.author.id;
+
+// Collectors
+	let collector1 = msg.createReactionCollector(filter1, { time: 120000 });
+	let collector2 = msg.createReactionCollector(filter2, { time: 120000 });
+	let collector3 = msg.createReactionCollector(filter3, { time: 120000 });
+	let collector4 = msg.createReactionCollector(filter4, { time: 120000 });
+	let collector5 = msg.createReactionCollector(filter5, { time: 120000 });
+	let collector6 = msg.createReactionCollector(filter6, { time: 120000 });
+	let collector7 = msg.createReactionCollector(filter7, { time: 120000 });
+	
+// Events
+collector1.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=vqXLGtZcUm8", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+   });
+});
+collector2.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=TFm4fCZA7i0", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector3.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=Ktync4j_nmA", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector4.on('collect', r => {
+	if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم إيقاف القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+});
+collector5.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=4Zr--4eLKPA", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector6.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=mTa5FhXKMus", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector7.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=LTRcg-gR78o", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+})
+}
+});
+
+
+
+
 client.on('message' , async (message) => {
  if (message.content.startsWith('/info-bot')) {
     if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
@@ -236,11 +410,13 @@ client.on("message", message => {
 
 ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
 __الاوامر العامة__:tools: 
-\`\`/uptime\`\` | لتعرف متا اشتغل البوت
+\`\`/uptime\`\`   | لتعرف متا اشتغل البوت
 \`\`/info-bot\`\` | معلومات عن البوت 
+\`\`القرآن\`\`    | لتشغيل القران الكريم
 __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
 
 ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
+
 
 __اوامر صاحب البوت__:cherry_blossom: 
 \`\`/ls\`\`  | امر الستنج / امر الاستماع
