@@ -219,6 +219,33 @@ client.on('message' , async (message) => {
 });
 
 
+client.on("message", message => {
+ if (message.content === prefix + "-^help") {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+ message.channel.send("✅")
+  const embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`**    ─══════ {✯D.JPEI✯} ══════─
+_الاوامرالخاصة _
+-^js | امر نشر الاكوادر فقط للسبورت بلس
+-^ قريبا |
+-^ قريبا |
+
+∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
+__الاوامر العامة__
+/uptime | لتعرف متا اشتغل البوت
+/info-bot | معلومات عن البوت 
+__الاوامر فقط اللخاص__:no_entry: :no_entry_sign: 
+─══════ {✯D.JPEI✯} ══════─
+**`)
+
+
+message.author.sendEmbed(embed)
+
+}
+});
+
 
 
 client.login(process.env.BOT_TOKEN);
