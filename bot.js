@@ -273,7 +273,6 @@ message.react("📩")
 });
 
 client.on('message', message => {
-    
   if (message.author.id === client.user.id) return;
   if (message.guild) {
  let embed = new Discord.RichEmbed()
@@ -289,7 +288,7 @@ return;
           .setAuthor(message.author.username,message.author.avatarURL)
           .addField(`● من سيرفر :`,`${message.guild.name}`,true)
           .addField(`● إلى :`, `${message.author.username}`,true)
-          .addField(`:incoming_envelope: الرسالة :`, args)
+          .addField(`📩 الرسالة :`, args)
           .setColor('RANDOM')
           m.send(`${m}`,{embed: bc});
       });
