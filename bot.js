@@ -272,31 +272,6 @@ message.react("📩")
 }
 });
 
-client.on('message', message => {
-  if (message.author.id === client.user.id) return;
-  if (message.guild) {
- let embed = new Discord.RichEmbed()
-  let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-  if (!args[1]) {
-message.channel.send("***bc {Message.Here} | {رسالتك.هنا}**");
-return;
-}
-      message.guild.members.forEach(m => {
- if(!message.member.hasPermission('ADMINISTRATOR')) return;
-          var bc = new Discord.RichEmbed()
-          .setAuthor(message.author.username,message.author.avatarURL)
-          .addField(`● من سيرفر :`,`${message.guild.name}`,true)
-          .addField(`● إلى :`, `${message.author.username}`,true)
-          .addField(`📩 الرسالة :`, args)
-          .setColor('RANDOM')
-          m.send(`${m}`,{embed: bc});
-      });
-  }
-  } else {
-      return;
-  }
-});
 
 
 client.on('message', message => {
