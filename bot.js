@@ -248,7 +248,7 @@ __اوامر صاحب البوت__:cherry_blossom:
 \`\`/wt\`\`  | امر الوتشنج 
 \`\`/st\`\`  | امر الستريمنج
 \`\`/restart\`\`| امر الريستارت
-_─══════ {✯D.JPEI✯} ══════─_
+    _─══════ {✯D.JPEI✯} ══════─_
 **`)
 
 
@@ -258,8 +258,20 @@ message.author.sendEmbed(embed)
 });
 
 
+client.on('message', message => {
+if (message.content === "-^help") {
+message.react("✅")
+
+}
+});
 
 
+client.on('message', message => {
+if (message.content === "-^help") {
+message.react("📩")
+
+}
+});
 
 
 
