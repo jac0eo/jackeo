@@ -247,6 +247,7 @@ __اوامر صاحب البوت__:cherry_blossom:
 \`\`/ply\`\` | امر البليانج
 \`\`/wt\`\`  | امر الوتشنج 
 \`\`/st\`\`  | امر الستريمنج
+\`\`/restart\`\`| امر الريستارت
 _─══════ {✯D.JPEI✯} ══════─_
 **`)
 
@@ -255,5 +256,17 @@ message.author.sendEmbed(embed)
 
 }
 });
+
+client.on('message', message => {
+if(message.content === adminprefix + "restart") {
+      if (!devs.includes(message.author.id)) return;
+          message.channel.send(⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**);
+        console.log(⚠️ جاري اعادة تشغيل البوت... ⚠️);
+        client.destroy();
+        child_process.fork(__dirname + "/bot.js");
+        console.log(تم اعادة تشغيل البوت);
+    }
+  
+  });
 
 client.login(process.env.BOT_TOKEN);
