@@ -211,7 +211,7 @@ client.on('message', message => {
 	let embed = new Discord.RichEmbed()
     .setAuthor(`${message.author.tag}`, message.author.avatarURL)
 	.setColor('#000000')
-	.setFooter(" ** بوت القرآن | نسخة خاصة ** ", 'http://cc-card.cf/up2/upload-files/8c13d72.png')
+	.setFooter("  بوت القرآن | نسخة خاصة  ", 'http://cc-card.cf/up2/upload-files/8c13d72.png')
       .setDescription(` **
      🕋 أوامر بوت القرآن الكريم 🕋
       
