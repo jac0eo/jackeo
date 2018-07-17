@@ -220,7 +220,7 @@ client.on('message' , async (message) => {
 
 
 client.on("message", message => {
- if (message.content === prefix + "-^help") {
+ if (message.content === "-^help") {
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
  message.channel.send("✅")
   const embed = new Discord.RichEmbed()
