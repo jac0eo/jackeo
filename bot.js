@@ -212,24 +212,24 @@ client.on('message', message => {
     .setAuthor(`${message.author.tag}`, message.author.avatarURL)
 	.setColor('#000000')
 	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqVT5PZAfcy8qZxlr3SQv3mmCw9zPiu2YBLIQ4bBePL2jLm7h')
-      .setDescription(` 
-     🕋 اوامر بوت القرآن الكريم 🕋
+      .setDescription(` **
+     🕋 أوامر بوت القرآن الكريم 🕋
       
      1⃣ ألقران الكريم كامل بصوت الشيخ عبد الباسط عبد الصمد
      2⃣ ألقران الكريم كامل بصوت الشيخ ياسر الدوسري  
      3⃣ ألقران الكريم كامل بصوت الشيخ ماهر المعيقلي
-     🚫 Stop
+     🚫 _Stop_
      4⃣ ألقران الكريم كامل بصوت الشيخ فارس عباد
-     5⃣ ألقران الكريم كامل بصوت الشيخ العيون الكوشي`)
+     5⃣ ألقران الكريم كامل بصوت الشيخ العيون الكوشي ** `)
 	
 	message.channel.sendEmbed(embed).then(msg => {
-			msg.react('🇦')
-		.then(() => msg.react('1⃣'))
+			msg.react('1⃣')
 		.then(() => msg.react('2⃣'))
 		.then(() => msg.react('3⃣'))
 		.then(() => msg.react('🚫'))
 		.then(() => msg.react('4⃣'))
 		.then(() => msg.react('5⃣'))
+		.then(() => msg.react('6⃣'))
         
 // Filters		
 	let filter1 = (reaction, user) => reaction.emoji.name === '1⃣' && user.id === message.author.id;
