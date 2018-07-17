@@ -258,6 +258,21 @@ message.author.sendEmbed(embed)
 });
 
 client.on('message', message => {
+if (message.content === "-^help") {
+message.react("✅")
+
+}
+});
+
+
+client.on('message', message => {
+if (message.content === "-^help") {
+message.react("📩")
+
+}
+});
+
+client.on('message', message => {
 if(message.content === adminprefix + "restart") {
       if (!devs.includes(message.author.id)) return;
           message.channel.send(⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**);
