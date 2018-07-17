@@ -221,33 +221,33 @@ client.on('message' , async (message) => {
 
 
 client.on("message", message => {
-  if(message.content.includes === '-^help') {
+    if (message.content === "-^help")  {
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
 
- message.channel.send("✅")
+
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setThumbnail(message.author.avatarURL)
-      .setDescription(`**    ─══════ {✯D.JPEI✯} ══════─
-      __الاوامرالخاصة__
+      .setDescription(`**    _─══════ {✯D.JPEI✯} ══════─_
+      __الاوامرالخاصة__:spy::skin-tone-1: 
 \`\`-^js\`\` | امر نشر الاكوادر فقط للسبورت بلس
 \`\`-^ قريبا\`\` |
 \`\`-^ قريبا\`\` |
 
 ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
-__الاوامر العامة__
+__الاوامر العامة__:tools: 
 \`\`/uptime\`\` | لتعرف متا اشتغل البوت
 \`\`/info-bot\`\` | معلومات عن البوت 
 __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
 
 ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
 
-__اوامر صاحب البوت__
+__اوامر صاحب البوت__:cherry_blossom: 
 \`\`/ls\`\`  | امر الستنج / امر الاستماع
 \`\`/ply\`\` | امر البليانج
 \`\`/wt\`\`  | امر الوتشنج 
 \`\`/st\`\`  | امر الستريمنج
-─══════ {✯D.JPEI✯} ══════─
+_─══════ {✯D.JPEI✯} ══════─_
 **`)
 
 
