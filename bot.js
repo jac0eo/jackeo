@@ -204,6 +204,7 @@ const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 
 client.on('message', message => {
 	if(message.content.startsWith('القرآن')) {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
 		message.delete();
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) return message.reply(`**يحب ان تكون في روم صوتي**`);
@@ -402,7 +403,16 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setThumbnail(message.author.avatarURL)
-      .setDescription(`**    _─══════ {✯D.JPEI✯} ══════─_
+      .setDescription(`**    ╭━━━╮╱╱╱╱╱╱╱╭╮
+╰╮╭╮┃╭╮╱╱╱╱╱┃┃
+╱┃┃┃┃╰╋━━┳━━┫┃
+╱┃┃┃┃╭┫╭╮┃┃━┫┃
+╭╯╰╯┣┫┃╰╯┃┃━┫╰╮
+╰━━━┻┫┃╭━┻━━┻━╯
+╱╱╱╱╭╯┃┃
+╱╱╱╱╰━┻╯
+
+_─══════ {✯D.JPEI✯} ══════─_
       __الاوامرالخاصة__:spy::skin-tone-1: 
 \`\`-^js\`\` | امر نشر الاكوادر فقط للسبورت بلس
 \`\`-^ قريبا\`\` |
