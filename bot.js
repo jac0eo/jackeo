@@ -58,16 +58,19 @@ var prefix = "/";
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
-  let args = message.content.split("** **").slice(1);
+  let args = message.content.split(" ").slice(1);
 
 
 if (command == "emb")    {
     let say = new Discord.RichEmbed()
-    .setDescription(args.join(" "))
+    .setDescription(args.join("**  **"))
     .setColor("RANDOM")
     message.channel.sendEmbed(say);
     message.delete();
   }
+
+
+});
 
 
 });
