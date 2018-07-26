@@ -73,10 +73,10 @@ client.on('message', message => {
   }
   });
 
-const code = '/';
+const code = '-^';
 
 client.on('message',async message => {
-    if(message.content.startsWith(code + "js")) {
+    if(message.content.startsWith(code + "تخزين")) {
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
     let rank = message.guild.member(message.author).roles.find('name', '↬ Support');
     if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة سبورت  لأستخدام هذا الأمر.**');
