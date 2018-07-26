@@ -6,7 +6,7 @@ const request = require('request');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Alpha Codes©`,"http://twitch.tv/discord")
+client.user.setGame(`Alpha Codes©`,"http://twitch.tv/Alpha Codes")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -34,8 +34,8 @@ client.on('message', message => {
 var prefix = "/";
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (!message.author.id === "211969554061066243") return;
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
 
 if (message.content.startsWith(prefix + 'SET-name')) {
   client.user.setUsername(argresult).then
@@ -49,7 +49,7 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 }
 });
 
-const devs = ['211969554061066243' , '' , '' , ''];
+const devs = ['211969554061066243' , '337629134371160065' , '' , ''];
 const adminprefix = "/";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
@@ -68,12 +68,12 @@ client.on('message', message => {
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/Discord.jpel");
+    client.user.setGame(argresult, "https://www.twitch.tv/حب بلا حدود");
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   }
   });
 
-const code = '-^';
+const code = '/';
 
 client.on('message',async message => {
     if(message.content.startsWith(code + "js")) {
