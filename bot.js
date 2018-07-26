@@ -255,7 +255,7 @@ client.on('message', message => {
      3⃣ ألقران الكريم كامل بصوت الشيخ ماهر المعيقلي
      🚫 _Stop_
      4⃣ ألقران الكريم كامل بصوت الشيخ فارس عباد
-     5⃣ ألقران الكريم كامل بصوت الشيخ العيون الكوشي ** `)
+     5⃣ ألقران الكريم كامل بصوت الشيخ هزاع البلوشي ** `)
 	
 	message.channel.sendEmbed(embed).then(msg => {
 			msg.react('1⃣')
@@ -351,7 +351,7 @@ collector4.on('collect', r => {
 collector5.on('collect', r => {
     voiceChannel.join()
       .then(connnection => {
-        const stream = ytdl("https://www.youtube.com/watch?v=4Zr--4eLKPA", { filter: 'audioonly' });
+        const stream = ytdl("https://www.youtube.com/watch?v=hqm9fasXauU", { filter: 'audioonly' });
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
 		collector1.stop();
@@ -368,7 +368,7 @@ collector5.on('collect', r => {
 collector6.on('collect', r => {
     voiceChannel.join()
       .then(connnection => {
-        const stream = ytdl("https://www.youtube.com/watch?v=mTa5FhXKMus", { filter: 'audioonly' });
+        const stream = ytdl("https://www.youtube.com/watch?v=KvhNdMSgBGM", { filter: 'audioonly' });
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
 		collector1.stop();
