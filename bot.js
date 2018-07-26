@@ -60,6 +60,12 @@ var prefix = "/";
 
   let args = message.content.split(" ").slice(1);
 
+  if (command === "say")  {
+          message.delete()
+    message.channel.sendMessage(args.join(" ")).catch(console.error);
+  }
+  
+ 
 
 if (command == "emb")    {
     let say = new Discord.RichEmbed()
