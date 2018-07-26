@@ -438,16 +438,17 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setThumbnail(message.author.avatarURL)
-      .setDescription(`**    ╭━━━╮╱╱╱╱╱╱╱╭╮
-╰╮╭╮┃╭╮╱╱╱╱╱┃┃
-╱┃┃┃┃╰╋━━┳━━┫┃
-╱┃┃┃┃╭┫╭╮┃┃━┫┃
-╭╯╰╯┣┫┃╰╯┃┃━┫╰╮
-╰━━━┻┫┃╭━┻━━┻━╯
-╱╱╱╱╭╯┃┃
-╱╱╱╱╰━┻╯
+      .setDescription(`**    ╭━━━┳╮╱╱╱╭╮╱╱╱╱╱╭━━━╮╱╱╱╱╭╮
+┃╭━╮┃┃╱╱╱┃┃╱╱╱╱╱┃╭━╮┃╱╱╱╱┃┃
+┃┃╱┃┃┃╭━━┫╰━┳━━╮┃┃╱╰╋━━┳━╯┣━━┳━━╮
+┃╰━╯┃┃┃╭╮┃╭╮┃╭╮┃┃┃╱╭┫╭╮┃╭╮┃┃━┫━━┫
+┃╭━╮┃╰┫╰╯┃┃┃┃╭╮┃┃╰━╯┃╰╯┃╰╯┃┃━╋━━┃
+╰╯╱╰┻━┫╭━┻╯╰┻╯╰╯╰━━━┻━━┻━━┻━━┻━━╯
+╱╱╱╱╱╱┃┃
+╱╱╱╱╱╱╰╯
 
-_─══════ {✯D.JPEI✯} ══════─_
+
+_─══════ {✯Alpha Codes✯} ══════─_
       __الاوامرالخاصة__:spy::skin-tone-1: 
 \`\`-^js\`\` | امر نشر الاكوادر فقط للسبورت بلس
 \`\`-^ قريبا\`\` |
@@ -461,8 +462,13 @@ __الاوامر العامة__:tools:
 __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
 
 ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
+__اوامر الاكريديت__:credit_card:
+\`\`/-^credits\`\` | لمعرفة كم عدد الاكريديت
+\`\`/-^profile\`\` | امر اضهار البروفايل
+\`\`/-^daily\`\` | امر المكاقئة اليومية 200 كريديت
+\`\`/-^title\`\` | لتغيير الوصف يدعم الانجليزية فقط
 
-
+∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
 __اوامر صاحب البوت__:cherry_blossom: 
 \`\`/ls\`\`  | امر الستنج / امر الاستماع
 \`\`/ply\`\` | امر البليانج
@@ -670,7 +676,7 @@ if (message.content.startsWith(prefix + "profile")) {
           var client = message.author;
  
       }
-if (!profile[getvalueof.id]) profile[getvalueof.id] = {points: 0,reps: "NOT YET",credits: 1, level: 1,tite: ".", rep: 0, lastDaily: "NOT COLLECTED"};
+if (!profile[getvalueof.id]) profile[getvalueof.id] = {points: 0,reps: "NOT YET",credits: 1, level: 1,tite: " ", rep: 0, lastDaily: "NOT COLLECTED"};
             let Image = Canvas.Image,
             canvas = new Canvas(300, 300),
             ctx = canvas.getContext('2d');
