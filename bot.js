@@ -526,6 +526,7 @@ if (err) console.error(err);
 client.on('message', message => {
  
     if(message.content.startsWith(prefix + 'rep')) {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
       if(!message.channel.guild) return;
                     moment.locale('en');
                   var getvalueof = message.mentions.users.first()
@@ -551,6 +552,7 @@ client.on("message", (message) => {
     if (message.author.id === client.user.id) return;
     if(!message.channel.guild) return;
 if (message.content.startsWith(prefix + 'credit')) {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
   if(men) {
     if (!profile[men.id]) profile[men.id] = {
     lastDaily:'Not Collected',
@@ -565,6 +567,7 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 }
  
 if(message.content.startsWith(prefix + "daily")) {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
   if(profile[message.author.id].lastDaily != moment().format('day')) {
     profile[message.author.id].lastDaily = moment().format('day')
     profile[message.author.id].credits += 200
@@ -578,6 +581,7 @@ if(message.content.startsWith(prefix + "daily")) {
 let args = cont.slice(1);
 let sender = message.author
 if(message.content.startsWith(prefix + 'trans')) {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
           if (!args[0]) {
             message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
          return;
@@ -645,6 +649,7 @@ if (err) console.error(err);
   if (message.author.bot) return;
     if(!message.channel.guild) return;
 if (message.content.startsWith(prefix + "profile")) {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
                                let user = message.mentions.users.first();
          var men = message.mentions.users.first();
             var heg;
