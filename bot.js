@@ -52,9 +52,8 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
-    let rank = message.guild.member(message.author).roles.find('name', '⇒ Administration');
-    if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة ⇒ Administration  لأستخدام هذا الأمر.**');
-
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
