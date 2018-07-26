@@ -58,7 +58,7 @@ var prefix = "/";
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
-  let args = message.content.split(" ").slice(1);
+  let args = message.content.split("** **").slice(1);
 
 
 if (command == "emb")    {
