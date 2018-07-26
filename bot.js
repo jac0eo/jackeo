@@ -49,6 +49,23 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 }
 });
 
+if (command == "embed") 
+    let rank = message.guild.member(message.author).roles.find('name', '⇒ Administration');
+    if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة ⇒ Administration  لأستخدام هذا الأمر.**');
+   {
+    let say = new Discord.RichEmbed()
+  .setThumbnail(message.author.avatarURL)  
+  .setAuthor(message.author.username)
+    .setDescription(args.join("  "))
+    .setColor(RANDOM)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+
+
+});
+
+
 const devs = ['211969554061066243' , '337629134371160065' , '' , ''];
 const adminprefix = "/";
 client.on('message', message => {
