@@ -52,6 +52,7 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 client.on('message', message => {
 var prefix = "/";
   if (message.author.bot) return;
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
   if (!message.content.startsWith(prefix)) return;
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
@@ -105,7 +106,7 @@ client.on('message', message => {
 const code = '-^';
 
 client.on('message',async message => {
-    if(message.content.startsWith(code + "تخزين")) {
+    if(message.content.startsWith(code + "js")) {
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
     let rank = message.guild.member(message.author).roles.find('name', '↬ Support');
     if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة سبورت  لأستخدام هذا الأمر.**');
