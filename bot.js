@@ -6,7 +6,7 @@ const request = require('request');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`D.jpel©`,"http://twitch.tv/discord")
+client.user.setGame(`Alpha Codes©`,"http://twitch.tv/discord")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -78,9 +78,9 @@ const code = '-^';
 client.on('message',async message => {
     if(message.content.startsWith(code + "js")) {
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
-    let rank = message.guild.member(message.author).roles.find('name', 'Support+');
-    if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة سبورت بلس لأستخدام هذا الأمر.**');
-    let jscodes = message.guild.channels.find(`name`, "codes-js");
+    let rank = message.guild.member(message.author).roles.find('name', '↬ Support');
+    if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة سبورت  لأستخدام هذا الأمر.**');
+    let jscodes = message.guild.channels.find(`name`, "✻-codes_js");
     if(!jscodes) return message.channel.send(":x:لم اجد الروم الخاص بنشر الاكواد");
       let filter = m => m.author.id === message.author.id;
       let thisMessage;
@@ -135,7 +135,7 @@ client.on('message',async message => {
             collected.first().delete();
             jscodes.send(`@everyone | @here
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-**Code D.jpel© :arrow_down:**            
+**Code Alpha© :arrow_down:**            
 \`\`\`js
 ${thisMessage}\`\`\`
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
