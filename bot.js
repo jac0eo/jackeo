@@ -72,9 +72,6 @@ if (command == "emb")    {
 
 });
 
-
-});
-
 const devs = ['211969554061066243' , '337629134371160065' , '' , ''];
 const adminprefix = "/";
 client.on('message', message => {
