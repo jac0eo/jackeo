@@ -52,7 +52,6 @@ if (message.content.startsWith(prefix + 'SET-pic')) {
 client.on('message', message => {
 var prefix = "/";
   if (message.author.bot) return;
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
   if (!message.content.startsWith(prefix)) return;
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
@@ -62,6 +61,7 @@ var prefix = "/";
   let args = message.content.split(" ").slice(1);
 
   if (command === "say")  {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
           message.delete()
     message.channel.sendMessage(args.join(" ")).catch(console.error);
   }
@@ -69,6 +69,7 @@ var prefix = "/";
  
 
 if (command == "emb")    {
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
     .setColor("RANDOM")
