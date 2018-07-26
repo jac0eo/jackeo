@@ -502,7 +502,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if(!message.channel.guild)return;
   if (!profile[message.author.id]) profile[message.author.id] = {
-    tite: 'HypeLC User',
+    tite: '.',
     rep: 0,
     reps: 'NOT YET',
     lastDaily:'Not Collected',
@@ -670,7 +670,7 @@ if (message.content.startsWith(prefix + "profile")) {
           var client = message.author;
  
       }
-if (!profile[getvalueof.id]) profile[getvalueof.id] = {points: 0,reps: "NOT YET",credits: 1, level: 1,tite: "HypeLC User", rep: 0, lastDaily: "NOT COLLECTED"};
+if (!profile[getvalueof.id]) profile[getvalueof.id] = {points: 0,reps: "NOT YET",credits: 1, level: 1,tite: ".", rep: 0, lastDaily: "NOT COLLECTED"};
             let Image = Canvas.Image,
             canvas = new Canvas(300, 300),
             ctx = canvas.getContext('2d');
