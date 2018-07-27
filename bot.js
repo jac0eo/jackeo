@@ -127,7 +127,7 @@ j = 1;
 });
 
 client.on('message', message => { 
-	var prefix ="!";
+	var prefix ="-^";
            if (message.content.startsWith(prefix + "id")) {
      var args = message.content.split(" ").slice(1);
      let user = message.mentions.users.first();
@@ -553,6 +553,7 @@ _─══════ {✯Alpha Codes✯} ══════─_
 __الاوامر العامة__:tools: 
 \`\`/uptime\`\`   | لتعرف متا اشتغل البوت
 \`\`/info-bot\`\` | معلومات عن البوت 
+\`\`-^id\`\` | لاضهار معلومات عن انشاء حسابك ودخولك للسيرفر
 \`\`القرآن\`\`    | لتشغيل القران الكريم
 __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
 
