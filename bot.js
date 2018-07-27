@@ -582,7 +582,6 @@ let cont = message.content.slice(prefix.length).split(" ");
 let args = cont.slice(2);
 let sender = message.author
 if(message.content.startsWith(prefix + 'trans')) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
           if (!args[0]) {
             message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
          return;
@@ -628,23 +627,6 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
                message.channel.sendEmbed(embed)
         })
         })
- 
-      client.on('message', message => {
-          if(!profile[message.author.id]) profile[message.author.id] ={
-              points: 0,
-              level: 1
-          };
-          if(message.author.bot) return;
-          profile[message.author.id].points = Math.floor(profile[message.author.id].points+1);
-          if(profile[message.author.id].points > 100) {
-              profile[message.author.id].points = 0
-              profile[message.author.id].level = Math.floor(profile[message.author.id].level+1);
-              message.channel.send(`**${message.author.username}, You leveld up to __${profile[message.author.id].level}__**`)
-          }
-          fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
-if (err) console.error(err);
-})
-      })
  
     client.on('message', message => {
         let tit = message.content.split(" ").slice(1).join(" ");
