@@ -7,6 +7,24 @@ const fs = require("fs");
 const jimp = require("jimp");
 const moment = require("moment")
 
+client.on('ready', function(){	
+    var ms = 200000 ;	
+    var setGame = ['Alpha Codes!','الفا كودي','الفا سيرفر'];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+        client.user.setGame(setGame[i],`http://www.youtube.com/AlphaCodes!`);	
+}, ms);	
+	
+});
+
 client.on('ready', () => {
     client.user.setGame(`الفا سيرفر`)
   console.log(`Logged in as ${client.user.tag}!`);
@@ -108,23 +126,7 @@ client.on('message', message => {
   });
 
 
-client.on('ready', function(){	
-    var ms = 40000 ;	
-    var setGame = ['Alpha Codes!','الفا كودي','سيرفر الفا'];	
-    var i = -1;	
-    var j = 0;	
-    setInterval(function (){	
-        if( i == -1 ){	
-j = 1;	
-       }	
-        if( i == (setGame.length)-1 ){	
-            j = -1;	
-      }	
-       i = i+j;	
-        client.user.setGame(setGame[i],`http://www.youtube.com/Alpha Codes!`);	
-}, ms);	
-	
-});
+
 
 client.on('message', message => { 
 	var prefix ="-^";
