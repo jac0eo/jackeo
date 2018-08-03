@@ -9,7 +9,7 @@ const moment = require("moment")
 
 client.on('ready', function(){	
     var ms = 200000 ;	
-    var setGame = ['Alpha Codes!','الفا كودي','الفا سيرفر'];	
+    var setGame = ['Alpha Codes!','الفا كود','الفا سيرفر'];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
@@ -101,7 +101,7 @@ if (command == "emb")    {
 
 });
 
-const devs = ['211969554061066243' , '337629134371160065' , '' , ''];
+const devs = ['211969554061066243' , '337629134371160065' , '457324866182447126' , ''];
 const adminprefix = "/";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
