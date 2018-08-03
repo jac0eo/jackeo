@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
 const request = require('request');
-const devs = ['211969554061066243','337629134371160065'];
+const devs = ['211969554061066243','337629134371160065','457324866182447126'];
 const child_process = require("child_process");
 const adminprefix = "-^";
 const fs = require('fs');
@@ -37,9 +37,23 @@ client.on('ready', () => {
   console.log('')
 });
 
-
-//music
-
+client.on('ready', function(){	
+    var ms = 500500 ;	
+    var setGame = ['Neo.','Neo..','Neo...'];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+        client.user.setGame(setGame[i],`http://www.youtube.com/Neo...`);	
+}, ms);	
+	
+});
 
 
 
