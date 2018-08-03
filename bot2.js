@@ -14,7 +14,6 @@ const prefix = '-^';
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`-^play | اغاني`,"https://www.twitch.tv/music bot")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -42,25 +41,6 @@ client.user.setGame(`-^play | اغاني`,"https://www.twitch.tv/music bot")
 //music
 
 
-
-client.on('message', message => {
-var prefix = "/";
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (!message.author.id === "211969554061066243") return;
-
-if (message.content.startsWith(prefix + 'SET-name')) {
-  client.user.setUsername(argresult).then
-      message.channel.sendMessage(`**${argresult}** : تم بنجاح تغيير الاسم ?`)
-  return message.reply("**تم تغيير الاسم البوت بنجاح ?**");
-} else
-if (message.content.startsWith(prefix + 'SET-pic')) {
-  client.user.setAvatar(argresult);
-    message.channel.sendMessage(`**${argresult}** : تم تغيير صورة البوت بنجاح ?`);
-
-}
-});
 
 
 client.on('message', message => {
@@ -228,7 +208,7 @@ client.on('message', function(message) {
 	const mess = message.content.toLowerCase();
 	const args = message.content.split(' ').slice(1).join(' ');
 
-	if (mess.startsWith('-^play')) {
+	if (mess.startsWith('play')) {
 		if (!message.member.voiceChannel) return message.reply('** You Are Not In VoiceChannel **');
 		// if user is not insert the URL or song title
 		if (args.length == 0) {
@@ -278,7 +258,7 @@ client.on('message', function(message) {
 			});
 		}
 	}
-	else if (mess.startsWith('-^skip')) {
+	else if (mess.startsWith('skip')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':gear: **تم التخطي**').then(() => {
 			skip_song(message);
@@ -286,7 +266,7 @@ client.on('message', function(message) {
 			if (message.guild.voiceConnection) message.guild.voiceConnection.end();
 		});
 	}
-	else if (message.content.startsWith('-^vol')) {
+	else if (message.content.startsWith('vol')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		// console.log(args)
 		if (args > 100) return message.reply(':x: **100**');
@@ -294,29 +274,29 @@ client.on('message', function(message) {
 		dispatcher.setVolume(1 * args / 50);
 		message.channel.sendMessage(` **${dispatcher.volume*50}** قمت بتحديث الصوت الى:`);
 	}
-	else if (mess.startsWith('-^pause')) {
+	else if (mess.startsWith('pause')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':gear: **تم الايقاف مؤقت**').then(() => {
 			dispatcher.pause();
 		});
 	}
-	else if (mess.startsWith('-^unpause')) {
+	else if (mess.startsWith('unpause')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':gear: **تم اعاده التشغيل**').then(() => {
 			dispatcher.resume();
 		});
 	}
-	else if (mess.startsWith('-^stop')) {
+	else if (mess.startsWith('stop')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':name_badge: **تم الايقاف**');
 		var server = server = servers[message.guild.id];
 		if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 	}
-	else if (mess.startsWith('-^join')) {
+	else if (mess.startsWith('join')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.member.voiceChannel.join().then(message.react('✅'));
 	}
-	else if (mess.startsWith('-^play')) {
+	else if (mess.startsWith('play')) {
 		getID(args, function(id) {
 			add_to_queue(id);
 			fetchVideoInfo(id, function(err, videoInfo) {
