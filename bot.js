@@ -61,7 +61,7 @@ client.on("message", (message) => {
                     .setColor("RANDOM")
                     .setThumbnail(message.author.displayAvatarURL)
                     .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
-                    .setFooter(`DM Bot Messages | DM Logs`)
+                    .setFooter(`ارسل رسالة في خاص اليوت| Jackeo`)
                 client.users.get("211969554061066243").send(jackeo)
             }
 });
@@ -101,7 +101,7 @@ channel.send(`**معلومات
 ``رابط`` لاضهار رابط السيرفر والمتجر
 ``#help`` لاستخدام بووت الاكواد
 ``-^help`` لاستخدامي**`);
-}, 7200000)
+}, 200000)
 })
 
 client.on("ready", () => {
@@ -111,7 +111,7 @@ channel.send(`**
 https://discord.gg/jfJGyss سيرفرنا 
 https://discord.gg/UG3b8nE شوب سيرفرنا
  **`);
-}, 7200000)
+}, 500000)
 })
 
 client.on('message', message => {
