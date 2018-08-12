@@ -60,20 +60,35 @@ client.on('ready', () => {
   console.log('')
 });
 
-client.on("message", (message) => {
-            if (message.channel.type === "dm") {
+//client.on("message", (message) => {
+ //           if (message.channel.type === "dm") {
+ //       if (message.author.id === client.user.id) return;
+     //   let jackeo = new Discord.RichEmbed()
+   //                 .setTimestamp()
+   //                 .setTitle("Direct Message To The Bot")
+  //                  .addField(`Sent By:`, `<@${message.author.id}>`)
+      //              .setColor("RANDOM")
+     //               .setThumbnail(message.author.displayAvatarURL)
+         //           .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
+      //              .setFooter(`ارسل رسالة في خاص اليوت| Jackeo`)
+       //         client.users.get("211969554061066243").send(jackeo)
+     //       }
+//});
+
+ client.on('message', function(message) {
+    if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
-        let jackeo = new Discord.RichEmbed()
-                    .setTimestamp()
-                    .setTitle("Direct Message To The Bot")
-                    .addField(`Sent By:`, `<@${message.author.id}>`)
-                    .setColor("RANDOM")
-                    .setThumbnail(message.author.displayAvatarURL)
-                    .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
-                    .setFooter(`ارسل رسالة في خاص اليوت| Jackeo`)
-                client.users.get("211969554061066243").send(jackeo)
-            }
+        var iiMo = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTimestamp()
+        .setTitle('``هذة الشخص قام بالكتابة !``')
+        .setThumbnail(`${message.author.avatarURL}`)
+        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
+    client.channels.get("439419246942879744").send({embed:iiMo});
+    }
 });
+
 
 client.on('message',message =>{
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
