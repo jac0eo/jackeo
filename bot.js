@@ -25,6 +25,15 @@ j = 1;
 	
 });
 
+       client.on('message', message => {
+                if(message.content === prefix + "invbot") {
+                    let embed = new Discord.RichEmbed ()
+                    embed.setTitle("** اضغط هنا للاضافة البوت **")
+                    .setURL("https://discordapp.com/oauth2/authorize?client_id=461860437630386176&scope=bot&permissions=1865743808");
+                   message.channel.sendEmbed(embed);
+                  }
+});
+
 client.on('ready', () => {
     client.user.setGame(`الفا سيرفر`)
   console.log(`Logged in as ${client.user.tag}!`);
@@ -602,6 +611,7 @@ __الاوامر العامة__:tools:
 \`\`/uptime\`\`   | لتعرف متا اشتغل البوت
 \`\`/info-bot\`\` | معلومات عن البوت 
 \`\`-^id\`\` | لاضهار معلومات عن انشاء حسابك ودخولك للسيرفر
+\`\`-^invbot\`\` |لاضافة البوت لسيرفرك
 \`\`القرآن\`\`    | لتشغيل القران الكريم
 __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
 
