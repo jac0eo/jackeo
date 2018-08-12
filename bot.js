@@ -67,7 +67,8 @@ client.on("message", (message) => {
 });
 
 client.on('message',message =>{
-    var prefix = "/";
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+    var prefix = "-^";
     if(message.content.startsWith(prefix + 'top')) {
   message.guild.fetchInvites().then(i =>{
   var invites = [];
