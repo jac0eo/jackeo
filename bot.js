@@ -89,7 +89,6 @@ client.on('ready', () => {
   //    }
  // });
 
-/*
 client.on('message',message =>{
   if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
     var prefix = "-^";
@@ -118,7 +117,7 @@ client.on('message',message =>{
    
     }
   });
-*/
+
 
 
 client.on('message', message => {
