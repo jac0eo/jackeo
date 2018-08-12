@@ -95,25 +95,7 @@ client.on('message',message =>{
     }
   });
 
-client.on("ready", () => {
-let channel =     client.channels.get("476233599440650260")
-setInterval(function() {
-channel.send(`**معلومات 
-``رابط`` لاضهار رابط السيرفر والمتجر
-``#help`` لاستخدام بووت الاكواد
-``-^help`` لاستخدامي**`);
-}, 200000)
-})
 
-client.on("ready", () => {
-let channel =     client.channels.get("476233599440650260")
-setInterval(function() {
-channel.send(`**
-https://discord.gg/jfJGyss سيرفرنا 
-https://discord.gg/UG3b8nE شوب سيرفرنا
- **`);
-}, 500000)
-})
 
 client.on('message', message => {
 var prefix = "/";
