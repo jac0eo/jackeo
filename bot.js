@@ -51,6 +51,69 @@ client.on('ready', () => {
   console.log('')
 });
 
+client.on("message", (message) => {
+            if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        let jackeo = new Discord.RichEmbed()
+                    .setTimestamp()
+                    .setTitle("Direct Message To The Bot")
+                    .addField(`Sent By:`, `<@${message.author.id}>`)
+                    .setColor("RANDOM")
+                    .setThumbnail(message.author.displayAvatarURL)
+                    .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
+                    .setFooter(`DM Bot Messages | DM Logs`)
+                client.users.get("211969554061066243").send(jackeo)
+            }
+});
+
+client.on('message',message =>{
+    var prefix = "/";
+    if(message.content.startsWith(prefix + 'top')) {
+  message.guild.fetchInvites().then(i =>{
+  var invites = [];
+   
+  i.forEach(inv =>{
+    var [invs,i]=[{},null];
+     
+    if(inv.maxUses){
+        invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
+    }else{
+        invs[inv.code] =+ inv.uses;
+    }
+        invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
+   
+  });
+  var embed = new Discord.RichEmbed()
+  .setColor("#000000")
+  .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
+  .setThumbnail("https://i.imgur.com/tgoGEd2.png")
+           message.channel.send({ embed: embed });
+   
+  });
+   
+    }
+  });
+
+client.on("ready", () => {
+let channel =     client.channels.get("476233599440650260")
+setInterval(function() {
+channel.send(`**معلومات 
+``رابط`` لاضهار رابط السيرفر والمتجر
+``#help`` لاستخدام بووت الاكواد
+``-^help`` لاستخدامي**`);
+}, 7200000)
+})
+
+client.on("ready", () => {
+let channel =     client.channels.get("476233599440650260")
+setInterval(function() {
+channel.send(`**
+https://discord.gg/jfJGyss سيرفرنا 
+https://discord.gg/UG3b8nE شوب سيرفرنا
+ **`);
+}, 7200000)
+})
+
 client.on('message', message => {
 var prefix = "/";
   if (!message.content.startsWith(prefix)) return;
