@@ -599,7 +599,7 @@ client.on('message' , async (message) => {
 
 client.on("message", message => {
     if (message.content === "-^help")  {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply(' ');
 
 
   const embed = new Discord.RichEmbed()
