@@ -96,7 +96,7 @@ client.on('message',message =>{
   var embed = new Discord.RichEmbed()
     .setColor("RANDOM")
   .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
-  .setThumbnail("https://i.imgur.com/tgoGEd2.png")
+  .setThumbnail("https://i.imgur.com/gfqiPnJ.png")
            message.channel.send({ embed: embed });
    
   });
