@@ -595,7 +595,7 @@ client.on('message' , async (message) => {
 }
 });
 
-${message.author.user.id}
+
 
 
 client.on('message', async message =>{
@@ -608,7 +608,7 @@ client.on('message', async message =>{
   if(cmd === `${prefix}id`) {
       var bots = new Discord.RichEmbed()
 
-      .setDescription(`** you id: ${message.author.user.id}  **`)
+      .setDescription(`** you id: ${message.author.id}  **`)
       .setColor('RANDOM')
       message.channel.send(bots);
   }
