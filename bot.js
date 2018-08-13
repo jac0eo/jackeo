@@ -90,7 +90,7 @@ client.on("message", (message) => {
  // });
 
 client.on('message',message =>{
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply(' ');
     var prefix = "-^";
     if(message.content.startsWith(prefix + 'top')) {
   message.guild.fetchInvites().then(i =>{
@@ -151,7 +151,7 @@ var prefix = "/";
   let args = message.content.split(" ").slice(1);
 
   if (command === "say")  {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+   if(!message.channel.guild) return message.reply(' ');
           message.delete()
     message.channel.sendMessage(args.join(" ")).catch(console.error);
   }
@@ -159,7 +159,7 @@ var prefix = "/";
  
 
 if (command == "emb")    {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply(' ');
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
     .setColor("RANDOM")
@@ -277,7 +277,7 @@ const code = '-^';
 
 client.on('message',async message => {
     if(message.content.startsWith(code + "js")) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
     let rank = message.guild.member(message.author).roles.find('name', '↬ Support');
     if (!rank) return message.channel.send(':octagonal_sign: **| يجب ان تمتلك رتبة سبورت  لأستخدام هذا الأمر.**');
     let jscodes = message.guild.channels.find(`name`, "✻-codes_js");
@@ -356,7 +356,7 @@ ${thisMessage}\`\`\`
 
 client.on('message', message => {
 if (message.content.startsWith("/uptime")) {
-    if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+    if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
     let uptime = client.uptime;
 
     let days = 0;
@@ -405,7 +405,7 @@ const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 
 client.on('message', message => {
 	if(message.content.startsWith('القرآن')) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
 		message.delete();
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) return message.reply(`**يحب ان تكون في روم صوتي**`);
@@ -575,7 +575,7 @@ collector7.on('collect', r => {
 
 client.on('message' , async (message) => {
  if (message.content.startsWith('/info-bot')) {
-    if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+    if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
  const os = require('os');
     const arch = os.arch()
     const used = process.memoryUsage().heapUsed / 1024 / 1024;
@@ -699,7 +699,7 @@ if (err) console.error(err);
 client.on('message', message => {
  
     if(message.content.startsWith(prefix + 'rep')) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
       if(!message.channel.guild) return;
                     moment.locale('en');
                   var getvalueof = message.mentions.users.first()
@@ -725,7 +725,7 @@ client.on("message", (message) => {
     if (message.author.id === client.user.id) return;
     if(!message.channel.guild) return;
 if (message.content.startsWith(prefix + 'credit')) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
   if(men) {
     if (!profile[men.id]) profile[men.id] = {
     lastDaily:'Not Collected',
@@ -740,7 +740,7 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 }
  
 if(message.content.startsWith(prefix + "daily")) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
   if(profile[message.author.id].lastDaily != moment().format('day')) {
     profile[message.author.id].lastDaily = moment().format('day')
     profile[message.author.id].credits += 200
@@ -804,7 +804,7 @@ if (err) console.error(err);
   if (message.author.bot) return;
     if(!message.channel.guild) return;
 if (message.content.startsWith(prefix + "profile")) {
-  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');
+  if(!message.channel.guild) return message.reply('** __This command only for servers:no_entry:__  **');.then(m => m.delete(5000));
                                let user = message.mentions.users.first();
          var men = message.mentions.users.first();
             var heg;
