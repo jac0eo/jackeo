@@ -595,16 +595,11 @@ client.on('message' , async (message) => {
 });
 
 
-
-client.on("message", message => {
-    if (message.content === "-^help")  {
-  if(!message.channel.guild) return message.reply(' ');
-
-
-  const embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`**  
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField(`**  
 ╭━━━┳╮╱╱╱╭╮╱╱╱╱╱╭━━━╮╱╱╱╱╭╮
 ┃╭━╮┃┃╱╱╱┃┃╱╱╱╱╱┃╭━╮┃╱╱╱╱┃┃
 ┃┃╱┃┃┃╭━━┫╰━┳━━╮┃┃╱╰╋━━┳━╯┣━━┳━━╮
@@ -648,12 +643,12 @@ __اوامر صاحب البوت__:cherry_blossom:
 
     _─══════ {✯Alpha Codes✯} ══════─_
 **`)
-
-
-message.author.sendEmbed(embed)
-
-}
+.setColor('RANDOM')
+  message.channel.sendEmbed(embed);
+    }
 });
+
+
 
 
 client.on('message', message => {
