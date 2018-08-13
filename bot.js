@@ -595,9 +595,10 @@ client.on('message' , async (message) => {
 });
 
 
+
 client.on('message', message => {
-            if (message.content.startsWith("-^help")) {
-     let embed = new Discord.RichEmbed()
+  if (message.content.startsWith("-^help")) {
+let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField(`**  
 ╭━━━┳╮╱╱╱╭╮╱╱╱╱╱╭━━━╮╱╱╱╱╭╮
@@ -610,7 +611,7 @@ client.on('message', message => {
 ╱╱╱╱╱╱╰╯
 
 _─══════ {✯Alpha Codes✯} ══════─_
-      __الاوامرالخاصة__:spy::skin-tone-1: 
+    __الاوامرالخاصة__:spy::skin-tone-1: 
 \`\`-^js\`\` | امر نشر الاكوادر فقط للسبورت بلس
 \`\`-^ قريبا\`\` |
 \`\`-^ قريبا\`\` |
@@ -641,12 +642,13 @@ __اوامر صاحب البوت__:cherry_blossom:
 \`\`/restart\`\`| امر الريستارت
 \`\`/bc\`\`| امر البروكسدات
 
-    _─══════ {✯Alpha Codes✯} ══════─_
+  _─══════ {✯Alpha Codes✯} ══════─_
 **`)
 .setColor('RANDOM')
-  message.channel.sendEmbed(embed);
-    }
+message.channel.sendEmbed(embed);
+}
 });
+
 
 
 
