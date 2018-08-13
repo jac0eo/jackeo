@@ -60,20 +60,20 @@ client.on('ready', () => {
   console.log('')
 });
 
-//client.on("message", (message) => {
- //           if (message.channel.type === "dm") {
- //       if (message.author.id === client.user.id) return;
-     //   let jackeo = new Discord.RichEmbed()
-   //                 .setTimestamp()
-   //                 .setTitle("Direct Message To The Bot")
-  //                  .addField(`Sent By:`, `<@${message.author.id}>`)
-      //              .setColor("RANDOM")
-     //               .setThumbnail(message.author.displayAvatarURL)
-         //           .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
-      //              .setFooter(`ارسل رسالة في خاص اليوت| Jackeo`)
-       //         client.users.get("211969554061066243").send(jackeo)
-     //       }
-//});
+client.on("message", (message) => {
+           if (message.channel.type === "dm") {
+      if (message.author.id === client.user.id) return;
+     let jackeo = new Discord.RichEmbed()
+            .setTimestamp()
+                .setTitle("Direct Message To The Bot")
+                .addField(`Sent By:`, `<@${message.author.id}>`)
+                    .setColor("RANDOM")
+                   .setThumbnail(message.author.displayAvatarURL)
+                   .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
+                  .setFooter(`ارسل رسالة في خاص اليوت| Jackeo`)
+               client.users.get("211969554061066243").send(jackeo)
+         }
+});
 
  // client.on('message', function(message) {
  //  //     if (message.channel.type === "dm") {
@@ -413,7 +413,7 @@ client.on('message', message => {
 	let embed = new Discord.RichEmbed()
     .setAuthor(`${message.author.tag}`, message.author.avatarURL)
 	.setColor('#000000')
-	.setFooter("  بوت القرآن | نسخة خاصة  ", 'http://cc-card.cf/up2/upload-files/8c13d72.png')
+	.setFooter("  بوت القرآن | نسخة ألفا  ", 'https://i.imgur.com/CLwmKV9.png')
       .setDescription(` **
      🕋 أوامر بوت القرآن الكريم 🕋
       
