@@ -596,7 +596,7 @@ client.on('message' , async (message) => {
 
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help")) {
+            if (message.content.startsWith("-^help")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField(`**  
