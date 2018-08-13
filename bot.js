@@ -605,10 +605,9 @@ client.on('message', async message =>{
   let prefix = '-^';
   let sicon = message.author.displayAvatarURL;
   if(cmd === `${prefix}help`) {
-      var generalhelp = new Discord.RichEmbed()
+      var bots = new Discord.RichEmbed()
 
-      .setDescription(" **
-
+      .setDescription(`**  
       ╭━━━┳╮╱╱╱╭╮╱╱╱╱╱╭━━━╮╱╱╱╱╭╮
       ┃╭━╮┃┃╱╱╱┃┃╱╱╱╱╱┃╭━╮┃╱╱╱╱┃┃
       ┃┃╱┃┃┃╭━━┫╰━┳━━╮┃┃╱╰╋━━┳━╯┣━━┳━━╮
@@ -629,6 +628,7 @@ client.on('message', async message =>{
       \`\`/uptime\`\`   | لتعرف متا اشتغل البوت
       \`\`/info-bot\`\` | معلومات عن البوت 
       \`\`-^id\`\` | لاضهار معلومات عن انشاء حسابك ودخولك للسيرفر
+      \`\`-^top\`\`| لروئية عدد الاعضاء الذين اتو بالروابط
       \`\`-^invbot\`\` |لاضافة البوت لسيرفرك
       \`\`القرآن\`\`    | لتشغيل القران الكريم
       __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
@@ -651,12 +651,11 @@ client.on('message', async message =>{
       \`\`/bc\`\`| امر البروكسدات
       
         _─══════ {✯Alpha Codes✯} ══════─_
-      ** ")
-          .setThumbnail(sicon)
-      message.channel.send(generalhelp);
+      **`)
+      .setColor('RANDOM')
+      message.channel.send(bots);
   }
 });
-
 
 
 client.on('message', message => {
