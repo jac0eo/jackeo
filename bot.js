@@ -222,7 +222,6 @@ client.on('message', message => {
     .setColor("#707070")
     .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
     .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-    .addField(' id ', ${message.author.user.id} )
     .setFooter(`الفا كودي`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
     .setThumbnail(heg.avatarURL);
     message.channel.send(id)
@@ -596,8 +595,24 @@ client.on('message' , async (message) => {
 }
 });
 
+${message.author.user.id}
 
 
+client.on('message', async message =>{
+
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  let prefix = '-^';
+  let sicon = message.author.displayAvatarURL;
+  if(cmd === `${prefix}id`) {
+      var bots = new Discord.RichEmbed()
+
+      .setDescription(`** you id: ${message.author.user.id}  **`)
+      .setColor('RANDOM')
+      message.channel.send(bots);
+  }
+});
 
 client.on('message', async message =>{
 
