@@ -26,7 +26,7 @@ j = 1;
 });
 
        client.on('message', message => {
-                if(message.content === prefix + "invbot") {
+                if(message.content === "invbot") {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** __ Add bot __ **")
                     .setURL("https://discordapp.com/oauth2/authorize?client_id=461860437630386176&scope=bot&permissions=1865743808");
