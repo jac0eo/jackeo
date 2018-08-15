@@ -96,9 +96,9 @@ var currentTime = new Date(),
 hours = currentTime.getHours() + 3 ,
 ReBeeL = currentTime.getMinutes(),
 ReBeeeL = currentTime.getSeconds(),
-Codes = currentTime.getFullYear(),
-CodeS = currentTime.getMonth() + 1,
-CoDeS = currentTime.getDate()
+Year  = currentTime.getFullYear(),
+Month = currentTime.getMonth() + 1,
+day   = currentTime.getDate()
 if (ReBeeL < 10) {
 ReBeeL = "0" + ReBeeL;
 }
@@ -110,7 +110,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-client.channels.find('id', '479372664985878529').setName(`Date : ${Codes} - ${CodeS} - ${CoDeS}`)
+client.channels.find('id', '479372664985878529').setName(`╔[ التاريخ  ${Year}/${Month}/${day} ]╗`)
 }, 1000);
 });
 
