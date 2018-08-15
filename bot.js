@@ -89,19 +89,32 @@ client.on("message", (message) => {
   //    }
  // });
 
+client.on('guildMemberAdd', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+    client.channels.get('479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`);
+});
 
-client.on('ready',async () => {
 client.on('guildMemberRemove', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
-client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
+    client.channels.get('479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`);
+
+});
+
+
+client.on('guildMemberRemove', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
 client.on('guildMemberAdd', member => {
 });
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
-client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
+client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
 });
 
+client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
 hours = currentTime.getHours() + 3 ,
