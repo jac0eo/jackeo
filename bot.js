@@ -111,7 +111,7 @@ if (hours == 0) {
 hours = 12;
 }
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
-client.channels.find('id', '478344817529716746').setName(`╚[ الأعضاء ↩ ${message.guild.memberCount} ]╗`)
+client.channels.find('id', '479388454778568705').setName(`╚[ الأعضاء ↩ ${guild.memberCount} ]╗`)
 }, 1000);
 });
 //${guild.memberCount}
