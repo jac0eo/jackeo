@@ -110,7 +110,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-client.channels.find('id', '479372664985878529').setName(`╔[ التاريخ  ${Year}/${Month}/${day} ]╗`)
+client.channels.find('id', '479372664985878529').setName(`╔[ التاريخ ➾ ${Year}/${Month}/${day} ]╗`)
 }, 1000);
 });
 
