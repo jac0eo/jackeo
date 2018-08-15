@@ -90,16 +90,18 @@ client.on("message", (message) => {
  // });
 
 
-
+client.on('ready',async () => {
 client.on('guildMemberRemove', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
-});
-
+client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
 client.on('guildMemberAdd', member => {
+});
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
- client.on('ready',async () => {
+client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
+});
+
 setInterval(function(){
 var currentTime = new Date(),
 hours = currentTime.getHours() + 3 ,
@@ -119,7 +121,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
+client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
 }, 5000);
 });
