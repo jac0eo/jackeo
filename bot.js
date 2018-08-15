@@ -90,12 +90,16 @@ client.on("message", (message) => {
  // });
 
 
-  client.on('ready',async () => {
+ client.on('ready',async () => {
 client.on('guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
 client.channels.find('id', '479388454778568705').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
 });
+client.on('guildMemberRemove', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+client.channels.find('id', '479388454778568705').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
 setInterval(function(){
 var currentTime = new Date(),
 hours = currentTime.getHours() + 3 ,
