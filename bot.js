@@ -89,41 +89,18 @@ client.on("message", (message) => {
   //    }
  // });
 
-client.on('guildMemberAdd', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`);
-});
-
-client.on('guildMemberRemove', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`);
-
-});
 
 
 
 client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
-hours = currentTime.getHours() + 3 ,
-ReBeeL = currentTime.getMinutes(),
-ReBeeeL = currentTime.getSeconds(),
 Year  = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
 day   = currentTime.getDate() + 1,
-if (ReBeeL < 10) {
-ReBeeL = "0" + ReBeeL;
+if ( day < 10) 
 }
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
+
 client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${client.users.size} ]╗`)
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
 }, 5000);
