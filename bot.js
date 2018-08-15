@@ -124,7 +124,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${client.users.size} ]╗`)
+client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${client.users.size} ]╗`)
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
 }, 5000);
 });
