@@ -109,7 +109,6 @@ client.on('guildMemberRemove', member => {
 client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
 client.on('guildMemberAdd', member => {
 });
-    const 1 = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
 client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${member.guild.memberCount} ]╗`)
 });
