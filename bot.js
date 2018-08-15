@@ -98,8 +98,8 @@ Year  = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
 day   = currentTime.getDate() 
 
-client.channels.find('id', '479425495445012492').setName(`『[ الأعضاء ↩ ${client.users.size} ]』`)
-client.channels.find('id', '479372664985878529').setName(`『[ التاريخ ↩ ${Year}/${Month}/${day} ]』`)
+client.channels.find('id', '479425495445012492').setName(`『 الأعضاء ↩ 【 ${client.users.size} 】 』`)
+client.channels.find('id', '479372664985878529').setName(`『 التاريخ ↩ ${Year}/${Month}/${day} 』`)
 }, 5000);
 });
 //${guild.memberCount}
