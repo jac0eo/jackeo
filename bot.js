@@ -99,9 +99,6 @@ client.on('guildMemberRemove', member => {
 client.on('guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
-client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
-}, 5000);
-
  client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
@@ -122,6 +119,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
+client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
 }, 5000);
 });
