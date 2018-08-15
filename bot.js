@@ -100,6 +100,7 @@ client.on('guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
 client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
+}, 5000);
 });
  client.on('ready',async () => {
 setInterval(function(){
