@@ -112,7 +112,7 @@ ReBeeL = currentTime.getMinutes(),
 ReBeeeL = currentTime.getSeconds(),
 Year  = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
-day   = currentTime.getDate()
+day   = currentTime.getDate() + 1,
 if (ReBeeL < 10) {
 ReBeeL = "0" + ReBeeL;
 }
