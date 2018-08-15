@@ -101,7 +101,7 @@ client.on('guildMemberAdd', member => {
     const memberCount = [member.guild.memberCount] - [botCount]
 client.channels.find('id', '479419221567209482').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
 }, 5000);
-});
+
  client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
