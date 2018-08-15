@@ -91,15 +91,14 @@ client.on("message", (message) => {
 
 
 
-
-client.on('ready',async () => {
+  client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
+
 Year  = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
 day   = currentTime.getDate() + 1,
-if ( day < 10) 
-}
+
 
 client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${client.users.size} ]╗`)
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
