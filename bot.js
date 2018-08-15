@@ -91,6 +91,9 @@ client.on("message", (message) => {
 
 
   client.on('ready',async () => {
+client.on('guildMemberAdd', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
 setInterval(function(){
 var currentTime = new Date(),
 hours = currentTime.getHours() + 3 ,
@@ -111,7 +114,7 @@ if (hours == 0) {
 hours = 12;
 }
 client.channels.find('id', '479372664985878529').setName(`╚[ التاريخ ↩ ${Year}/${Month}/${day} ]╗`)
-client.channels.find('id', '479388454778568705').setName(`╚[ الأعضاء ↩ ${guild.memberCount} ]╗`)
+client.channels.find('id', '479388454778568705').setName(`╚[ الأعضاء ↩ ${memberCount} ]╗`)
 }, 1000);
 });
 //${guild.memberCount}
