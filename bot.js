@@ -97,7 +97,7 @@ var currentTime = new Date(),
 
 Year  = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
-day   = currentTime.getDate() + 1,
+day   = currentTime.getDate() + 
 
 
 client.channels.find('id', '479425495445012492').setName(`╚[ الأعضاء ↩ ${client.users.size} ]╗`)
