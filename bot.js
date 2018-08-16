@@ -245,7 +245,7 @@ client.on('message', message => {
 
 
 
-/*
+
 client.on('message', message => {
               if(!message.channel.guild) return;
     var prefix = "/";
@@ -288,7 +288,7 @@ message.channel.send(`**__عضو__ ${message.guild.members.size}  تم ارسا�
     })
     }
     });
-*/
+
 
 const code = '-^';
 
