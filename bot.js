@@ -26,7 +26,7 @@ j = 1;
 });
 
 
-  Client.on('message', message => {
+  client.on('message', message => {
 
     if (message.content === "user") {
 
