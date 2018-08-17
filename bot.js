@@ -25,6 +25,22 @@ j = 1;
 	
 });
 
+
+  Client.on('message', message => {
+
+    if (message.content === "user") {
+
+    let embed = new Discord.RichEmbed()
+
+.addField('**user**: ' , message.guild.memberCount)
+.setColor("RANDOM")
+.setDescription(`${message.guild.name}`)
+     message.channel.sendEmbed(embed);
+} 
+
+});
+  
+
        client.on('message', message => {
                 if(message.content === "invbot") {
                     let embed = new Discord.RichEmbed ()
