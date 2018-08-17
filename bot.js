@@ -108,7 +108,6 @@ client.on("message", (message) => {
   //    }
  // });
 
-  client.on('guildCreate', guild => {
 client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
@@ -122,13 +121,15 @@ client.channels.find('id', '479372664985878529').setName(`『 التاريخ ↩
 
 });
 
+
   client.on('guildCreate', guild => {
 client.on('ready',async () => {
 setInterval(function(){
+var currentTime = new Date(),
 client.channels.find('id', '480042491039580164').setName(`『 الأعضاء ↩ ${guild.memberCount} 』`)
 }, 5000); 
 
-});
+})
 
 //${client.users.size}
 //${guild.memberCount}
