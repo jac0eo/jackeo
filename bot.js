@@ -122,15 +122,11 @@ client.channels.find('id', '479372664985878529').setName(`『 التاريخ ↩
 });
 
 
-  client.on('guildCreate', guild => {
-client.on('ready',async () => {
-setInterval(function(){
-var currentTime = new Date(),
-day   = currentTime.
-
-client.channels.find('id', '480042491039580164').setName(`『 الأعضاء ↩ ${guild.memberCount} 』`)
-}, 5000); 
-
+client.on("guildMemberAdd", (member) => {
+client.channels.get('480042491039580164').edit({name : `『 الأعضاء ↩ ${guild.memberCount} 』`});
+})
+client.on("guildMemberRemove", (member) => {
+client.channels.get('480042491039580164').edit({name : `『 الأعضاء ↩ ${guild.memberCount} 』`});
 })
 
 //${client.users.size}
