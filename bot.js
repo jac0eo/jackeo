@@ -109,7 +109,7 @@ client.on("message", (message) => {
  // });
 
 
-
+  client.on('guildCreate', guild => {
 client.on('ready',async () => {
 setInterval(function(){
 var currentTime = new Date(),
