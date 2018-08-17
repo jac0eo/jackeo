@@ -1,10 +1,10 @@
 {
-  "name": "kingserver",
+  "name": "!ّّّّّّّّ♔Ĵά¢k̲èΦ♔⌘|🎵💔😍",
   "version": "2.1.0",
-  "description": "-- AWESOMENESS --",
+  "description": "JACKEO IS HERE",
   "main": "reload.js",
   "scripts": {
-    "start": "node reload.js"
+    "start": "node bot.js"
   },
   "dependencies": {
     "canvas": "^1.6.10",
