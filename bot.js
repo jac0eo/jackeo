@@ -131,7 +131,7 @@ day   = currentTime.
 client.channels.find('id', '480042491039580164').setName(`『 الأعضاء ↩ ${guild.memberCount} 』`)
 }, 5000); 
 
-});
+})
 
 //${client.users.size}
 //${guild.memberCount}
