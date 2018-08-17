@@ -123,10 +123,10 @@ client.channels.find('id', '479372664985878529').setName(`『 التاريخ ↩
 
 
 client.on("guildMemberAdd", (member) => {
-client.channels.get('480042491039580164').edit({name : `『 الأعضاء ↩ ${guild.memberCount} 』`});
+client.channels.get('480042491039580164').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
 })
 client.on("guildMemberRemove", (member) => {
-client.channels.get('480042491039580164').edit({name : `『 الأعضاء ↩ ${guild.memberCount} 』`});
+client.channels.get('480042491039580164').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
 })
 
 //${client.users.size}
