@@ -28,7 +28,7 @@ j = 1;
 
 client.on('ready', function(){	
     var ms = 200000 ;	
-    var setGame = ['المستخدمين : ${client.users.size}','${prefix}help','االسيرفرات : ${client.guilds.size}'];	
+    var setGame = [`المستخدمين : ${client.users.size}`,`${prefix}help`,`االسيرفرات : ${client.guilds.size}`];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
@@ -43,7 +43,6 @@ j = 1;
 }, ms);	
 	
 });
-
 
   client.on('message', message => {
 
