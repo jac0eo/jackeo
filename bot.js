@@ -7,9 +7,11 @@ const fs = require("fs");
 const jimp = require("jimp");
 const moment = require("moment")
 
+
+
 client.on('ready', function(){	
     var ms = 200000 ;	
-    var setGame = ['Alpha Codes!','الفا كود','الفا سيرفر'];	
+    var setGame = ['المستخدمين : ${client.users.size}','${prefix}help','االسيرفرات : ${client.guilds.size}'];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
