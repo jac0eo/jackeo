@@ -7,7 +7,7 @@ const fs = require("fs");
 const jimp = require("jimp");
 const moment = require("moment")
 
-/*
+
 client.on('ready', function(){	
     var ms = 200000 ;	
     var setGame = ['Alpha Codes!','الفا كود','الفا سيرفر'];	
@@ -24,12 +24,13 @@ j = 1;
         client.user.setGame(setGame[i],`http://www.youtube.com/AlphaCodes!`);	
 }, ms);	
 	
-}); */
+}); 
 
+/*
 client.on('ready', function(){	
-    var ms = 200000 ;	
-    var prefix = "حط البرفركس هنا";
-    var setGame = [`المستخدمين : ${client.users.size}`,`${prefix}help`,`االسيرفرات : ${client.guilds.size}`];	
+    var ms = 200000 ;	// السرعة لا  تغيرها عشان ما تتبند 
+    var prefix = "حط البرفركس هنا"; 
+    var setGame = [`المستخدمين : ${client.users.size}`,`${prefix}help`,`االسيرفرات : ${client.guilds.size}`];	// لا تلعب بشيء
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
@@ -40,10 +41,10 @@ j = 1;
             j = -1;	
       }	
        i = i+j;	
-        client.user.setGame(setGame[i],`http://www.youtube.com/AlphaCodes!`);	
+        client.user.setGame(setGame[i],`http://www.youtube.com/AlphaCodes!`);	// حقوقنا فضلا اتركها وشائنها
 }, ms);	
 	
-});
+}); */
 
   client.on('message', message => {
 
