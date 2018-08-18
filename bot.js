@@ -26,6 +26,64 @@ j = 1;
 	
 }); 
 
+  client.on('message', message => {
+if(message.content == '<@461860437630386176>') {
+message.channel.startTyping()
+setTimeout(() => { 
+message.channel.stopTyping()
+}, 50000);
+}
+});
+
+  client.on('message', message => {
+if(message.content == 'جاكيو') {
+message.channel.startTyping()
+setTimeout(() => { 
+message.channel.stopTyping()
+}, 50000);
+}
+});
+
+
+client.on("message", function(message) {
+let messageArray = message.content.split(" ");
+let command = messageArray[0];
+let anarg = message.content.split(" ").slice(2);
+let toSend = message.mentions.users.first();
+        
+         var currentTime = new Date(),
+          hours = currentTime.getHours() + 2 ,
+          minutes = currentTime.getMinutes(),
+          seconds = currentTime.getSeconds(),
+          Year = currentTime.getFullYear() - 2000,
+          Month = currentTime.getMonth() + 1,
+          Day = currentTime.getDate();
+          var suffix = 'AM';
+          if (hours >= 12) {
+             suffix = 'PM';
+              hours = hours - 12;
+         }
+          if (hours == 0) {
+              hours = 12;
+          }
+let xFive = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setAuthor(message.author.username,message.author.avatarURL)
+    .setThumbnail(message.author.avatarURL)
+    .setFooter("SenioR TeaM. || "+"- "+Month+"."+Year+"."+Day+" -"+hours+":"+minutes+" "+suffix)
+    .addField("**• الرسالة**","**"+anarg+"**")
+    .addField("**• المرسل**","<@"+message.author.id+">")
+    .addField("**• التاريخ**",Day+"/"+Month+"/"+Year+" | "+hours+":"+minutes+":"+seconds+" "+suffix)
+if(command === `${prefix}send`) {
+    if(toSend.bot) return message.reply("**# You cannot send a message to a bot!** 🎇");
+    if(anarg < 1) return message.reply("**# Please , Specify a valid arguments!** 🎇");
+    //if(toSend === message.author) return message.reply("**# You cannot send a message to yourself**");
+    toSend.send({embed:xFive});
+    message.reply("** ✅ , Sent a Message to **<@"+toSend.id+">")
+ }
+});
+
+
 /*
 client.on('ready', function(){	
     var ms = 200000 ;	// السرعة لا  تغيرها عشان ما تتبند 
