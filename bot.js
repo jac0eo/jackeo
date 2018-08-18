@@ -73,7 +73,7 @@ j = 1;
 
 
 client.on('ready', () => {
-    client.user.setGame(`الفا سيرفر`)
+  //  client.user.setGame(`الفا سيرفر`)
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
   console.log('')
