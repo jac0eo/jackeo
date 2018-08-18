@@ -7,7 +7,24 @@ const fs = require("fs");
 const jimp = require("jimp");
 const moment = require("moment")
 
-
+/*
+client.on('ready', function(){	
+    var ms = 200000 ;	
+    var setGame = ['Alpha Codes!','الفا كود','الفا سيرفر'];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+        client.user.setGame(setGame[i],`http://www.youtube.com/AlphaCodes!`);	
+}, ms);	
+	
+}); */
 
 client.on('ready', function(){	
     var ms = 200000 ;	
