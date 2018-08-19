@@ -74,6 +74,7 @@ let xFive = new Discord.RichEmbed()
     .addField("**• الرسالة**","**"+anarg+"**")
     .addField("**• المرسل**","<@"+message.author.id+">")
     .addField("**• التاريخ**",Day+"/"+Month+"/"+Year+" | "+hours+":"+minutes+":"+seconds+" "+suffix)
+var prefix = "-^";
 if(command === `${prefix}send`) {
     if(toSend.bot) return message.reply("**# You cannot send a message to a bot!** 🎇");
     if(anarg < 1) return message.reply("**# Please , Specify a valid arguments!** 🎇");
