@@ -79,7 +79,18 @@ client.on('message', message => {
   }
   });
 
+client.on("ready", () => {
 
+
+  	      var interval1 = setInterval (function () {
+  client.channels.get('471363350849388565').send('#daily');
+  client.channels.get('471363350849388565').send('#rep <@211969554061066243>');  
+		  }, 86800000);
+	      var interval2 = setInterval (function () {
+client.channels.get('471363350849388565').send('t!daily <@211969554061066243>');
+client.channels.get('471363350849388565').send('t!rep <@211969554061066243>');
+		  }, 61360000);
+});
 
 
 client.on('message', message => {
