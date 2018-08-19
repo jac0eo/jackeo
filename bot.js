@@ -71,7 +71,7 @@ let Jackeo = new Discord.RichEmbed()
     //.setAuthor(message.author.username,message.author.avatarURL)
     //.setThumbnail(message.author.avatarURL)
     .setFooter("Alpha Codes. ")
-    .addField("**• الرسالة**","**"+anarg+"**")
+    .addField("**• الرسالة**" "**"+anarg+"**")
 var prefix = "-^";
 if(command === `${prefix}send`) {
     if(toSend.bot) return message.reply("** لا يمكنك ارسال رسالة لبوت** :robot: ");
