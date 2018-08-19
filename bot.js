@@ -66,6 +66,45 @@ let toSend = message.mentions.users.first();
           if (hours == 0) {
               hours = 12;
           }
+let Jackeo = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    //.setAuthor(message.author.username,message.author.avatarURL)
+    //.setThumbnail(message.author.avatarURL)
+    .setFooter("Alpha Codes. ")
+    .addField("**• الرسالة**","**"+anarg+"**")
+var prefix = "-^";
+if(command === `${prefix}send`) {
+    if(toSend.bot) return message.reply("** لا يمكنك ارسال رسالة لبوت** :robot: ");
+    if(anarg < 1) return message.reply("** من فضلك ، حدد حجج صحيحة!** :writing_hand::skin-tone-1: ");
+    if(toSend === message.author) return message.reply("** لا يمكنك إرسال رسالة إلى نفسك**:couple:");
+    toSend.send({embed:Jackeo});
+    message.reply("** ✅ , Sent a Message to **<@"+toSend.id+">")
+ }
+});
+
+
+/*
+client.on("message", function(message) {
+let messageArray = message.content.split(" ");
+let command = messageArray[0];
+let anarg = message.content.split(" ").slice(2);
+let toSend = message.mentions.users.first();
+        
+         var currentTime = new Date(),
+          hours = currentTime.getHours() + 2 ,
+          minutes = currentTime.getMinutes(),
+          seconds = currentTime.getSeconds(),
+          Year = currentTime.getFullYear() - 2000,
+          Month = currentTime.getMonth() + 1,
+          Day = currentTime.getDate();
+          var suffix = 'AM';
+          if (hours >= 12) {
+             suffix = 'PM';
+              hours = hours - 12;
+         }
+          if (hours == 0) {
+              hours = 12;
+          }
 let xFive = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username,message.author.avatarURL)
@@ -82,7 +121,7 @@ if(command === `${prefix}send`) {
     toSend.send({embed:xFive});
     message.reply("** ✅ , Sent a Message to **<@"+toSend.id+">")
  }
-});
+}); */
 
 
 /*
