@@ -75,6 +75,7 @@ let Jackeo = new Discord.RichEmbed()
 .setFooter(`Alpha Codes.`, 'https://i.imgur.com/mpztoDJ.png')    
 var prefix = "-^";
 if(command === `${prefix}send`) {
+  if(!message.channel.guild) return message.reply(' ');
     if(toSend.bot) return message.reply("** لا يمكنك ارسال رسالة لبوت** :robot: ");
     if(anarg < 1) return message.reply("** من فضلك ، حدد حجج صحيحة!** :writing_hand::skin-tone-1: ");
     if(toSend === message.author) return message.reply("** لا يمكنك إرسال رسالة إلى نفسك**:couple:");
