@@ -78,7 +78,7 @@ if(command === `${prefix}send`) {
     if(anarg < 1) return message.reply("** من فضلك ، حدد حجج صحيحة!** :writing_hand::skin-tone-1: ");
     if(toSend === message.author) return message.reply("** لا يمكنك إرسال رسالة إلى نفسك**:couple:");
     toSend.send({embed:Jackeo});
-    message.reply("** ✅ , Sent a Message to **<@"+toSend.id+">")
+    message.reply("** ✅ , ارسلت الرسالة ل **<@"+toSend.id+">")
  }
 });
 
