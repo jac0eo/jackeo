@@ -71,7 +71,7 @@ let Jackeo = new Discord.RichEmbed()
     //.setAuthor(message.author.username,message.author.avatarURL)
     //.setThumbnail(message.author.avatarURL)
     //.setFooter("Alpha Codes. ")
-    .addField(`+anarg+`)
+    .addField("** Msg **","**"+anarg+"**")
 .setFooter(`Alpha Codes.`, 'https://i.imgur.com/mpztoDJ.png')    
 var prefix = "-^";
 if(command === `${prefix}send`) {
