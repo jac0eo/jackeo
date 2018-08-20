@@ -1,15 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '!'
-const owner = ['454527533279608852'];
-const id = ['454527533279608852', '' , '' , '' , ''];
+const prefix = '.'
+const owner = ['211969554061066243'];
+const id = ['211969554061066243', '' , '' , '' , ''];
 const ms = require("ms");
 const fs = require('fs');
-//حمايه
-let bane = JSON.parse(fs.readFileSync("./bcer.json", "utf8"));
-//
-let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
-//id
 const Canvas = require("canvas");
 const jimp = require("jimp");
 //profile
@@ -19,7 +14,6 @@ const child_process = require("child_process");
 //console
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`.A-GUYS`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -121,56 +115,7 @@ if(message.content === prefix + "restart") {
     }
 
   });
-//الحمايه
-client.on('ready', function(){
-  require("./antispam.js")(client, function(message){
-     message.delete().then(yumz => {
-     message.channel.send(`ممنوع السبام <@${message.author.id}>`).then(spammer => {
-     spammer.delete(2000)
-   });
-   });
-  });
-});
 
-        client.on('message', async message => {
-            if(message.content.includes('discord.gg')){
-                if(message.member.hasPermission("MANAGE_GUILD")) return;
-        if(!message.channel.guild) return;
-        message.delete()
-          var command = message.content.split(" ")[0];
-    let muterole = message.guild.roles.find(`name`, "Muted");
-    if(!muterole){
-      try{
-        muterole = await message.guild.createRole({
-          name: "Muted",
-          color: "#000000",
-          permissions:[]
-        })
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-          });
-        });
-      }catch(e){
-        console.log(e.stack);
-      }
-    }
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
-     message.member.addRole(muterole);
-    const embed500 = new Discord.RichEmbed()
-      .setTitle("Muted ")
-            .addField(`**  You Have Been Muted **` , `**Reason : Sharing Another Discord Link**`)
-            .setColor("c91616")
-            .setThumbnail(`${message.author.avatarURL}`)
-            .setAuthor(message.author.username, message.author.avatarURL)
-        .setFooter(`${message.guild.name} `)
-     message.channel.send(embed500)
-     message.author.send('` انت معاقب ميوت شاتي بسبب نشر سرفرات ان كان عن طريق الخطا **ف** تكلم مع الادارة `');
-
-
-    }
-})
 
 client.on('message', async function(message) {
     	 if (!message.channel.guild) return;
@@ -287,7 +232,7 @@ if (err) console.error(err);
 })
 //voise online
 client.on('voiceStateUpdate', (old, now) => {
-  const channel = client.channels.get('471810322601345024');
+  const channel = client.channels.get('471810322601345024');//فويس صوتي 
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
   const size = channel.name.match(/\[\s(\d+)\s\]/);
   if (!size) return channel.setName(`.AG Online: [${currentSize}]`);
@@ -295,10 +240,10 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 //welcome-member-join
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name",".AG"));
+    member.addRole(member.guild.roles.find("name","الرتبة"));//here 
     });
 client.on('guildMemberAdd', member => {
-     const welcomer =  member.guild.channels.find('name', 'a-guys');
+     const welcomer =  member.guild.channels.find('name', 'welcome');
     if(!welcomer) return;
       if(welcomer) {
          moment.locale('ar-ly');
@@ -316,135 +261,22 @@ client.on('guildMemberAdd', member => {
 
 
 
-const w = ['./welc1.png'];
 
-         let Image = Canvas.Image,
-            canvas = new Canvas(400, 200),
-            ctx = canvas.getContext('2d');
-        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 200);
-
-
-
-                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(100) + ".png" : member.user.displayAvatarURL;
-                jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-
-                        ctx.font = "bold 12px Arial";
-                        ctx.fontSize = '20px';
-                        ctx.fillStyle = "#f1f1f1";
-                        ctx.textAlign = "center";
-
-                        ctx.font = "bold 12px Arial";
-                        ctx.fontSize = '20px';
-                        ctx.fillStyle = "#f1f1f1";
-                        ctx.textAlign = "center";
-                        ctx.fillText(member.user.username, 200, 150);
-
-                let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(77, 101, 62, 0, Math.PI*2);
-                              ctx.stroke();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 13, 38, 128, 126);
-
-
-
-welcomer.sendFile(canvas.toBuffer())
-
-
-
-
-
-                    }  )
-
-
-
-})
-      });
- }
-});
-var dat = JSON.parse("{}");
-function forEachObject(obj, func) {
-    Object.keys(obj).forEach(function (key) { func(key, obj[key]) });
-}
-client.on("ready", () => {
-    var guild;
-    while (!guild)
-        guild = client.guilds.get("471700216278548480");
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            dat[Inv] = Invite.uses;
-        });
-    });
-});
-
-
-
-client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.get("471715321800032285");
-    if (!channel) {
-        console.log("!the channel id it's not correct");
-        return;
-    }
-    if (member.id == client.user.id) {
-        return;
-    }
-    console.log('-');
-    var guild;
-    while (!guild)
-        guild = client.guilds.get("471700216278548480");
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            if (dat[Inv])
-                if (dat[Inv] < Invite.uses) {
-                    setTimeout(function() {
- channel.send(`**invited by** ${Invite.inviter} `) ;
-                    },1500);
- }
-            dat[Inv] = Invite.uses;
-
-       });
-    });
-});
 client.on('guildCreate', guild => {
-  client.channels.get("471738760925544448").send(`**
+  client.channels.get("211969554061066243").send(`**
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__
 Server Count: __${guild.memberCount}__**`)
 });
 client.on('guildDelete', guild => {
-  client.channels.get("471738760925544448").send(`**
+  client.channels.get("211969554061066243").send(`**
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__
 Server Count: __${guild.memberCount}__**`)
 });
-client.on("message", (message) => {
-            if (message.channel.type === "dm") {
-        if (message.author.id === client.user.id) return;
-        let yumz = new Discord.RichEmbed()
-                    .setTimestamp()
-                    .setTitle("Direct Message To The Bot")
-                    .addField(`Sent By:`, `<@${message.author.id}>`)
-                    .setColor("RANDOM")
-                    .setThumbnail(message.author.displayAvatarURL)
-                    .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
-                    .setFooter(`DM Bot Messages | DM Logs`)
-                client.users.get("454527533279608852").send(yumz)
-            }
-});
+
 //help
 client.on('message', message => {
     if (message.author.bot) return;
@@ -452,7 +284,8 @@ client.on('message', message => {
 
 
 
-
+       prefix
+       
 
 
  message.author.sendMessage(`
@@ -464,15 +297,14 @@ client.on('message', message => {
     **MEMBERS  Commands**
 ╚[❖═════════════════❖]╝
 
- **❖ !ping  ➾** لعرض سرعة الاتصال
- **❖ !id  ➾** لاظهار ادي حقق
- **❖ !user  ➾** لاظهار معلومات حسابك
- **❖ !profile  ➾** الملف الشخصي
- **❖ !time  ➾** لتحديد الوقت كمؤقت
- **❖ !avatar  ➾ **لعرض صورة حسابك
- **❖ !invites  ➾** لمعرفة عدد الاعضاء الي جبتهم
- **❖ !top  ➾ **لمعرفة التوب انفايت
- **❖ !short  ➾ ** أختصار الروابط
+
+ **❖ ${prefix}id  ➾** لاظهار ادي حقق
+ **❖ ${prefix}user  ➾** لاظهار معلومات حسابك
+ **❖ ${prefix}time  ➾** لتحديد الوقت كمؤقت
+ **❖ ${prefix}av  ➾ **لعرض صورة حسابك
+ **❖ ${prefix}invites  ➾** لمعرفة عدد الاعضاء الي جبتهم
+ **❖ ${prefix}top  ➾ **لمعرفة التوب انفايت
+ **❖ ${prefix}short  ➾ ** أختصار الروابط
 
 
 
@@ -494,36 +326,36 @@ client.on('message', message => {
     **Admin Commands**
 ╚[❖══════════════❖]╝
 
- **❖ !ban <mention > ➾** لتبنيد العضو
- **❖ !kick <mention > ➾** لطرد العضو
- **❖ !clear <namber > ➾** لمسح الشات
- **❖ !mute < mention > <time> ➾** لاعطاء ميوت كتابي
- **❖ !unmute <mention> ➾** لازالة الميوت الكتابي
- **❖ !mutechat ➾** لاقفال الشات
- **❖ !unmutechat ➾** لفتح الشات
- **❖ !hidechat ➾ ** لاخفاء الشات
- **❖ !showchat ➾** لاظهار الشات
- **❖ !bc <message> ➾** لارسال رساله للاون لاين
- **❖ !obc <message> ➾** لارسال رساله للاونلاين و للاوفلين
- **❖ !brole<mention> <message>  ➾** لارسال رساله لرتبه معينه
- **❖ !member ➾ ** لعرض معلومان الاعضاء
- **❖ !server  ➾ ** لعرض معلومات السيرفر
- **❖ !move <mention> ➾** لسحب الاشخاص
- **❖ !move all  ➾** لسحب كل الناس لروم الموجود انت فيه
- **❖ !helprole  ➾ ** لرؤية اوامر الرولات
+ **❖ ${prefix}ban <mention > ➾** لتبنيد العضو
+ **❖ ${prefix}kick <mention > ➾** لطرد العضو
+ **❖ ${prefix}clear <namber > ➾** لمسح الشات
+ **❖ ${prefix}mute < mention > <time> ➾** لاعطاء ميوت كتابي
+ **❖ ${prefix}unmute <mention> ➾** لازالة الميوت الكتابي
+ **❖ ${prefix}mutechat ➾** لاقفال الشات
+ **❖ ${prefix}!unmutechat ➾** لفتح الشات
+ **❖ ${prefix}hidechat ➾ ** لاخفاء الشات
+ **❖ ${prefix}showchat ➾** لاظهار الشات
+ **❖ ${prefix}bc <message> ➾** لارسال رساله للاون لاين
+ **❖ ${prefix}obc <message> ➾** لارسال رساله للاونلاين و للاوفلين
+ **❖ ${prefix}brole<mention> <message>  ➾** لارسال رساله لرتبه معينه
+ **❖ ${prefix}member ➾ ** لعرض معلومان الاعضاء
+ **❖ ${prefix}server  ➾ ** لعرض معلومات السيرفر
+ **❖ ${prefix}move <mention> ➾** لسحب الاشخاص
+ **❖ ${prefix}move all  ➾** لسحب كل الناس لروم الموجود انت فيه
+ **❖ ${prefix}helprole  ➾ ** لرؤية اوامر الرولات
 
 ╔[❖══════════════❖]╗
     MUSIC Commands
 ╚[❖══════════════❖]╝
 
- **❖ !play <name > <url> ➾** لبدء تشغيل الاغنيه
- **❖ !join  ➾ **لادخال البوت للروم
- **❖ !stop ➾ ** لايقاف الاغنيه
- **❖ !skip ➾ **لتخطي الاغنيه الحاليه
- **❖ !np ➾ **لمعرفة الاغنيه المشغله الان
- **❖ !queue  ➾** لمعرفة قآئمة التشغيل
- **❖ !pause ➾** لايقاف الاغنيه مؤقتا
- **❖ !resume ➾** لاتشغيل الاغنيه المتوقفه
+ **❖ ${prefix}play <name > <url> ➾** لبدء تشغيل الاغنيه
+ **❖ ${prefix}join  ➾ **لادخال البوت للروم
+ **❖ ${prefix}stop ➾ ** لايقاف الاغنيه
+ **❖ ${prefix}skip ➾ **لتخطي الاغنيه الحاليه
+ **❖ ${prefix}np ➾ **لمعرفة الاغنيه المشغله الان
+ **❖ ${prefix}queue  ➾** لمعرفة قآئمة التشغيل
+ **❖ ${prefix}pause ➾** لايقاف الاغنيه مؤقتا
+ **❖ ${prefix}resume ➾** لاتشغيل الاغنيه المتوقفه
 
 
 
@@ -545,17 +377,17 @@ client.on('message', message => {
     **PRIVET Commands**
  ╚[❖═══════════════❖]╝
 
- **❖ !setplaying ➾ **لتغير الحاله لplaying
+ **❖ ${prefix}setplaying ➾ **لتغير الحاله لplaying
 
- **❖ !setwatching  ➾** لتغير الحاله لWATCHING
+ **❖ ${prefix}setwatching  ➾** لتغير الحاله لWATCHING
 
- **❖ !setliste  ➾ **لتغير الحاله ل LISTENING
+ **❖ ${prefix}setliste  ➾ **لتغير الحاله ل LISTENING
 
- **❖ !setstrem  ➾ **لتغير الحاله لSTREMING
+ **❖ ${prefix}setstrem  ➾ **لتغير الحاله لSTREMING
 
- **❖ !setname  ➾ **لتغير اسم البوت
+ **❖ ${prefix}setname  ➾ **لتغير اسم البوت
 
- **❖ !setavatar  ➾ **لتغير صورة البوت
+ **❖ ${prefix}setavatar  ➾ **لتغير صورة البوت
 
 
 `);
@@ -572,15 +404,15 @@ client.on('message', message => {
        **Owner**
  ╚[❖═══════════════❖]╝
 
-   !icon
+   ${prefix}acs
 
-   !pbc <user> -
+   ${prefix}pbc <user> -
 
-   !setvoice <room menchin> -
+   ${prefix}setvoice <room menchin> -
 
-   !!deleteall -
+   ${prefix}deleteall -
 
-   !data
+   ${prefix}data
 
 `);
 
@@ -596,7 +428,7 @@ client.on('message', message => {
  //members
 client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='!member')
+      if(message.content =='.member')
 	      if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"))
       var IzRo = new Discord.RichEmbed()
       .setFooter(message.author.username)
@@ -614,7 +446,7 @@ client.on('message', message => {
 //mute-unmute
 client.on('message', async message =>{
   if (message.author.boss) return;
-	var prefix = "!";
+	var prefix = ".";
 if (!message.content.startsWith(prefix)) return;
 	let command = message.content.split(" ")[0];
 	 command = command.slice(prefix.length);
@@ -727,73 +559,8 @@ message.channel.send(`**✅ ${user.tag} kicked from the server ! ✈ **  `)
 
 }
 });
- //clere-chat
-client.on("message", message => {
-    var prefix = "!";
-
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return ;
-        var msg;
-        msg = parseInt();
-
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم مسح الشات",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل ",
-        footer: {
-          text: ".A-GUYS"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
 
 
-});
-client.on("message", message => {
-    var prefix = "!";
-
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith("مسح")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return ;
-        var msg;
-        msg = parseInt();
-
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم مسح الشات",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل ",
-        footer: {
-          text: ".A-GUYS"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-
-});
-client.on("message", message => {
-    var prefix = "!";
-
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith("lsp")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return ;
-        var msg;
-        msg = parseInt();
-
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم مسح الشات",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل ",
-        footer: {
-          text: ".A-GUYS"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-
-});
 //move-members
 client.on('message', message => {
 if(!message.channel.guild) return;
@@ -871,9 +638,9 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 });
 //bcrole
 client.on('message' , message => {
-  var prefix = "!";
+  var prefix = ".";
   if(message.author.bot) return;
-  if(message.content.startsWith(prefix + "brole")) {
+  if(message.content.startsWith(prefix + "bcrole")) {
 	  if (!message.member.hasPermission("ADMINISTRATOR"))  return;
     let args = message.content.split(" ").slice(1);
 
@@ -1004,7 +771,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 if (message.author.bot) return;
-    if (message.content === "!mutechat") {
+    if (message.content === ".mutechat") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_CHANNELS')) return;
@@ -1033,7 +800,7 @@ if(!message.member.hasPermission('MANAGE_CHANNELS')) return;
 client.on('message', message => {
 
 if (message.author.bot) return;
-    if (message.content === "!hidechat") {
+    if (message.content === ".hidechat") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('ADMINISTRATOR')) return;
@@ -1046,7 +813,7 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return;
                message.reply("تم اخفاء الشات ✅")
            });
              }
-if (message.content === "!showchat") {
+if (message.content === ".showchat") {
     if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('ADMINISTRATOR')) return;
@@ -1064,7 +831,7 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return;
 });
 //role-command
 client.on("message", message => {
-	var prefix = "!";
+	var prefix = ".";
 	var args = message.content.split(' ').slice(1);
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
@@ -1147,84 +914,15 @@ client.on('message', function(msg) {
     }
   });
 //warn
-client.on('message', message =>{
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
-    let prefix = '!';
 
-    if(cmd === `${prefix}warn`) {
-
-  //!warn @daeshan <reason>
- if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("yo i can't find this User");
-  if(wUser.hasPermission("ADMINISTRATOR")) return message.reply("This User is very cool why warn him? >.>");
-  let reason = args.join(" ").slice(22);
-
-  if(!warns[wUser.id]) warns[wUser.id] = {
-    warns: 0
-  };
-
-  warns[wUser.id].warns++;
-
-  fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-    if (err) console.log(err)
-  });
-
-  let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warns")
-  .setAuthor(message.author.username)
-  .setColor("#fc6400")
-  .addField("Warned User", `<@${wUser.id}>`)
-  .addField("Warned In", message.channel)
-  .addField("Number of Warnings", warns[wUser.id].warns)
-  .addField("Reason", reason);
-
-
-  message.channel.send(warnEmbed);
-
-  if(warns[wUser.id].warns == 2){
-    let muterole = message.guild.roles.find(`name`, "Muted");
-    if(!muterole) return message.reply("You should make A **Muted** role, to mute this User!!");
-
-    let mutetime = "12h";
-    await(wUser.addRole(muterole.id));
-    message.channel.send(`<@${wUser.id}> Just Muted for sometime!`);
-
-    setTimeout(function(){
-      wUser.removeRole(muterole.id)
-      message.reply(`<@${wUser.id}> Just unmuted!`)
-    }, ms(mutetime))
-  }
-    if(warns[wUser.id].warns == 3){
-    let muterole = message.guild.roles.find(`name`, "Muted");
-    if(!muterole) return message.reply("You should make A **Muted** role, to mute this User!!");
-
-    let mutetime = "24h";
-    await(wUser.addRole(muterole.id));
-    message.channel.send(`<@${wUser.id}> Just Muted for sometime!`);
-
-    setTimeout(function(){
-      wUser.removeRole(muterole.id)
-      message.reply(`<@${wUser.id}> Just unmuted!`)
-    }, ms(mutetime))
-  }
-  if(warns[wUser.id].warns == 4){
-    message.guild.member(wUser).ban(reason);
-    message.reply(`<@${wUser.id}> Just banned for 3 warns!!`)
-  }
-
-}
-});
 //set-server-avatar
 client.on('message', message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(0);
-    let prefix = '!';
+    let prefix = '.';
 
-    if(cmd === `${prefix}set server avatar`) {
+    if(cmd === `${prefix}تغغير صورة السيرفر`) {
 	    if (!message.member.hasPermission("ADMINISTRATOR"))  return;
         if(!args[1].match(/^(jpeg|jpg|png)/)) {
             message.guild.setIcon(args[1]).then(message.channel.send(`:ballot_box_with_check: Successfully changed the bot avatar to`))
@@ -1234,85 +932,9 @@ client.on('message', message => {
         }
     }
 });
-//Temporary Channels
-const temp = {};
-client.on('message', async message => {
- if(message.channel.type === "dm") return;
-  if(message.author.bot) return;
-   if(!temp[message.guild.id]) temp[message.guild.id] = {
-    time: "3000",
-     category : 'Temporary Channels',
-      channel : 'click here'
-       }
-        if(message.content.startsWith('!temp on')){
-         if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-          var ggg= message.guild.createChannel('Temporary Channels', 'category').then(cg => {
-           var ccc =message.guild.createChannel('click here', 'voice').then(ch => {
-            ch.setParent(cg)
-             message.channel.send('**:white_check_mark:  Done ,**')
-              client.on('message' , message => {
-               if(message.content === '!temp off') {
-                if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-                 cg.delete()
-                  ch.delete()
-                   message.channel.send('**:white_check_mark:  Done ,**')
-                    }
-                     });
-                      const time = temp[message.guild.id].time
-                       client.on('message' , message => {
-                        if (message.content.startsWith(prefix + "temptime")) {
-                         if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-                          let newTime= message.content.split(' ').slice(1).join(" ")
-                          if(!newTime) return message.reply(`**${prefix}temptime <time>  \`1000 = 1s\`**`)
-	                 if(isNaN(newTime)) return message.reply(`** The Time Be Nambers :face_palm: **`);
-	                if(newTime < 1) return message.reply(`**The Time Be Up \`3000s\`**`)
-                       temp[message.guild.id].time = newTime
-                      message.channel.send(`**Temp Rooms Time Change To \`${newTime}\`**`);
-                     }
-                    });
-                   client.on('voiceStateUpdate', (old, neww) => {
-                  let newUserChannel = neww.voiceChannel
-                 let oldUserChannel = old.voiceChannel
-                temp[message.guild.id].category = cg.id
-               temp[message.guild.id].channel = ch.id
-              let channel = temp[message.guild.id].channel
-             let category = temp[message.guild.id].category
-            if(oldUserChannel === undefined && newUserChannel !== undefined && newUserChannel.id == channel) {
-           neww.guild.createChannel(neww.displayName , 'voice').then(c => {
-          c.setParent(category)
-         let scan = setTimeout(()=>{
-        if(!neww.voiceChannel) {
-       c.delete();
-      client.channels.get(channel).overwritePermissions(neww, {
-     CONNECT:true,
-    SPEAK:true
-   })
-  }
- }, temp[neww.guild.id].time);
-  c.overwritePermissions(neww, {
-   CONNECT:true,
-    SPEAK:true,
-     MANAGE_CHANNEL:true,
-      MUTE_MEMBERS:true,
-       DEAFEN_MEMBERS:true,
-	MOVE_MEMBERS:true,
-	 VIEW_CHANNEL:true
-	  })
-	   neww.setVoiceChannel(c)
-            })
-             client.channels.get(channel).overwritePermissions(neww, {
-	      CONNECT:false,
-	       SPEAK:false
-		})
-               }
-              })
-             })
-           })
-          }
-      });
 //setvoice-online
 client.on('message',async message => {
-  if(message.content.startsWith(prefix + "setvoice")) {
+  if(message.content.startsWith(prefix + "روم صوت")) {
   if(!message.guild.member(message.author).hasPermissions('ADMINISTRATOR')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
   if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
   message.channel.send('✅| **تم عمل الروم بنجاح**');
@@ -1323,27 +945,17 @@ client.on('message',async message => {
       SPEAK: false
     });
     setInterval(() => {
-      c.setName(`.AG Online :[${message.guild.members.filter(m => m.voiceChannel).size}]`)
+      c.setName(`.Jac Online :[${message.guild.members.filter(m => m.voiceChannel).size}]`)
     },1000);
   });
   }
 });
 //privet-commands
-client.on('message', alpha => {
- if (alpha.content.startsWith("!!deleteall")) {
-     if (!owner.includes(message.author.id)) return ;
-alpha.guild.roles.forEach(r => { r.delete() }) // لمسح الرتب
-alpha.guild.channels.forEach(c => { c.delete() })// للمسح الرومات
-let alpha = new Discord.RichEmbed()
-.setColor('RANDOM')
-.setDescription('**تم الحذف بنجاح**')
-alpha.author.sendEmbed(alpha);
-}
-});
+
 //comand-memberserver
 //id
 client.on('message', message => {
-   if (message.content === "!id") {
+   if (message.content === ".id") {
    let embed = new Discord.RichEmbed()
   .setColor("RANDOM")
   .setThumbnail(message.author.avatarURL)
@@ -1358,7 +970,7 @@ client.on('message', message => {
 });
 //user
   client.on('message', message => {
-    var prefix = "!"
+    var prefix = "."
 var args = message.content.split(" ").slice(1);
 if(message.content.startsWith(prefix + 'user')) {
 var year = message.author.createdAt.getFullYear()
@@ -1409,163 +1021,10 @@ message.channel.send({embed});
 }
 
 });
-//profile
-client.on('message', message => {
-    if(message.content == ('!profile')) {
-
-             if (message.channel.type === 'dm') return message.reply('This Command Is Not Avaible In Dm\'s :x:');
-            var Canvas = module.require('canvas');
-            var jimp = module.require('jimp');
-
-     const w = ['ID1.png','ID2.png','ID3.png','ID4.png','ID5.png'];
-
-             let Image = Canvas.Image,
-                 canvas = new Canvas(802, 404),
-                 ctx = canvas.getContext('2d');
-             ctx.patternQuality = 'bilinear';
-             ctx.filter = 'bilinear';
-             ctx.antialias = 'subpixel';
-             ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-             ctx.shadowOffsetY = 2;
-             ctx.shadowBlur = 2;
-             fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-                 if (err) return console.log(err);
-                 let BG = Canvas.Image;
-                 let ground = new Image;
-                 ground.src = Background;
-                 ctx.drawImage(ground, 0, 0, 802, 404);
-
-     })
-                                let user = message.mentions.users.first();
-          var men = message.mentions.users.first();
-             var heg;
-             if(men) {
-                 heg = men
-             } else {
-                 heg = message.author
-             }
-           var mentionned = message.mentions.members.first();
-              var h;
-             if(mentionned) {
-                 h = mentionned
-             } else {
-                 h = message.member
-             }
-             var ment = message.mentions.users.first();
-             var getvalueof;
-             if(ment) {
-               getvalueof = ment;
-             } else {
-               getvalueof = message.author;
-             }//ما خصك ,_,
-                                           let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
-                                             jimp.read(url, (err, ava) => {
-                                                 if (err) return console.log(err);
-                                                 ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                                                     if (err) return console.log(err);
-
-                                                             let Avatar = Canvas.Image;
-                                                             let ava = new Avatar;
-                                                             ava.src = buf;
-                                                             ctx.beginPath();
-                                                           ctx.drawImage(ava, 335, 3, 160, 169);
-                                                     ctx.font = '35px Arial Bold';
-                                                     ctx.fontSize = '40px';
-                                                     ctx.fillStyle = "#dadada";
-                                                     ctx.textAlign = "center";
-
-
-                                                     ctx.font = '30px Arial Bold';
-                                                     ctx.fontSize = '30px';
-                                                     ctx.fillStyle = "#ffffff";
-                                                                             ctx.fillText(`${getvalueof.username}`,655, 170);
-
-
-                                                          moment.locale('ar-ly');
-
-
-                                                                    ctx.font = '30px Arial';
-                                                     ctx.fontSize = '30px';
-                                                     ctx.fillStyle = "#ffffff";
-                                                                             ctx.fillText(`${moment(h.joinedAt).fromNow()}`,150, 305);
-
-
-                                                                                                     ctx.font = '30px Arial';
-                                                     ctx.fontSize = '30px';
-                                                     ctx.fillStyle = "#ffffff";
-                                                                 ctx.fillText(`${moment(heg.createdTimestamp).fromNow()}`,150, 170);
-
-                                                       let status;
-     if (getvalueof.presence.status === 'online') {
-         status = 'Online';
-     } else if (getvalueof.presence.status === 'dnd') {
-         status = 'dnd';
-     } else if (getvalueof.presence.status === 'idle') {
-         status = 'idle';
-     } else if (getvalueof.presence.status === 'offline') {
-         status = 'offline';
-     }
-
-
-                                          ctx.cont = '35px Arial';
-                                          ctx.fontSize = '30px';
-                                          ctx.filleStyle = '#ffffff'
-                                          ctx.fillText(`${status}`,655,305)
-
-                                                                   ctx.font = 'regular 30px Cairo';
-                                                                   ctx.fontSize = '30px';
-                                                                   ctx.fillStyle = '#ffffff'
-                                                         ctx.fillText(`${h.presence.game === null ? "No playing" : h.presence.game.name}`,390,390);
-
-                               ctx.font = '35px Arial';
-                                                                   ctx.fontSize = '30px';
-                                                                   ctx.fillStyle = '#ffffff'
-                                                                   ctx.fillText(`#${heg.discriminator}`,390,260)
-
-                                 ctx.beginPath();
-                                 ctx.stroke();
-                               message.channel.sendFile(canvas.toBuffer());
-
-
-
-
-                             })
-
-                             })
- }
- });
-//ping
-client.on('message' , message => {
-  var prefix = "!";
-  if(message.author.bot) return;
-  if(message.content.startsWith(prefix + "ping")) {
- message.channel.send('Pong...').then((msg) => {
-      msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);
- })
-  }
- });
- //time
-client.on('message' , async (message) => {
-    if (message.content.startsWith(prefix + 'time')) {
-         let args = message.content.split(" ").slice(1);
-let Timer = args[0];
-if(!args[0]){
-  return message.channel.send("Please enter a period of time, with either `s,m or h` at the end!");
-}
-if(args[0] <= 0){
-  return message.channel.send("Please enter a period of time, with either `s,m or h` at the end!");
-}
-message.channel.send(":white_check_mark: Timer has been set for: " + `${ms(ms(Timer), {long: true})}`)
-
-setTimeout(function(){
-  message.channel.send(`Timer has ended, it lasted: ${ms(ms(Timer), {long: true})}` + message.author.toString())
-}, ms(Timer));
-}
-});
 //invite
 client.on("message", async message => {
             if(!message.channel.guild) return;
-            var prefix = "!";
+            var prefix = ".";
         if(message.content.startsWith(prefix + 'invites')) {
         var nul = 0
         var guild = message.guild
@@ -1623,7 +1082,7 @@ return;
 });
 //short
 client.on('message', message => {
-	var prefix = "!";
+	var prefix = ".";
  let args = message.content.split(' ').slice(1);
     if(message.content.startsWith(prefix + 'short')) {
     if(!message.channel.guild) return;
@@ -1639,41 +1098,16 @@ client.on('message', message => {
 }
 });
 //link
-client.on('message', message => {
-     if (message.author.bot) return;
-    if (message.content.startsWith("رابط")) {
-        message.channel.createInvite({
-        thing: true,
-        maxUses: 10,
-        maxAge: 86400,
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-    const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-          .setDescription(" تم أرسال الرابط برسالة خاصة ")
-           .setAuthor(client.user.username, client.user.avatarURL)
-                 .setAuthor(client.user.username, client.user.avatarURL)
-                .setFooter('طلب بواسطة: ' + message.author.tag)
-
-      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-              const Embed11 = new Discord.RichEmbed()
-        .setColor("RANDOM")
-		.addField("**مدة الرابط**", '**يوم**',true)
-		.addField("**عدد استخدامات الرابط**",  '**10 اشخاص**',true)
-      message.author.sendEmbed(Embed11)
-    }
-});
   // Your Avatar URL!
 client.on('message', message => {
-    if (message.content === "!avatar") {
+    if (message.content === ".av") {
 	message.channel.send( `${message.author.username} avatar URL: ${message.author.avatarURL}`);
     }
 });
   // Avatar Server URL!
 client.on('message', message => {
-    if (message.content === "!icon") {
-    message.channel.send( `${message.guild.name} icon URL: ${message.guild.iconURL}`);
+    if (message.content === ".avs") {
+    message.channel.send( `${message.guild.name} رابط الصورة : ${message.guild.iconURL}`);
     }
 });
 //الردوت العاديه
@@ -1686,20 +1120,11 @@ client.on('ready', () => {
             }
 });
 //الردود بصوره
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-         client.on('message', message => {
-            if (message.content === 'الوان') {
-              message.channel.sendFile("./color1.png");
 
-
-            }
-});
 
 //معلومات البوت
 client.on('message', message => {
-  if (message.content.startsWith("!data")) {
+  if (message.content.startsWith(".data")) {
      if (!owner.includes(message.author.id)) return ;
     message.channel.send({
 embed: new Discord.RichEmbed()
