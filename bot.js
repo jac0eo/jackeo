@@ -47,10 +47,10 @@ client.on('message', message => {
                  message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
              setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading  [▓] 1%**`).setColor(0xFF0000)})
-             }, 7500)
+             }, 5500)
              setTimeout(function() {
                 m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓] 25%**`).setColor(0xFF0000)})
-              }, 8500)
+              }, 10500)
               setTimeout(function() {
                  m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓] 50%**`).setColor(0xFF0000)})
                }, 15500)
@@ -73,7 +73,7 @@ client.on('message', message => {
                m.delete()
            }, 55000)
              setTimeout(function() {
-               message.channel.send('** تم تهكيرك  __Done Hacking__ **')
+               message.channel.send('** تم الاختراق  __Done Hacking__ **')
            }, 60500)
            });
          }
