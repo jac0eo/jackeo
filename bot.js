@@ -47,8 +47,6 @@ client.on('ready', () => {
 
 
 
-
-
 client.on('message', message => {
     if (message.content.startsWith("تهكير")) {
       if (message.author.bot) return
@@ -69,7 +67,7 @@ client.on('message', message => {
                  m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓] 50%**').setColor(RANDOM)})
                }, 6000)
                setTimeout(function() {
-                  m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**').setColor(RANDOM})
+                  m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**').setColor(RANDOM)})
                 }, 9900)
            setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**').setColor(RANDOM)})
