@@ -56,19 +56,19 @@ client.on('message', message => {
                }, 15500)
                setTimeout(function() {
                   m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**`).setColor(0xFF0000)})
-                }, 20500)
+                }, 25500)
            setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**`).setColor(0xFF0000)})
-             }, 19500)
+             }, 30500)
                 setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم الدخول للحساب** `).setColor(0xFF0000)})
-             }, 19500)
+             }, 40500)
               setTimeout(function() {
                m.delete()
-           }, 19500)
+           }, 45000)
              setTimeout(function() {
                message.channel.send('** تم تهكيرك  __Done Hacking__ **')
-           }, 16500)
+           }, 50500)
            });
          }
  });
