@@ -44,7 +44,7 @@ client.on('message', message => {
                  if (virusname < 1) {
                      return message.channel.send("** رجائاََ منشن من تريد تهكيرة ** ");
                                      }
-                 message.channel.send({embed: new Discord.RichEmbed().setTitle('جاري التهكير ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
              setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading  [▓] 1%**`).setColor(0xFF0000)})
              }, 7500)
@@ -63,12 +63,18 @@ client.on('message', message => {
                 setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم الدخول للحساب** `).setColor(0xFF0000)})
              }, 40500)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم حفض بينات الحساب** `).setColor(0xFF0000)})
+             }, 45500)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم رفع البينات** `).setColor(0xFF0000)})
+             }, 50500)
               setTimeout(function() {
                m.delete()
-           }, 45000)
+           }, 55000)
              setTimeout(function() {
                message.channel.send('** تم تهكيرك  __Done Hacking__ **')
-           }, 50500)
+           }, 60500)
            });
          }
  });
