@@ -88,7 +88,7 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 
 
-
+/*
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Members 🎮"));//here 
     });
@@ -128,7 +128,7 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-
+*/
 client.on('message', message => {
     if (message.content === ".av") {
 	message.channel.send( `${message.author.username} avatar URL: ${message.author.avatarURL}`);
@@ -141,10 +141,6 @@ client.on('message', message => {
     message.channel.send( `${message.guild.name} رابط الصورة : ${message.guild.iconURL}`);
     }
 });
-
-//الردوت العاديه
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
 
 
 client.login(process.env.BOT_TOKEN);
