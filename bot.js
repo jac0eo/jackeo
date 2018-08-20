@@ -50,25 +50,25 @@ client.on('message', message => {
              }, 5500)
              setTimeout(function() {
                 m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓] 25%**`).setColor(0xFF0000)})
-              }, 4000)
+              }, 5500)
               setTimeout(function() {
                  m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓] 50%**`).setColor(0xFF0000)})
-               }, 5000)
+               }, 5500)
                setTimeout(function() {
                   m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**`).setColor(0xFF0000)})
-                }, 7500)
+                }, 5500)
            setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**`).setColor(0xFF0000)})
              }, 5500)
                 setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم الدخول للحساب** `).setColor(0xFF0000)})
-             }, 12000)
+             }, 5500)
               setTimeout(function() {
                m.delete()
-           }, 8000)
+           }, 5500)
              setTimeout(function() {
                message.channel.send('** تم تهكيرك  __Done Hacking__ **')
-           }, 7000)
+           }, 125500)
            });
          }
  });
