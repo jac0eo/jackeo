@@ -80,17 +80,36 @@ client.on('message', message => {
  });
 
 
+client.on('ready',async () => {
+setInterval(function(){
+var currentTime = new Date(),
+Year  = currentTime.getFullYear(),
+Month = currentTime.getMonth() + 1,
+day   = currentTime.getDate()
+
+client.channels.find('id', '353991730196119552').setName(`『 التاريخ ↩ ${Year}/${Month}/${day} 』`)
+}, 5000);
+
+});
+
+
+client.on("guildMemberAdd", (member) => {
+client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
+})
+client.on("guildMemberRemove", (member) => {
+client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
+})
 
 
 
-/*
+
 
 //voise online
 client.on('voiceStateUpdate', (old, now) => {
-  const channel = client.channels.get('353991756519309333');//فويس صوتي 
+  const channel = client.channels.get('353991756519309333');
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
   const size = channel.name.match(/\[\s(\d+)\s\]/);
-  if (!size) return channel.setName(`.AG Online: [${currentSize}]`);
+  if (!size) return channel.setName(`Voice Online: [${currentSize}]`);
   if (currentSize !== size) channel.setName(`Voice Online: [${currentSize}]`);
 });
 
@@ -135,7 +154,6 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-*/
 
 
 client.login(process.env.BOT_TOKEN);
