@@ -7,6 +7,7 @@ const ms = require("ms");
 const fs = require('fs');
 const Canvas = require("canvas");
 const jimp = require("jimp");
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
@@ -76,7 +77,7 @@ client.on('message', message => {
 
 
 
-
+/*
 
 //voise online
 client.on('voiceStateUpdate', (old, now) => {
@@ -88,7 +89,7 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 
 
-/*
+
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Members 🎮"));//here 
     });
@@ -129,18 +130,6 @@ client.on('message', message => {
     }
 });
 */
-client.on('message', message => {
-    if (message.content === ".av") {
-	message.channel.send( `${message.author.username} avatar URL: ${message.author.avatarURL}`);
-    }
-});
-
-  // Avatar Server URL!
-client.on('message', message => {
-    if (message.content === ".avs") {
-    message.channel.send( `${message.guild.name} رابط الصورة : ${message.guild.iconURL}`);
-    }
-});
 
 
 client.login(process.env.BOT_TOKEN);
