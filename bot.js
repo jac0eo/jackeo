@@ -47,28 +47,28 @@ client.on('message', message => {
                  message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
              setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading  [▓] 1%**`).setColor(0xFF0000)})
-             }, 2500)
+             }, 5500)
              setTimeout(function() {
                 m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓] 25%**`).setColor(0xFF0000)})
-              }, 3000)
+              }, 4000)
               setTimeout(function() {
                  m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓] 50%**`).setColor(0xFF0000)})
-               }, 3000)
+               }, 5000)
                setTimeout(function() {
-                  m.edit({embed: new Discord.RichEmbed().setTitle(`['** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**`).setColor(0xFF0000)})
-                }, 3000)
+                  m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**`).setColor(0xFF0000)})
+                }, 7500)
            setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle(`['** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**`).setColor(0xFF0000)})
-             }, 3000)
+               m.edit({embed: new Discord.RichEmbed().setTitle(`** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**`).setColor(0xFF0000)})
+             }, 5500)
                 setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle(`['** ..يتم الدخول للحساب** `).setColor(0xFF0000)})
-             }, 3000)
+               m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم الدخول للحساب** `).setColor(0xFF0000)})
+             }, 12000)
               setTimeout(function() {
                m.delete()
-           }, 3000)
+           }, 8000)
              setTimeout(function() {
                message.channel.send('** تم تهكيرك  __Done Hacking__ **')
-           }, 6000)
+           }, 7000)
            });
          }
  });
