@@ -44,31 +44,31 @@ client.on('message', message => {
                  if (virusname < 1) {
                      return message.channel.send("** رجائاََ منشن من تريد تهكيرة ** ");
                                      }
-                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('جاري التهكير ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
              setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading  [▓] 1%**`).setColor(0xFF0000)})
-             }, 15500)
+             }, 7500)
              setTimeout(function() {
                 m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓] 25%**`).setColor(0xFF0000)})
-              }, 25500)
+              }, 8500)
               setTimeout(function() {
                  m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓] 50%**`).setColor(0xFF0000)})
-               }, 35500)
+               }, 15500)
                setTimeout(function() {
                   m.edit({embed: new Discord.RichEmbed().setTitle(`** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**`).setColor(0xFF0000)})
-                }, 45500)
+                }, 20500)
            setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**`).setColor(0xFF0000)})
-             }, 55500)
+             }, 19500)
                 setTimeout(function() {
                m.edit({embed: new Discord.RichEmbed().setTitle(`** ..يتم الدخول للحساب** `).setColor(0xFF0000)})
-             }, 65500)
+             }, 19500)
               setTimeout(function() {
                m.delete()
-           }, 75500)
+           }, 19500)
              setTimeout(function() {
                message.channel.send('** تم تهكيرك  __Done Hacking__ **')
-           }, 125500)
+           }, 16500)
            });
          }
  });
