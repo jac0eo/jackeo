@@ -44,24 +44,24 @@ client.on('message', message => {
                  if (virusname < 1) {
                      return message.channel.send("** رجائاََ منشن من تريد تهكيرة ** ");
                                      }
-                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(#000000)}).then(function(m) {
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
              setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading  [▓] 1%**').setColor(#1b4406)})
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading  [▓] 1%**').setColor(0xFF0000)})
              }, 2500)
              setTimeout(function() {
-                m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓] 25%**').setColor(#1b4406)})
+                m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓] 25%**').setColor(0xFF0000)})
               }, 3000)
               setTimeout(function() {
-                 m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓] 50%**').setColor(#1b4406)})
+                 m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓] 50%**').setColor(0xFF0000)})
                }, 6000)
                setTimeout(function() {
-                  m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**').setColor(#1b4406)})
+                  m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Loading [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 75%**').setColor(0xFF0000)})
                 }, 9900)
            setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**').setColor(#1b4406)})
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** Hacking Done [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%**').setColor(0xFF0000)})
              }, 10050)
                 setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** ..يتم الدخول للحساب** ').setColor(#1b4406)})
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:** ..يتم الدخول للحساب** ').setColor(0xFF0000)})
              }, 4000)
               setTimeout(function() {
                m.delete()
