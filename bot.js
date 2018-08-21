@@ -255,7 +255,7 @@ setInterval(function(){
             }
 
 
-client.channels.find('id', '356375188256063499').setName(`『 الوقت ↩ ${hours2}/${minutes}/${seconds} 』`)
+client.channels.find('id', '356375188256063499').setName(`『 الوقت ↩ ${hours2}:${minutes} 』`)
 }, 5000);
        
     });
