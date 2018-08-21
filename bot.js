@@ -1023,7 +1023,7 @@ userData[message.author.id].Money+= 0.25;
 
 });
 
-c
+
 
 /*
 
