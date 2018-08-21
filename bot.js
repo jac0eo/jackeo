@@ -7,6 +7,26 @@ const ms = require("ms");
 const fs = require('fs');
 const Canvas = require("canvas");
 const jimp = require("jimp");
+client.on('ready', function(){
+    var ms = 60000 ;
+   var setGame = ['جاكيو بوت','  المستخدمين : ${client.users.size}','عيد اضحي مبارك','🎉 🎈 🐏 عيد سعيد'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+     client.user.setActivity(setGame[i],{type: 'WATCHING'});
+    }, ms);
+});
+
+client.on('ready', () => {
+client.user.setStatus("dnd");
+});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
