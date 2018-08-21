@@ -257,7 +257,7 @@ setInterval(function(){
 
 client.channels.find('id', '356375188256063499').setName(`『 الوقت ↩ ${hours2}/${minutes}/${seconds} 』`)
 }, 5000);
-        }
+       
     });
 
 client.on('guildMemberAdd', member=> {
