@@ -376,7 +376,8 @@ const type = [
     {
             "type": "https://cdn.discordapp.com/attachments/429330153735454722/430040602235895810/fghfghfgh.png",
         "answers": ["عدد اللي برمجوني 2"]
- 
+}, 
+
     {
             "type": "https://cdn.discordapp.com/attachments/429330153735454722/430040608825147412/hhhhyyrf87654.png",
         "answers": ["Dark_Neet"]
