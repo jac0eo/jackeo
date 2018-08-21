@@ -7,6 +7,10 @@ const ms = require("ms");
 const fs = require('fs');
 const Canvas = require("canvas");
 const jimp = require("jimp");
+const ytdl = require('ytdl-core');
+const request = require('request');
+const getYoutubeID = require('get-youtube-id');
+const fetchVideoInfo = require('youtube-info');
 client.on('ready', function(){
     var ms = 60000 ;
   var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`,`عيد اضحي مبارك `,` 🎉 🎈 🐏 عيد سعيد`]; 
@@ -20,7 +24,7 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-     client.user.setActivity(setGame[i],{type: 'WATCHING'});
+     client.user.setActivity(setGame[i],{type: 'LISTENING'});
     }, ms);
 });
 
@@ -259,6 +263,18 @@ client.on('message', message => {
   }
 });
 
+client.on('message', message => {
+  if (message.content.startsWith('العيد')) {
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) return message.reply(`Please be in a voice channel first!`);
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=8SdXc61y7l4", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+      });
+  }
+});
 
 client.on('guildCreate', guild => {
   client.channels.get("211969554061066243").send(`**
@@ -312,7 +328,7 @@ client.on("guildMemberAdd", (member) => {
                 if (dat[Inv] < Invite.uses) {
                     console.log(3);
                     console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
- channel.send(` :hearts:  تم دعوته من قبل ${Invite.inviter} :hearts: `)            
+ channel.send(` **:hearts:  تم دعوته من قبل ** ${Invite.inviter} :hearts: `)            
  }
             dat[Inv] = Invite.uses;
         })
