@@ -11,6 +11,8 @@ const ytdl = require('ytdl-core');
 const request = require('request');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
+const moment = require("moment");
+
 client.on('ready', function(){
     var ms = 60000 ;
   var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`,`عيد اضحي مبارك `,` 🎉 🎈 🐏 عيد سعيد`]; 
@@ -211,10 +213,254 @@ client.on('voiceStateUpdate', (old, now) => {
 
 
 
+client.on('ready',async () => {
+setInterval(function(){
+         var currentTime = new Date(),
+            hours = currentTime.getHours() + 4 ,
+            hours2 = currentTime.getHours() + 3 ,
+            hours3 = currentTime.getHours() + 2 ,
+            hours4 = currentTime.getHours() + 3 ,
+            minutes = currentTime.getMinutes(),
+            seconds = currentTime.getSeconds(),
+            Year = currentTime.getFullYear(),
+            Month = currentTime.getMonth() + 1,
+            Day = currentTime.getDate();
+             var h = hours
+  if(hours > 12) {
+               hours -= 12;
+            } else if(hours == 0) {
+                hours = "12";
+            }
+             if(hours2 > 12) {
+               hours2 -= 12;
+            } else if(hours2 == 0) {
+                hours2 = "12";
+
+            }
+                         if(hours3 > 12) {
+               hours3 -= 12;
+            } else if(hours3 == 0) {
+                hours3 = "12";
+            }
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            var suffix = 'صباحاَ';
+            if (hours >= 12) {
+                suffix = 'مساء';
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+
+
+client.channels.find('id', '356375188256063499').setName(`『 الوقت ↩ ${hours2}/${minutes}/${seconds} 』`)
+}, 5000);
+        }
+    });
+
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Members 🎮"));//here 
     });
 
+
+client.on('message', async message => {
+  let args = message.content.split(" ");
+  if(message.content.startsWith(prefix + "mute")) {
+    if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('**أنت لا تملك الخصائص اللازمة . يجب توفر خاصية Manage Roles**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply('**أنا لا املك الخصائص الكافية . يلزم خصائص Manage Roles للقيام بهذا الامر**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    let mention = message.mentions.members.first();
+    if(!mention) return message.reply('**منشن عضو لأسكاته ( لأعطائة ميوت ) كتابي**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(mention.highestRole.position >= message.guild.member(message.author).highestRole.positon) return message.reply('**لا يمكنك اعطاء لميوت شخص رتبته اعلى منك**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+    if(mention.highestRole.positon >= message.guild.member(client.user).highestRole.positon) return message.reply('**لا يمكنني اعطاء ميوت لشخص رتبته اعلى مني**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+    if(mention.id === message.author.id) return message.reply('**لا يمكنك اعطاء ميوت  لنفسك**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    let duration = args[2];
+    if(!duration) return message.reply('**حدد وقت زمني لفك الميوت عن الشخص**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(isNaN(duration)) return message.reply('**حدد وقت زمني صحيح**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    let reason = message.content.split(" ").slice(3).join(" ");
+    if(!reason) reason = "غير محدد";
+
+    let thisEmbed = new Discord.RichEmbed()
+    .setAuthor(mention.user.username, mention.user.avatarURL)
+    .setTitle('تم اغطائك ميوت بسيرفر')
+    .setThumbnail(mention.user.avatarURL)
+    .addField('# - السيرفر',message.guild.name,true)
+    .addField('# - تم اعطائك ميوت بواسطة',message.author,true)
+    .addField('# - السبب',reason)
+
+    let role = message.guild.roles.find('name', 'Muted') || message.guild.roles.get(r => r.name === 'Muted');
+    if(!role) try {
+      message.guild.createRole({
+        name: "Muted",
+        permissions: 0
+      }).then(r => {
+        message.guild.channels.forEach(c => {
+          c.overwritePermissions(r , {
+            SEND_MESSAGES: false,
+            READ_MESSAGES_HISTORY: false,
+            ADD_REACTIONS: false
+          });
+        });
+      });
+    } catch(e) {
+      console.log(e.stack);
+    }
+    mention.addRole(role).then(() => {
+      mention.send(thisEmbed);
+      message.channel.send(`**:white_check_mark: ${mention.user.username} muted in the server ! :zipper_mouth:  **  `);
+      mention.setMute(true);
+    });
+    setTimeout(() => {
+      if(duration === 0) return;
+      if(!mention.has.roles(role)) return;
+      mention.setMute(false);
+      mention.removeRole(role);
+      message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:  **  `);
+    },duration * 60000);
+  } else if(message.content.startsWith(prefix + "unmute")) {
+    let mention = message.mentions.members.first();
+    let role = message.guild.roles.find('name', 'Muted') || message.guild.roles.get(r => r.name === 'Muted');
+    if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('**أنت لا تملك الخصائص اللازمة . يجب توفر خاصية `Manage Roles`**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply('**أنا لا املك الخصائص الكافية . يلزم خصائص `Manage Roles` للقيام بهذا الامر**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(!mention) return message.reply('**منشن الشخص لفك الميوت عنه**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+      mention.removeRole(role);
+      mention.setMute(false);
+      message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:  **  `);
+  }
+});
+
+
+
+
+
+client.on('message', async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let args = message.content.split(" ");
+  let command = args[0];
+
+  if(message.content.startsWith(prefix + "مسح")) {
+    if(!message.member.hasPermission("MANAGEP_MESSAGES")) return message.reply('**انت لا تملك الخصائص الكافية.**').then(msg => {
+      msg.delete(3500);
+      message.delete(3500);
+    });
+
+    if(!args[1]) {
+      var stop = true;
+      var msg = parseInt(100);
+
+      stop = false;
+      setTimeout(() => {
+        stop = true;
+      },3005);
+      setInterval(() => {
+        if(stop === true) return;
+        message.channel.fetchMessages({
+          limit: msg
+        }).then(m => {
+          message.channel.bulkDelete(msg).then(() => {
+            message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
+              msg.delete(3000);
+            });
+          });
+        });
+      },1000);
+    } else if(args[1]) {
+      if(args[1] <= 100) {
+          message.channel.fetchMessages({
+              limit: msg
+          }).then(m => {
+              message.channel.bulkDelete(m).then(() => {
+                  message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
+              msg.delete(3000);
+                  });
+              });
+          });
+      } else if(args[1] <= 200) {
+        stop = true;
+        setTimeout(() => {
+          stop = false;
+        },2001);
+        setInterval(() => {
+          if(stop === true) return;
+          message.channel.fetchMessages({
+            limit: msg
+          }).then(m => {
+            message.channel.bulkDelete(m).then(() => {
+                message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
+              msg.delete(3000);
+                  });
+            });
+          });
+        },1000);
+      } else if(args[1] <= 300) {
+        stop = true;
+        setTimeout(() => {
+          stop = false;
+        },2001);
+        setInterval(() => {
+          if(stop === true) return;
+          message.channel.fetchMessages({
+            limit: msg
+          }).then(m => {
+            message.channel.bulkDelete(m).then(() => {
+            message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
+              msg.delete(3000);
+                  });
+            });
+          });
+        });
+      }
+    }
+  }
+});
+
+
+ 
 
 
 client.on('message', message => {
@@ -366,5 +612,64 @@ client.on('message', message => {
     }
 });
 
+var userData = {};
+client.on("message", function(message){
+if (message.content.startsWith(prefix + "rank")) {
+	if (!userData[message.author.id]) {
+		userData[message.author.id] = {Money:0,Xp:0,Level:0}
+	}
+     var mentionned = message.mentions.users.first();
+
+      var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+
+      }
+
+	
+	var CulLevel = Math.floor(0.25 * Math.sqrt(userData[message.author.id].Xp +1));
+	if (CulLevel > userData[message.author.id].Level) {userData[message.author.id].Level +=CulLevel}
+	let pEmbed = new Discord.RichEmbed()
+	.setColor("Random")
+	.addField("» UserName :", message.author.tag)
+	.addField("» Level :", userData[message.author.id].Level)
+	.addField("» XP :",Math.floor(userData[message.author.id].Xp))
+	message.channel.send(pEmbed);
+}
+if (!userData[message.author.id]) {
+	userData[message.author.id] = {Money:0,Xp:0,Level:0,Like:0}
+	}
+
+userData[message.author.id].Xp+= 0.25;
+userData[message.author.id].Money+= 0.25;
+
+});
+
+/*
+
+client.on('message', async message => {
+  if(message.content.startsWith(prefix + "voice")) {
+  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
+  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **ليس معي الصلاحيات الكافية**');
+  var args = message.content.split(' ').slice(1).join(' ');
+  if(args && !args.includes(0)) return message.channel.send('**:negative_squared_cross_mark: » فشل اعداد الروم الصوتي .. __يجب عليك كتابة 0 في اسم الروم__**');
+  if(!args) args = ` » VoiceOnline :  ${message.guild.members.filter(s => s.voiceChannel).size} . `;
+  message.channel.send('**:white_check_mark: » تم عمل الروم الصوتي بنجاح**');
+  message.guild.createChannel(`${args.replace(0, message.guild.members.filter(s => s.voiceChannel).size)}`, 'voice').then(c => {
+    c.overwritePermissions(message.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+    setInterval(() => {
+      c.setName(`${args.replace(0, message.guild.members.filter(s => s.voiceChannel).size)}`).catch(err => {
+        if(err) return;
+      });
+    },3000);
+  });
+  }
+});
+*/
 
 client.login(process.env.BOT_TOKEN);
