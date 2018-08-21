@@ -53,10 +53,81 @@ client.on('ready', () => {
   console.log('')
 });
 
+         client.on('message', message => {
+            if (message.content === 'سلام عليكم') {
+  if(!message.channel.guild) return message.reply(' ');
+              message.channel.send('**وعَلَيْكُم السَّلامُ ورَحْمَةُ اللهِ وَبَرَكاتُهُ**');
+              message.channel.sendFile("https://cdn.pg.sa/IsIcfgkHwk.jpg");
+               
+
+            }
+});
+
+
+client.on('message', message => {
+            if (message.content === 'السلام عليكم') {
+  if(!message.channel.guild) return message.reply(' ');
+              message.channel.send('**وعَلَيْكُم السَّلامُ ورَحْمَةُ اللهِ وَبَرَكاتُهُ**');
+              message.channel.sendFile("https://cdn.pg.sa/IsIcfgkHwk.jpg");
+               
+
+            }
+});
+
+
+client.on('message', message => {
+            if (message.content === 'سلام') {
+  if(!message.channel.guild) return message.reply(' ');
+              message.channel.send('**وعَلَيْكُم السَّلامُ ورَحْمَةُ اللهِ وَبَرَكاتُهُ**');
+              message.channel.sendFile("https://cdn.pg.sa/IsIcfgkHwk.jpg");
+               
+
+            }
+});
+
+client.on('message', message => { 
+    var FFHH = "."
+        if (message.content.startsWith(FFHH + `Jackeo`)) {
+  if(!message.channel.guild) return message.reply(' ');
+message.guild.setName(`!ّّّّّّّّ♔`)
+.then(msg => {
+ setInterval(() => {
+message.guild.setName(`!ّّّّّّّّ♔Ĵ`)
+.then(msg => {
+ setInterval(() => {
+message.guild.setName(`!ّّّّّّّّ♔Ĵά`) 
+.then(msg => {
+ setInterval(() => {
+message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲`)
+.then(msg => {
+ setInterval(() => {
+message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲Φ`)
+.then(msg => {
+ setInterval(() => {
+message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲Φ♔⌘|🎵💔😍`)
+.then(msg => {
+ setInterval(() => {
+}, 11000);
+});
+},  10000);
+});
+},  8000);
+});
+},  6000);
+});
+},  4000);
+});
+},  1000);
+})
+        .catch(console.error);
+  //message.delete().catch(O_o=>{}); 
+ 
+}
 
 
 client.on('message', message => {
     if (message.content.startsWith("تهكير")) {
+  if(!message.channel.guild) return message.reply(' ');
       if (message.author.bot) return
            message.delete();
              let args = message.content.split(' ').slice(1);
@@ -93,7 +164,7 @@ client.on('message', message => {
                m.delete()
            }, 55000)
              setTimeout(function() {
-               message.channel.send('** تم الاختراق  __Done Hacking__ **')
+               message.channel.send('** تم الاختراق  __Done Hacking__ **').then(msg => msg.delete(25000));
            }, 60500)
            });
          }
@@ -141,7 +212,63 @@ client.on('guildMemberAdd', member=> {
 
 
 
+client.on('message', message => {
+if (message.content === "-server") {
+if(!message.channel.guild) return;
+const millis = new Date().getTime() - message.guild.createdAt.getTime();
+const now = new Date();
 
+const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
+const days = millis / 1000 / 60 / 60 / 24;
+let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
+var embed  = new Discord.RichEmbed()
+.setAuthor(message.guild.name, message.guild.iconURL)
+.addField("**🆔 ايــدي السيرفر**", "**"+message.guild.id+"**",true)
+.addField("**👑 سيــرفر اونـر**", "**"+message.guild.owner+"**" ,true)
+.addField("**✅ الشــات الرئيسي**" , "**"+message.guild.DefaultChannel+"**" ,true)
+.addField("**🌍 خادم السيرفر**" , "**"+message.guild.region+"**",true)
+.addField('**💬 عدد الرومــات الكتابيــة**',`**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Channel **`,true)
+.addField("**📣 عدد الرومــات الصوتــية**", ` ** [ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Channel ** `,true)
+.addField("**🤔 عدد ايــام انشــاء السيــرفر**", ` ** [ ${days.toFixed(0)} ] ** Day ` ,true)
+.addField("**👔 الــرتــب**",`**[${message.guild.roles.size}]** Role `,true)
+.addField("**💠 مســتوى حمــاية الســيرفر**", ` ** [ ${verificationLevels[message.guild.verificationLevel]} ] ** `,true)
+
+.addField("👔عدد الاعضــاء",`
+**${message.guild.memberCount}**`)
+.setThumbnail(message.guild.iconURL)
+.setColor('000000')
+message.channel.sendEmbed(embed)
+
+}
+});
+
+client.on('message', message => {
+  if (!message.guild) return;
+
+  if (message.content === 'تعال') {
+  if(!message.channel.guild) return message.reply(' ');
+    if (message.member.voiceChannel) {
+      message.member.voiceChannel.join()
+        .then(connection => { 
+          message.reply('I have successfully connected to the channel!');
+        })
+        .catch(console.log);
+    } else {
+      message.reply(` ** انا جيت ؟ :joy: ** `);
+    }
+  }
+});
+
+client.on('message',function(message) {
+  if(!message.channel.guild) return undefined;
+  if(!message.channel.guild) return message.reply(' ');
+  const swearWords = ["كس","كس امك","قحبة","ابين القحبة","كس اختك","ابن القحبة","اخوت القحبة","خخخ","خخخخخخخخخخخ","ابن المره الوسخة","حمار","كلب","معفن","جزمة","ابن الجزمة","يا خول","زوبر","جروب زبالة","جروب ميت","جروب معفن","احا","wtf","gay","وتفاك","اديني بنحرقو","a7a","يخول"];
+  if (swearWords.some(word => message.content.includes(word)) ) {
+    message.delete()
+    message.reply("**ممنوع السب :sunglasses:**").then(msg => 
+    msg.delete(5000));
+  }
+});
 
 client.on('guildCreate', guild => {
   client.channels.get("211969554061066243").send(`**
@@ -159,9 +286,67 @@ Server Count: __${guild.memberCount}__**`)
 });
 
 
+client.on('guildMemberAdd', member => {
+let channel = member.guild.channels.find('name', 'الشات');
+let memberavatar = member.user.avatarURL
+  if (!channel) return; 
+let embed = new Discord.RichEmbed()
+    .setColor('000000')
+    .setThumbnail(memberavatar)
+    .addField('Welcome to AZRO FOR GAMES ! منور السيرفر يا غالي :heart_eyes:  !',`${member},`)
+            .addField('👔| انت العضو رقم',`${member.guild.memberCount}`) 
+                                   
+ .setFooter("Jackeo","https://i.imgur.com/yAEMXVx.png") 
+    .setTimestamp()
+
+  channel.sendEmbed(embed);
+});
+
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.find('name', 'log');
+    if (!channel) {
+        console.log("!channel fails");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('made it till here!');
+    var guild;
+    while (!guild)
+        guild = client.guilds.find("name", "wlc")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+                    console.log(3);
+                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
+ channel.send(` :hearts:  تم دعوته من قبل ${Invite.inviter} :hearts: `)            
+ }
+            dat[Inv] = Invite.uses;
+        })
+    })
+});
+
+client.on("message", (message) => {
+           if (message.channel.type === "dm") {
+      if (message.author.id === client.user.id) return;
+     let jackeo = new Discord.RichEmbed()
+            .setTimestamp()
+                .setTitle("هذة ارسل للبوت رسالة")
+                .addField(`من:`, `<@${message.author.id}>`)
+                    .setColor("RANDOM")
+                   .setThumbnail(message.author.displayAvatarURL)
+                   .addField(`الرسالة: `, `\n\n\`\`\`${message.content}\`\`\``)
+                  .setFooter(`DM .. | Jackeo`)
+               client.users.get("211969554061066243").send(jackeo)
+         }
+});
 
 client.on('message', message => {
    if (message.content === ".id") {
+  if(!message.channel.guild) return message.reply(' ');
    let embed = new Discord.RichEmbed()
   .setColor("RANDOM")
   .setThumbnail(message.author.avatarURL)
