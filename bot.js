@@ -123,6 +123,7 @@ message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲Φ♔⌘|🎵💔😍`)
   //message.delete().catch(O_o=>{}); 
  
 }
+});
 
 
 client.on('message', message => {
@@ -213,7 +214,7 @@ client.on('guildMemberAdd', member=> {
 
 
 client.on('message', message => {
-if (message.content === "-server") {
+if (message.content === ".server") {
 if(!message.channel.guild) return;
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
 const now = new Date();
@@ -244,7 +245,6 @@ message.channel.sendEmbed(embed)
 
 client.on('message', message => {
   if (!message.guild) return;
-
   if (message.content === 'تعال') {
   if(!message.channel.guild) return message.reply(' ');
     if (message.member.voiceChannel) {
@@ -259,16 +259,6 @@ client.on('message', message => {
   }
 });
 
-client.on('message',function(message) {
-  if(!message.channel.guild) return undefined;
-  if(!message.channel.guild) return message.reply(' ');
-  const swearWords = ["كس","كس امك","قحبة","ابين القحبة","كس اختك","ابن القحبة","اخوت القحبة","خخخ","خخخخخخخخخخخ","ابن المره الوسخة","حمار","كلب","معفن","جزمة","ابن الجزمة","يا خول","زوبر","جروب زبالة","جروب ميت","جروب معفن","احا","wtf","gay","وتفاك","اديني بنحرقو","a7a","يخول"];
-  if (swearWords.some(word => message.content.includes(word)) ) {
-    message.delete()
-    message.reply("**ممنوع السب :sunglasses:**").then(msg => 
-    msg.delete(5000));
-  }
-});
 
 client.on('guildCreate', guild => {
   client.channels.get("211969554061066243").send(`**
@@ -359,6 +349,6 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-//..
+
 
 client.login(process.env.BOT_TOKEN);
