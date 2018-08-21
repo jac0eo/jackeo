@@ -12,7 +12,6 @@ const request = require('request');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const moment = require("moment");
-const googl = require('goo.gl');  
 
 client.on('ready', function(){
     var ms = 60000 ;
