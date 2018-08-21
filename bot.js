@@ -9,7 +9,7 @@ const Canvas = require("canvas");
 const jimp = require("jimp");
 client.on('ready', function(){
     var ms = 60000 ;
-   var setGame = ['جاكيو بوت','  المستخدمين : ${client.users.size}','عيد اضحي مبارك','🎉 🎈 🐏 عيد سعيد'];
+  var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`,`عيد اضحي مبارك `,` 🎉 🎈 🐏 عيد سعيد`]; 
     var i = -1;
     var j = 0;
     setInterval(function (){
