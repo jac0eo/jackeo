@@ -610,7 +610,38 @@ userData[message.author.id].Money+= 0.25;
 
 });
 
+devs = ['211969554061066243']
 
+client.on('message', message => {
+var prefix = ".";
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command === "say")  {
+   if(!message.channel.guild) return message.reply(' ');
+          message.delete()
+    message.channel.sendMessage(args.join(" ")).catch(console.error);
+  }
+  
+ 
+
+if (command == "emb")    {
+  if(!message.channel.guild) return message.reply(' ');
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor("RANDOM")
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+
+
+});
 
 /*
 
@@ -747,6 +778,50 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 }
 
       });
+
+
+
+fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
+if (err) console.error(err);
+})
+});
+client.on("message", (message) => {
+    if (!message.channel.type == "text") return;
+    if (message.content.startsWith(prefix + "تبرع")) {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+        var men = message.mentions.members.first();
+        if (!men) return message.reply("منشن العضو")
+        if (!message.content.split(" ")[2]) return message.reply("اكتب القيمة المراد تبرعها");
+        if (message.content.split(" ")[2] <0 || message.content.split(" ")[2] > 10000000000000000) return message.reply("اكتب القيمة المراد تبرعها");
+        message.channel.send("هل أنت متأكد بأنك تريد تحويل المبلغ؟").then(async m => {
+            await m.react(`✅`)
+            await m.react(`❎`)
+        let صح = m.createReactionCollector((reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id, { time: 60000 });
+        let خطأ = m.createReactionCollector((reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id, { time: 60000 });
+        صح.on("collect", () => {
+            message.channel.send("تم تحويل المبلغ بنجاح");
+            if (!profile[m.id]) {
+                profile[m.id] = {
+                    tite: '.',
+    rep: 0,
+    reps: 'NOT YET',
+    lastDaily:'Not Collected',
+    level: 0,
+    points: 0,
+    credits: 1,
+                }
+            }
+            profile[m.id].credits+=message.content.split(" ")[2];
+            profile[message.author.id].credits-=message.content.split(" ")[2];
+        });
+        خطأ.on("collect", () => {
+            message.channel.send("** تم ألغاء التحويل **");
+            m.delete();
+        })
+        });
+    }
+})
 
 
 
