@@ -685,9 +685,8 @@ client.on("message", message => {
     level: 0,
     points: 0,
     credits: 10500,
-  }; 
+  }
 
- 
 client.on("message", (message) => {
   let men = message.mentions.users.first()
   if (message.author.bot) return;
