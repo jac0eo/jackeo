@@ -202,6 +202,30 @@ message.channel.sendEmbed(cat);
 });
 
 
+
+const minecraft = [  'ما معنى تطويرة؛ silk touch ؟',  'من هوة اللذي قد انهى سلسلة سيرفر مايت كرافت؟',  'ماهو الوحش اللذي يرسبن في معبد البحر؟',  'من افضل يوتيوبر ينزل شروحات)ردستونية؛عامة',  'ماذا يفعل لك الهيروبراين؟',  'ماهو الشئ اللذي يمكن مكاثرة الفلجر فيه؟',  'من هو اندر ثاني شئ في ماين كرافت',  'ماهو الامر اللذي يعطينا كوماند بلوك؟',  'كم من الوقت يستغرق اليوم العادي في ماين كرافت؟',  'هل لليردستون اهمية كبيرة في ماين كرافت؟',  'اندر اور',  'مطور ماين كرافت السابق',  'اصغر موب في ماين كرافت',  'كيف تصنع البوق',  'في اي ارتفاع تلقى الدايموند',  'موب مستحيل تضربة بالبو (السهم)',  'كم نحتاج من Glowstone Dust لكي نصنع بلكة كاملة منه',  'كم نحتاج حبة ايرون لصنع سكة الحديد (Track)',  'كم عدد قلوب البقرة',  'ن ماذا يخاف الكريبر',  'يشتهر الاندرمان ب…..?',  'كم عدد قلوب الايرون قولم',  'كم ضربة تضرب الدجاجة و تموت',  'كم بلوكة تحتاج بوابة النذر',  'كم بلوكة تحتاج بوابة الاند',  'كم تحتاج الفرن ايروون عشان تصنعها',  'كيف تصنع كرافتنق تيبل',  'كم ياخذ وقت النبات عشان يكبر',  'كم قلوب ستيفي',  'كم قلوب الاندر مان',  'هل الاندر مان يضرب',  'هل الزومبي غبي ؟ و في اي تحديث ؟',  'ماهو الافضل للتسخين الافا او فحم ؟',  'ماهو شئ الذي اقوى من الاوبسيدين ؟',]
+client.on('message', message => {
+
+ 
+if (message.content.startsWith(prefix + 'MC')) {
+
+  if(!message.channel.guild) return message.reply('** MC . **');
+var client= new Discord.RichEmbed()
+.setColor('RANDOM')
+.setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/75/c4/c8/75c4c800-cbc1-8cf4-08ee-98173fdab6b6/mzl.kszzsjjf.png/246x0w.jpg')
+.setDescription(`**آلغاز ماين كرافت . | \`\`\`${minecraft[Math.floor(Math.random() * minecraft.length)]} \`\`\`** :thinking:  `)
+
+               .setTimestamp()
+
+message.channel.sendEmbed(client);
+message.react("??")
+}
+
+});
+
+
+
+
 client.on("guildMemberAdd", (member) => {
 client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
 })
@@ -485,11 +509,7 @@ const type = [
  
     },
     {
-            "type": "https://cdn.discordapp.com/attachments/429330153735454722/430040765671014401/c89aa167715a85b9.png",
-        "answers": ["فانتاستيك"]
- 
-    },
-    {
+
             "type": "https://cdn.discordapp.com/attachments/429330153735454722/430040772818239489/01d73182b48785e1.png",
         "answers": ["زباله متنقلة"]
  
