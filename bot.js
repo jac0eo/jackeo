@@ -716,7 +716,7 @@ client.on("message", (message) => {
             profile[message.author.id].credits-=message.content.split(" ")[2];
         });
 
-       
+        })
         });
     }
 })
