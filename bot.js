@@ -700,11 +700,6 @@ client.on("message", (message) => {
         if (!message.content.split(" ")[2]) return message.reply("اكتب القيمة المراد تبرها");
         if (message.content.split(" ")[2] <0 || message.content.split(" ")[2] > 10000000000000000) return message.reply("اكتب القيمة المراد تبرعها");
         message.channel.send("هل أنت متأكد بأنك تريد تحويل المبلغ؟").then(async m => {
-            await m.react(`✅`)
-            await m.react(`❎`)
-        let صح = m.createReactionCollector((reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id, { time: 60000 });
-        let خطأ = m.createReactionCollector((reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id, { time: 60000 });
-        صح.on("collect", () => {
             message.channel.send("تم تحويل المبلغ بنجاح");
             if (!profile[m.id]) {
                 profile[m.id] = {
@@ -720,10 +715,8 @@ client.on("message", (message) => {
             profile[m.id].credits+=message.content.split(" ")[2];
             profile[message.author.id].credits-=message.content.split(" ")[2];
         });
-        خطأ.on("collect", () => {
-            message.channel.send("** تم ألغاء التحويل **");
-            m.delete();
-        })
+
+       
         });
     }
 })
