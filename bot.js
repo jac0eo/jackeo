@@ -425,92 +425,6 @@ client.on('message', async message => {
 
 
 
-client.on('message', async message => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
-
-  let args = message.content.split(" ");
-  let command = args[0];
-
-  if(message.content.startsWith(prefix + "مسح")) {
-    if(!message.member.hasPermission("MANAGEP_MESSAGES")) return message.reply('**انت لا تملك الخصائص الكافية.**').then(msg => {
-      msg.delete(3500);
-      message.delete(3500);
-    });
-
-    if(!args[1]) {
-      var stop = true;
-      var msg = parseInt(100);
-
-      stop = false;
-      setTimeout(() => {
-        stop = true;
-      },3005);
-      setInterval(() => {
-        if(stop === true) return;
-        message.channel.fetchMessages({
-          limit: msg
-        }).then(m => {
-          message.channel.bulkDelete(msg).then(() => {
-            message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-            });
-          });
-        });
-      },1000);
-    } else if(args[1]) {
-      if(args[1] <= 100) {
-          message.channel.fetchMessages({
-              limit: msg
-          }).then(m => {
-              message.channel.bulkDelete(m).then(() => {
-                  message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-                  });
-              });
-          });
-      } else if(args[1] <= 200) {
-        stop = true;
-        setTimeout(() => {
-          stop = false;
-        },2001);
-        setInterval(() => {
-          if(stop === true) return;
-          message.channel.fetchMessages({
-            limit: msg
-          }).then(m => {
-            message.channel.bulkDelete(m).then(() => {
-                message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-                  });
-            });
-          });
-        },1000);
-      } else if(args[1] <= 300) {
-        stop = true;
-        setTimeout(() => {
-          stop = false;
-        },2001);
-        setInterval(() => {
-          if(stop === true) return;
-          message.channel.fetchMessages({
-            limit: msg
-          }).then(m => {
-            message.channel.bulkDelete(m).then(() => {
-            message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-                  });
-            });
-          });
-        });
-      }
-    }
-  }
-});
-
-
- 
-
 
 client.on('message', message => {
 if (message.content === ".server") {
@@ -732,7 +646,7 @@ client.on("message", message => {
   if (message.author.bot) return;
  if(!message.channel.guild)return;
   if (!profile[message.author.id]) profile[message.author.id] = {
-    tite: 'HypeLC User',
+    tite: 'Jackeo',
     rep: 0,
    reps: 'NOT YET',
    lastDaily:'Not Collected',
@@ -749,7 +663,7 @@ client.on("message", (message) => {
   if (message.author.bot) return;
     if (message.author.id === client.user.id) return;
     if(!message.channel.guild) return;
-    var prefix ="$$"
+    var prefix ="."
     if(message.content.startsWith(prefix + "credit")) {
   if(men) {
   if (!profile[men.id]) profile[men.id] = {
