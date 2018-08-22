@@ -699,18 +699,8 @@ client.on("message", (message) => {
         if (!men) return message.reply("منشن العضو")
         if (!message.content.split(" ")[2]) return message.reply("اكتب القيمة المراد تبرها");
         if (message.content.split(" ")[2] <0 || message.content.split(" ")[2] > 10000000000000000) return message.reply("اكتب القيمة المراد تبرعها");
-        message.channel.send("هل أنت متأكد بأنك تريد تحويل المبلغ؟").then(async m => {
-            message.channel.send("تم تحويل المبلغ بنجاح");
-            if (!profile[m.id]) {
-                profile[m.id] = {
-                    tite: '.',
-    rep: 0,
-    reps: 'NOT YET',
-    lastDaily:'Not Collected',
-    level: 0,
-    points: 0,
-    credits: 250,
-                     })
+  });
+
     
         
  
