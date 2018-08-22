@@ -700,9 +700,9 @@ client.on("message", (message) => {
  };
   }
   if(men) {
-message.channel.send(`** ${men.username}, your :credit_card: balance` + " is `" + `${profile[men.id].credits}$` + "`.**")
+message.channel.send(`** ${men.username}, your :credit_card: balance` + " is `" + `$${profile[men.id].credits}` + "`.**")
 } else {
- message.channel.send(`** ${message.author.username}, your :credit_card: balance` + " is `" + `${profile[message.author.id].credits}$` + "`.**")
+ message.channel.send(`** ${message.author.username}, your :credit_card: balance` + " is `" + `$${profile[message.author.id].credits}` + "`.**")
 }
 }
 var prefix ="."
@@ -761,7 +761,7 @@ var x2 = ['5587' ,' 9978' , '3785' , '7734' , '9864' , '7681' , '3758' , '7834' 
       profile[defineduser.id].credits += (+args[0]);
       profile[sender.id].credits += (-args[0]);
       let mariam = message.author.username
-message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ` + "`" + args[0] + "$` to " + `<@${defineduser.id}>**`)
+message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ` + "$`" + args[0] + "` to " + `<@${defineduser.id}>.**`)
 mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]} from user ${message.author.username} ; (ID: (${message.author.id})\`\`\``);
                message.channel.sendEmbed(embed)
         })
