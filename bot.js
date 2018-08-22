@@ -712,8 +712,7 @@ client.on("message", (message) => {
     credits: 1,
                 }
             
-      });
-
+    
         
  
 
