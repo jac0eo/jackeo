@@ -669,7 +669,6 @@ client.on('message', async message => {
 */
 
 
-
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 client.on("message", message => {
   if (message.author.bot) return;
@@ -681,8 +680,12 @@ client.on("message", message => {
    lastDaily:'Not Collected',
     level: 0,
     points: 0,
-    credits: 1,
+    credits: 10500,
   };
+fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
+if (err) console.error(err);
+})
+});
 client.on("message", (message) => {
   let men = message.mentions.users.first()
   if (message.author.bot) return;
