@@ -716,10 +716,9 @@ client.on("message", (message) => {
             profile[message.author.id].credits-=message.content.split(" ")[2];
         });
 
-        })
+        
         });
-    }
-})
+
  
 client.on("message", (message) => {
   let men = message.mentions.users.first()
