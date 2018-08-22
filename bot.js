@@ -684,26 +684,8 @@ client.on("message", message => {
     lastDaily:'Not Collected',
     level: 0,
     points: 0,
-    credits: 1,
-  };
- 
- 
-fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
-if (err) console.error(err);
-})
-});
-client.on("message", (message) => {
-    if (!message.channel.type == "text") return;
-    if (message.content.startsWith(prefix + "تبرع")) {
-        var men = message.mentions.members.first();
-        if (!men) return message.reply("منشن العضو")
-        if (!message.content.split(" ")[2]) return message.reply("اكتب القيمة المراد تبرها");
-        if (message.content.split(" ")[2] <0 || message.content.split(" ")[2] > 10000000000000000) return message.reply("اكتب القيمة المراد تبرعها");
-  });
-
-    
-        
- 
+    credits: 10500,
+  }; 
 
  
 client.on("message", (message) => {
