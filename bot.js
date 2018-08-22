@@ -711,7 +711,7 @@ client.on("message", (message) => {
     points: 0,
     credits: 1,
                 }
-            
+               })   
     
         
  
