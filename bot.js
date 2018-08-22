@@ -712,9 +712,6 @@ client.on("message", (message) => {
     credits: 1,
                 }
             }
-            profile[m.id].credits+=message.content.split(" ")[2];
-            profile[message.author.id].credits-=message.content.split(" ")[2];
-	}
         });
 
         
