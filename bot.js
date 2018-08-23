@@ -666,8 +666,102 @@ client.on('message', async message => {
   });
   }
 });
-*/
 
+//ping probot 
+  if (command == "ping") {
+    message.channel.send("Pong!")
+      .then(message => message.edit(`Pong! \`${client.ping}ms\``))
+      .catch(console.error);
+});
+
+//مغير الرسالة 
+client.on('message', msg => {
+if (msg.content === 'garo') {
+msg.channel.send('ok').then(msg => {
+setTimeout(() => {
+  msg.edit(`🚬💨💨💨`);
+ },1500);
+ setTimeout(() => {
+  msg.edit(`🚬💨💨`);
+},1800);
+setTimeout(() => {
+msg.edit(`🚬💨`);
+},2100);
+setTimeout(() => {
+msg.edit(`🚬`)
+},2400);
+});
+}    	
+});
+
+
+client.on('message', function(message) {
+
+    if (message.content === prefix + "hours"|| message.content === prefix + "Hours" || message.content === prefix + "HOURS") {
+        if (!message.channel.guild) return message.reply('This command only for servers ⁉');  
+    var currentTime = new Date(),
+       hours = currentTime.getHours() + 1 ,
+       hours2 = currentTime.getHours() + 0 ,
+       hours3 = currentTime.getHours() + 0 ,
+       hours4 = currentTime.getHours() + 0 ,
+       minutes = currentTime.getMinutes(),
+       seconds = currentTime.getSeconds(),
+       Year = currentTime.getFullYear(),
+       Month = currentTime.getMonth() + 1,
+       Day = currentTime.getDate();
+        var h = hours
+  if(hours > 12) {
+          hours -= 12;
+       } else if(hours == 0) {
+           hours = "12";
+       }  
+        if(hours2 > 12) {
+          hours2 -= 12;
+       } else if(hours2 == 0) {
+           hours2 = "12";
+       
+       }  
+       if(hours3 > 12) {
+          hours3 -= 12;
+       } else if(hours3 == 0) {
+           hours3 = "12";
+       } 
+       if(hours4 > 12) {
+        hours4 -= 12;
+     } else if(hours4 == 0) {
+         hours4 = "12";
+     } 
+       if (minutes < 10) {
+           minutes = '0' + minutes;
+       }
+       var suffix = 'A.m';
+       if (hours >= 12) {
+           suffix = 'P.m';
+           hours = hours - 12;
+       }
+       if (hours == 0) {
+           hours = 12;
+       }
+           var Date15= new Discord.RichEmbed()
+           .setThumbnail("https://i.imgur.com/ib3n4Hq.png") 
+           .setTitle( "date and time")
+           .setColor('BLACK')
+           .setTimestamp()
+           .setFooter(`ID: ${message.author.username}#${message.author.discriminator}`)
+           .addField('Egypt :flag_eg:  ',
+           hours + ":" + minutes +":"+ seconds )
+            .addField('tunisia :flag_tn:  ',
+           hours2 + ":" + minutes +":"+ seconds) 
+           .addField('algeria :flag_dz:  ',
+            hours3 + ":" + minutes +":"+ seconds ) 
+           .addField('Morocco :flag_ma:  ',
+            hours4 + ":" + minutes +":"+ seconds ) 
+           .addField('Date',
+            Day + "-" + Month + "-" + Year )
+            .setFooter(`Requested by ${message.author.username}`)
+            message.channel.sendEmbed(Date15);
+   }
+}); */
 
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 client.on("message", message => {
