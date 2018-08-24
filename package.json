@@ -32,6 +32,6 @@
     "ytdl-core": "^0.20.2"
   },
   "engines": {
-    "node": "10.x"
+    "node": "9.x"
   }
 }
