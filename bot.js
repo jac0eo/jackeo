@@ -96,7 +96,7 @@ client.on('message', message => {
 
             }
 });
-
+/*
 client.on('message', message => { 
     var FFHH = "."
         if (message.content.startsWith(FFHH + `Jackeo`)) {
@@ -135,7 +135,7 @@ message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲Φ♔⌘|🎵💔😍`)
   //message.delete().catch(O_o=>{}); 
  
 }
-});
+}); */
 
 
 client.on('message', message => {
@@ -880,7 +880,7 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 
       });
 
-
+/*
 // الموسيقى
 client.on('message', async message => {
 	if(message.author.bot) return;
@@ -1386,7 +1386,7 @@ ${prefix}help or ${prefix}commands ->  يعرض لك الاوامر البوت �
 
    }
    });
-
+*/
 
 
 client.login(process.env.BOT_TOKEN);
