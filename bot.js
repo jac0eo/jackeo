@@ -807,7 +807,7 @@ if(message.content.startsWith(prefix + "daily")) {
     let textxt = args.slice(0).join("");
 let daily = Math.floor(Math.random() * 130) + 350;
     profile[message.author.id].credits += daily;
-    fs.writeFile("./profile.json", JSON.stringify(credits), function(err) {if(err) console.error(err)});
+    fs.writeFile("./profile.json", JSON.stringify(profile), function(err) {if(err) console.error(err)});
      message.channel.send(`**${message.author.username} you collect your \`${daily}\` :dollar: daily pounds**`)
 } else {
     message.channel.send(`**:atm: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
