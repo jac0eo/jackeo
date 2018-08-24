@@ -763,32 +763,20 @@ client.on('message', function(message) {
    }
 }); */
 
-fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
-    if (err) console.error(err);
-    })
-    client.on("message", (message) => {
-        if (!message.channel.type == "text") return;
-        if (message.content.startsWith(prefix + "تبرع")) {
-            var men = message.mentions.members.first();
-            if (!men) return message.reply("منشن العضو")
-            if (!message.content.split(" ")[2]) return message.reply("اكتب القيمة المراد تبرعها");
-            if (message.content.split(" ")[2] <0 || message.content.split(" ")[2] > 10000000000000000) return message.reply("اكتب القيمة المراد تبرعها");
-                message.channel.send("تم تحويل المبلغ بنجاح");
-                if (!profile[m.id]) {
-                    profile[m.id] = {
-                        tite: '.',
-        rep: 0,
-        reps: 'NOT YET',
-        lastDaily:'Not Collected',
-        level: 0,
-        points: 0,
-        credits: 15005,
-                    }
-                }
-                profile[m.id].credits+=message.content.split(" ")[2];
-                profile[message.author.id].credits-=message.content.split(" ")[2];
-        }
-    });
+const profile = JSON.parse(fs.readFileSync('./Storage/profile.json', "utf8"));
+
+client.on("message", message => {
+  if (message.author.bot) return;
+  if(!message.channel.guild)return;
+  if (!profile[message.author.id]) profile[message.author.id] = {
+    info: '$info To Set The Info',
+    rep: 0,
+    reps: 'NOT YET',
+    lastDaily:'Not Collected',
+    level: 0,
+    points: 0,
+    credits: 15005,
+  };
 fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
 if (err) console.error(err);
 })
