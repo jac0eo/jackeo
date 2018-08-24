@@ -16,7 +16,8 @@ const path = require('path');
 const YouTube = require('simple-youtube-api');
 const fetchVideoInfo = require('youtube-info');
 const ytApiKey = 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8';
-const youtube = new YouTube(ytApiKey);
+const youtube = new YouTube(ytApiKey); //what ??
+
 
 client.on('ready', function(){
     var ms = 60000 ;
