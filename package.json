@@ -34,6 +34,6 @@
     "ytdl-core": "^0.20.2"
   },
   "engines": {
-    "node": "9.x"
+    "node": "8.4.0"
   }
 }
