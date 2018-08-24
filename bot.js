@@ -801,17 +801,18 @@ message.channel.send(`** ${men.username}, your :credit_card: balance` + " is `" 
 }
 var prefix ="."
 if(message.content.startsWith(prefix + "daily")) {
-
-
-  if(profile[message.author.id].lastDaily != moment().format('day')) {
-   profile[message.author.id].lastDaily = moment().format('day')
-let daily = [179, 160, 230, 146, 213, 195];
-daily = daily[Math.floor(Math.random() * daily.length)];
-    message.channel.send(`** :atm:  | ${message.author.username}  you received your :yen: 310 daily credits!**`)
+      if(profile[message.author.id].lastDaily != moment().format('day')) {
+    profile[message.author.id].lastDaily = moment().format('day')
+      let args = message.content.split(" ").slice(1);
+    let textxt = args.slice(0).join("");
+let daily = Math.floor(Math.random() * 130) + 350;
+    profile[message.author.id].credits += daily;
+    fs.writeFile("./profile.json", JSON.stringify(credits), function(err) {if(err) console.error(err)});
+     message.channel.send(`**${message.author.username} you collect your \`${daily}\` :dollar: daily pounds**`)
 } else {
-    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()} ${moment().endOf('minutes').fromNow()} and ${moment().endOf('seconds').fromNow()} *`)
+    message.channel.send(`**:atm: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
 }
-}
+  }
 let cont = message.content.slice(prefix.length).split(" ");
 let args = cont.slice(2);
 let sender = message.author
