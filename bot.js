@@ -10,7 +10,6 @@ const jimp = require("jimp");
 const ytdl = require('ytdl-core');
 const request = require('request');
 const getYoutubeID = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
 const moment = require("moment");
 const axios = require('axios');
 const path = require('path');
