@@ -20,8 +20,8 @@ const youtube = new YouTube(ytApiKey);
 
 client.on('ready', function(){
     var ms = 60000 ;
-  var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`,`عيد اضحي مبارك `,` 🎉 🎈 🐏 عيد سعيد`]; 
-    var i = -1;
+  var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`]; 
+     var i = -1;
     var j = 0;
     setInterval(function (){
         if( i == -1 ){
