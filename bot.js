@@ -12,7 +12,6 @@ const request = require('request');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const moment = require("moment");
-const axios = require('axios');
 const YouTube = require('simple-youtube-api');
 const ytApiKey = 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8';
 const youtube = new YouTube(ytApiKey);
