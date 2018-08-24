@@ -763,7 +763,7 @@ client.on('message', function(message) {
    }
 }); */
 
-const profile = JSON.parse(fs.readFileSync('./Storage/profile.json', "utf8"));
+const profile = JSON.parse(fs.readFileSync('./profile.json', "utf8"));
 
 client.on("message", message => {
   if (message.author.bot) return;
