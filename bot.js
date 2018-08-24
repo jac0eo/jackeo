@@ -875,6 +875,511 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
       });
 
 
+// الموسيقى
+client.on('message', async message => {
+	if(message.author.bot) return;
+	if(message.channel.type === 'dm') return;
+
+	let messageContent = message.content.split(" ");
+	let command = messageContent[0];
+	let args = messageContent.slice(1);
+	if(!command.startsWith(prefix)) return;
+
+	switch (command.slice(1).toLowerCase()) {
+
+		case "play":
+			if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('**اوامر الموسيقى لهذا البوت خاصه للادارة فقط**');
+			if(args.length == 0 && queue.length > 0) {
+				if(!message.member.voiceChannel) {
+					let notVoiceChannel = new Discord.RichEmbed()
+					.setTitle(':name_badge: **Error**')
+					.setColor('GRAY')
+					.setThumbnail(client.user.avatarURL)
+					.setDescription('**\nلازم تكون بروم صوتي**')
+					.setTimestamp()
+					.setFooter(message.author.tag, message.author.avatarURL)
+					
+					message.channel.send(notVoiceChannel);
+				}else {
+					isPlaying = true;
+					playMusic(queue[0], message);
+					let Playing = new Discord.RichEmbed()
+					.setTitle('**[MUSIC]**')
+					.setColor('GRAY')
+					.setThumbnail(client.user.avatarURL)
+					.addField('يتم الان تشغيل:', `**${songsQueue[0]}**`)
+					.setTimestamp()
+					.setFooter(`Request by: ${message.author.tag}`, message.author.avatarURL)
+					
+					message.channel.send(Playing);
+				}
+			} else if (args.length == 0 && queue.length == 0) {
+				message.reply("قائمة التشغيل فارغة الآن , .play [ واسم الاغنية ] or .yt [ ومصطلح البحث ] || لتشغيل والبحث عن الاغاني");
+			} else if (queue.length > 0 || isPlaying) {
+				getID(args).then(id => {
+					if (id) {
+						queue.push(id);
+						getYouTubeResultsId(args, 1).then(ytResults => {
+                             message.reply(" ");
+                             const embed = new Discord.RichEmbed()
+                             .setColor("36393f")
+                             .addField('📝 ** || اغنية جديدة في قائمة التشغيل**', '**'+[ytResults]+'**')
+                             .addField(`✨** بواسطة **:`, '**'+[message.author.username]+'**')
+                             .setTimestamp()
+                             .setFooter(client.user.username+" ||", client.user.avatarURL)
+                             .addField('**``سرعة استجابة البوت``🍃**', "``"+[Date.now() - message.createdTimestamp]+'``Ms📶', true)
+                             .setThumbnail(`http://simpleicon.com/wp-content/uploads/playlist.png`)
+                              message.channel.send({embed});
+							songsQueue.push(ytResults[0]);
+						}).catch(error => console.log(error));
+					} else {
+						message.reply(" ");
+						message.channel.send({embed: {
+						color: 3447003,
+						description: "🐸 || **__اسف لا يمكن العثور علي الاغنية__**"
+						}});
+
+					}
+				}).catch(error => console.log(error));
+			} else {
+				isPlaying = true;
+				getID(args).then(id => {
+					if (id) {
+						queue.push(id);
+						playMusic(id, message);
+						getYouTubeResultsId(args, 1).then(ytResults => {
+                             message.reply(" ");
+                             const embed = new Discord.RichEmbed()
+                             .setColor("36393f")
+                             .addField('** ☑ || تم تشغيل** ', '**'+[ytResults]+'**')
+                             .addField(`✨** بواسطة **:`, '**'+[message.author.username]+'**')
+                             .setTimestamp()
+                             .setFooter(client.user.username+" ||", client.user.avatarURL)
+                             .addField('**``سرعة استجابة البوت``🍃**', "``"+[Date.now() - message.createdTimestamp]+'``Ms📶', true)
+                             .setThumbnail(`http://i.ytimg.com/vi/${queue}/hqdefault.jpg`)
+                              message.channel.send({embed});
+
+                  songsQueue.push(ytResults[0]);
+						}).catch(error => console.log(error));
+					} else {
+						message.reply(" ");
+						message.channel.send({embed: {
+						color: 3447003,
+						description: "🐸 || **__اسف لا يمكن العثور علي الاغنية__**"
+						}});
+
+					}
+				}).catch(error => console.log(error));
+			}
+			break;
+
+		case "skip":
+			console.log(queue);
+			if (queue.length === 1) {
+				message.reply(" ");
+				message.channel.send({embed: {
+				color: 3447003,
+				description: " ⁉ || **__قائمة التشغيل فارغة الان , اكتب .play [اسم الاغنية] او .yt [اسم الاغنية]__**"
+				}});
+				dispatcher.end();
+			} else {
+				if (skippers.indexOf(message.author.id) === -1) {
+					skippers.push(message.author.id);
+					skipRequest++;
+
+					if (skipRequest >= Math.ceil((voiceChannel.members.size - 1) / 2)) {
+						skipSong(message);
+                             message.reply(" ");
+                             const embed = new Discord.RichEmbed()
+                          .setColor("36393f")
+                         .addField('** ⏯ || الاغنية الحالية ** ', '**'+[songsQueue]+'**')
+                       .addField(`✨** تم التخطي بواسطة **:`, '**'+[message.author.username]+'**')
+                      .setTimestamp()
+                     .setFooter(client.user.username+" ||", client.user.avatarURL)
+                     .addField('**``لضبط الصوت.``👍👌**' , "**"+".vol [ 0 - 200 ] لضبط اعدادات الصوت"+"**", true)
+                     .addField('**``سرعة استجابة البوت``🍃**', "``"+[Date.now() - message.createdTimestamp]+'``Ms📶', true)
+                     .setThumbnail(`http://i.ytimg.com/vi/${queue}/hqdefault.jpg`)
+                              message.channel.send({embed});
+					} else {
+						message.reply(` `);
+						message.channel.send({embed: {
+				color: 3447003,
+				description: " #⃣ || ** لقد تم اضاف تصويتك ,  تحتاج الـ"+"__"+[Math.ceil((voiceChannel.members.size - 1) / 2) - skipRequest]+"__"+"اكتر من تصويت , لتخطي الاغنية الحالية**"
+				}});
+					}
+				} else {
+						message.reply(` `);
+						message.channel.send({embed: {
+				color: 3447003,
+				description: " 😒 || **__لقد قمت بالتوصيت بالفعل__**"
+				}});
+				}
+			}
+			break;
+
+		case "playlist":
+			if (queue.length === 0) {
+						message.reply(` `);
+						message.channel.send({embed: {
+				color: 3447003,
+				description: " 😒 || **__قائمة التشغيل فارغة , ``اكتب : .play | .yt`` للبحث علي الاغاني__**"
+				}});
+			} else if (args.length > 0 && args[0] == 'remove') {
+				        let kahrba = message.guild.member(message.author).roles.find('name', 'Dj');
+				if (args.length == 2 && args[1] <= queue.length) {
+
+						message.reply(` `);
+                             const embed = new Discord.RichEmbed()
+                          .setColor("36393f")
+                         .addField('** 🗑 ||: تمت ازالتة من قائمة التشغيل : ** ',''+songsQueue[args[1] - 1]+'')
+                       .addField(`✨** تمت الازالة بواسطة : **:`, '**'+[message.author.username]+'**')
+                      .setTimestamp()
+                     .setFooter(client.user.username+" ||", client.user.avatarURL)
+                     message.channel.send({embed});
+					queue.splice(args[1] - 1, 1);
+					songsQueue.splice(args[1] - 1, 1);
+				} else {
+					message.reply(` `);
+					message.channel.send({embed: {
+					color: 3447003,
+					description: ` 📝 || **__يجب وضع رقم الاغنية فـ قائمة التشغيل.__**`
+				}});
+				}
+			} else if (args.length > 0 && args[0] == 'clear') {
+				        let djRole = message.guild.member(message.author).roles.find('name', 'Dj');
+				if (args.length == 1) {
+						message.reply(` `);
+                             const embed = new Discord.RichEmbed()
+                          .setColor("36393f")
+                         .setDescription('**تمت ازالة جميع الموسيقي الموجوده فـ قائمة الشتغيل , استمتع 😉**')
+                      .setTimestamp()
+                     .setFooter(client.user.username+" ||", client.user.avatarURL)
+                     message.channel.send({embed});
+					queue.splice(1);
+					songsQueue.splice(1);
+				} else {
+						message.reply(` `);
+                             const embed = new Discord.RichEmbed()
+                          .setColor("36393f")
+                         .setDescription('**انتا تحتاج الي كتابة .playlist clear دون اتباع الحجج**')
+                      .setTimestamp()
+                     .setFooter(client.user.username+" ||", client.user.avatarURL)
+                     message.channel.send({embed});
+				}
+			} else if (args.length > 0 && args[0] == 'shuffle') {
+				let tempA = [songsQueue[0]];
+				let tempB = songsQueue.slice(1);
+				songsQueue = tempA.concat(shuffle(tempB));
+						message.reply(` `);
+                             const embed = new Discord.RichEmbed()
+                          .setColor("36393f")
+                         .setDescription('**تـم تبديل قائمة التشغيل اكتب .playlist لمشاهدة قائمة الشتغيل الجديده**')
+                      .setTimestamp()
+                     .setFooter(client.user.username+" ||", client.user.avatarURL)
+                     message.channel.send({embed});
+			} else {
+				let format = "```"
+				for (const songName in songsQueue) {
+					if (songsQueue.hasOwnProperty(songName)) {
+						let temp = `${parseInt(songName) + 1}: ${songsQueue[songName]} ${songName == 0 ? "**(PlayingNow - تعمل الان.)**" : ""}\n`;
+						if ((format + temp).length <= 2000 - 3) {
+							format += temp;
+						} else {
+							format += "```";
+							message.channel.send(format);
+							format = "```";
+						}
+					}
+				}
+				format += "```";
+				message.channel.send(format);
+			}
+			break;
+
+		case "repeat":
+			if (isPlaying) {
+				queue.splice(1, 0, queue[0]);
+				songsQueue.splice(1, 0, songsQueue[0]);
+						message.reply(` `);
+                             const embed = new Discord.RichEmbed()
+                          .setColor("36393f")
+                         .setDescription(`🔁 **${songsQueue[0]} سوف يتم تكرار الاغنية`)
+                      .setTimestamp()
+                     .setFooter(client.user.username+" ||", client.user.avatarURL)
+                     message.channel.send({embed});
+
+			}
+			break;
+
+		case "stop":
+        var djRole = message.guild.members.get(message.author.id).roles.has(message.guild.roles.find('name', 'Dj'));
+        if(!djRole) return message.reply('** لايمكنك ايقاف البوت يجب عليك الحصول علي رتبت ``Dj``**')
+        message.reply(" ");
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription('⏹ || **سوف يتم اغلاق البوت بعد 5 ثواني**')
+                .setTimestamp()
+                .setFooter(client.user.username+" ||", client.user.avatarURL)
+                message.channel.send({embed});
+			dispatcher.end();
+			setTimeout(() => voiceChannel.leave(), 4000)
+			break;
+
+		case "yt":
+			if (args.length == 0) {
+				message.reply(` `);
+				message.channel.send({embed: {
+				color: 3447003,
+				description: " 📝 || **__يجب عليك ادخال : .yt [ مصطلح البحث باليوتيوب]__**"
+			}});
+
+			} else {
+				message.channel.send("```يبحث باليوتيوب...```");
+				getYouTubeResultsId(args, 5).then(ytResults => {
+					ytResultAdd = ytResults;
+					let ytEmbed = new Discord.RichEmbed()
+						.setColor("36393f")
+						.setAuthor("Youtube search results: ", icon_url = "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png")
+						.addField("1:", "```" + ytResults[0] + "```")
+						.addField("2:", "```" + ytResults[1] + "```")
+						.addField("3:", "```" + ytResults[2] + "```")
+						.addField("4:", "```" + ytResults[3] + "```")
+						.addField("5:", "```" + ytResults[4] + "```")
+						.addBlankField()
+						.setFooter("شرح الاستخدام : .add [قم بوضع رقم البحث] ");
+					message.channel.send(ytEmbed);
+					youtubeSearched = true;
+				}).catch(err => console.log(err));
+			}
+			break;
+
+		case "add":
+			if (youtubeSearched === true) {
+				if (!re.test(args)) {
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription('🤦 || ** لقد قمت بادخال الرقم بطريقة خاطئة , يرجي ادخال 1-5 لترتيب قائمة الاغاني')
+                .setTimestamp()
+                .setFooter(client.user.username+" ||", client.user.avatarURL)
+                message.channel.send({embed});
+				} else {
+					let choice = ytResultAdd[args - 1];
+					getID(choice).then(id => {
+						if (id) {
+							queue.push(id);
+							getYouTubeResultsId(choice, 1).then(ytResults => {
+                message.reply(` `);
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription('**تم اضافة الي قائمة التشغيل'+'``'+ytResults+'``'+'**')
+                .setTimestamp()
+                .setFooter(client.user.username+" ||", client.user.avatarURL)
+                message.channel.send({embed});
+								songsQueue.push(ytResults[0]);
+							}).catch(error => console.log(error));
+						}
+					}).catch(error => console.log(error));
+					youtubeSearched = false;
+				}
+			} else {
+                message.reply(` `);
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription(`** تحتاج إلى استخدام .yt [search term - مصطلح البحث ] , .add لـختيار اغنية من علامات البحث من قائمة التشغيل. **`)
+                .setTimestamp()
+                .setFooter(client.user.username+" ||", client.user.avatarURL)
+                message.channel.send({embed});
+			}
+			break;
+		case "vol":
+			if (args.length == 0 && dispatcher) {
+				message.reply(` `);
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription(`** Volume - حجم الصوت الحالي  [ __${dispatcher.volume}__ ]**`)
+                message.channel.send({embed});
+			} else if (args.length > 0 && regVol.test(args) == true && dispatcher) {
+				dispatcher.setVolume(args * 0.01);
+				message.reply(` `);
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription(`** تم تعيين حجم الموسيقى إلى [ __${args}__% ]**`)
+                message.channel.send({embed});
+				console.log('متسوي الصوت الجديد ='+dispatcher.volume);
+			} else if (!regVol.test(args) && dispatcher) {
+				message.reply(" ");
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription(`**خطأ : انتا تحتاج الي ادخال من 0 - 200 لاختيار حجم الموسيقي**`)
+                message.channel.send({embed});
+			} else {
+				message.reply(" ");
+                const embed = new Discord.RichEmbed()
+                .setColor("36393f")
+                .setDescription(`**خطأ : لا يمكنك تعين الصوت اذا لم تكون هناك موسيقي تعمل**`)
+                message.channel.send({embed});
+			}
+			break;
+
+	}
+});
+
+function playMusic(id, message) {
+	voiceChannel = message.member.voiceChannel;
+	
+	if(!voiceChannel) {
+		let notVoiceChannel = new Discord.RichEmbed()
+		.setTitle(':name_badge: **Error**')
+		.setColor('GRAY')
+		.setThumbnail(client.user.avatarURL)
+		.setDescription('**\nلازم تكون بروم صوتي**')
+		.setTimestamp()
+		.setFooter(message.author.tag, message.author.avatarURL)
+		
+		message.channel.send(notVoiceChannel);
+		
+	}else {
+	voiceChannel.join()
+		.then(connection => {
+					message.channel.send({embed: {
+                    color: 3447003,
+                    description: "**الان تعمل اغنية : **" + songsQueue[0],
+                    }});
+			console.log('الان تعمل اغنية : ' + songsQueue[0])
+			stream = yt(`https://www.youtube.com/watch?v=${id}`, {
+				filter: 'audioonly'
+			})
+
+			skipRequest = 0;
+			skippers = [];
+
+			dispatcher = connection.playStream(stream);
+			dispatcher.setVolume(0.50);
+			dispatcher.on('end', () => {
+				skipRequest = 0;
+				skippers = [];
+				queue.shift();
+				songsQueue.shift();
+				if (queue.length === 0) {
+					console.log("Disconnected...");
+					queue = [];
+					songsQueue = [];
+					isPlaying = false;
+				} else {
+					setTimeout(() => playMusic(queue[0], message), 500);
+				}
+			});
+		})
+		.catch(error => console.log(error));
+	}
+}
+
+async function getID(str) {
+	if (str.indexOf("youtube.com") > -1) {
+		return getYTID(str);
+	} else {
+		let body = await axios(`https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(str)}&key=${ytApiKey}`);
+		if (body.data.items[0] === undefined) {
+			return null;
+		} else {
+			return body.data.items[0].id.videoId;
+		}
+	}
+}
+
+function addToQueue(strID) {
+	if (strID.indexOf("youtube.com")) {
+		queue.push(getYTID(strID));
+	} else {
+		queue.push(strID);
+		songsQueue.push(strID);
+	}
+}
+
+function skipSong(message) {
+	dispatcher.end();
+}
+
+async function searchYouTube(str) {
+	let search = await axios(`https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(str)}&key=${ytApiKey}`);
+	if (search.data.items[0] === undefined) {
+		return null;
+	} else {
+		return search.data.items;
+	}
+}
+
+async function getYouTubeResultsId(ytResult, numOfResults) {
+	let resultsID = [];
+	await youtube.searchVideos(ytResult, numOfResults)
+		.then(results => {
+			for (const resultId of results) {
+				resultsID.push(resultId.title);
+			}
+		})
+		.catch(err => console.log(err));
+	return resultsID;
+}
+
+function shuffle(queue) {
+	for (let i = queue.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[queue[i], queue[j]] = [queue[j], queue[i]];
+	}
+	return queue;
+}
+
+client.on("message", message => {
+	var command = message.content.toLowerCase().split(" ")[0];
+        if(command == prefix + 'help') {
+		var djRole = message.guild.members.get(message.author.id).roles.has(message.guild.roles.find('name', 'Dj'));
+		if(!djRole) return;
+     let embed = new Discord.RichEmbed()
+         .setColor("36393f")
+         .setDescription(`**
+         [Commands Help.]
+${prefix}play [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
+${prefix}skip ->  يتخطى الأغنية الحالية
+${prefix}playlist ->  يعرض قائمة التشغيل الحالية
+${prefix}repeat ->  يكرر تشغيل الاغنية من جديد
+${prefix}yt [search term] ->  يبحث في YouTube ويعرض أول 5 نتائج
+${prefix}add -> يضيف أغنية من بحث YouTube إلى قائمة التشغيل
+${prefix}vol ->  يحدد حجم الموسيقى إلى نسبة معينة
+${prefix}help or ${prefix}commands ->  يعرض لك الاوامر البوت المتاحة
+**`)
+   message.channel.send({embed});
+
+   }
+   });
+
+
+client.on('message', message => {
+	var command = message.content.toLowerCase().split(" ")[0];
+	
+	if(command == prefix + 'help') {
+		var djRole = message.guild.members.get(message.author.id).roles.has(message.guild.roles.find('name', 'Dj'));
+	if(!djRole) return;
+		let embed = new Discord.RichEmbed()
+         .setColor("36393f")
+         .setDescription(`**
+         [Commands Help.]
+${prefix}play [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
+${prefix}skip ->  يتخطى الأغنية الحالية
+${prefix}playlist ->  يعرض قائمة التشغيل الحالية
+${prefix}playlist remove [song number] ->  يزيل الأغنية المختارة من قائمة التشغيل (Dj)
+${prefix}playlist clear ->  يزيل كل الأغاني من قائمة التشغيل (Dj)
+${prefix}playlist shuffle ->  يغير قائمة التشغيل الحالية (Dj)
+${prefix}repeat ->  يكرر تشغيل الاغنية من جديد
+${prefix}stop ->  يتوقف عن تشغيل الموسيقى ويحذف جميع الأغاني في قائمة التشغيل (Dj)
+${prefix}}yt [search term] ->  يبحث في YouTube ويعرض أول 5 نتائج
+${prefix}add -> يضيف أغنية من بحث YouTube إلى قائمة التشغيل
+${prefix}vol ->  يحدد حجم الموسيقى إلى نسبة معينة
+${prefix}help or ${prefix}commands ->  يعرض لك الاوامر البوت المتاحة
+**`)
+   message.channel.send({embed});
+
+   }
+   });
 
 
 
