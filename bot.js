@@ -209,25 +209,7 @@ message.channel.sendEmbed(cat);
 
 
 
-const minecraft = [  'ما معنى تطويرة؛ silk touch ؟',  'من هوة اللذي قد انهى سلسلة سيرفر مايت كرافت؟',  'ماهو الوحش اللذي يرسبن في معبد البحر؟',  'من افضل يوتيوبر ينزل شروحات)ردستونية؛عامة',  'ماذا يفعل لك الهيروبراين؟',  'ماهو الشئ اللذي يمكن مكاثرة الفلجر فيه؟',  'من هو اندر ثاني شئ في ماين كرافت',  'ماهو الامر اللذي يعطينا كوماند بلوك؟',  'كم من الوقت يستغرق اليوم العادي في ماين كرافت؟',  'هل لليردستون اهمية كبيرة في ماين كرافت؟',  'اندر اور',  'مطور ماين كرافت السابق',  'اصغر موب في ماين كرافت',  'كيف تصنع البوق',  'في اي ارتفاع تلقى الدايموند',  'موب مستحيل تضربة بالبو (السهم)',  'كم نحتاج من Glowstone Dust لكي نصنع بلكة كاملة منه',  'كم نحتاج حبة ايرون لصنع سكة الحديد (Track)',  'كم عدد قلوب البقرة',  'ن ماذا يخاف الكريبر',  'يشتهر الاندرمان ب…..?',  'كم عدد قلوب الايرون قولم',  'كم ضربة تضرب الدجاجة و تموت',  'كم بلوكة تحتاج بوابة النذر',  'كم بلوكة تحتاج بوابة الاند',  'كم تحتاج الفرن ايروون عشان تصنعها',  'كيف تصنع كرافتنق تيبل',  'كم ياخذ وقت النبات عشان يكبر',  'كم قلوب ستيفي',  'كم قلوب الاندر مان',  'هل الاندر مان يضرب',  'هل الزومبي غبي ؟ و في اي تحديث ؟',  'ماهو الافضل للتسخين الافا او فحم ؟',  'ماهو شئ الذي اقوى من الاوبسيدين ؟',]
-client.on('message', message => {
 
- 
-if (message.content.startsWith(prefix + 'MC')) {
-
-  if(!message.channel.guild) return message.reply('** MC . **');
-var client= new Discord.RichEmbed()
-.setColor('RANDOM')
-.setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/75/c4/c8/75c4c800-cbc1-8cf4-08ee-98173fdab6b6/mzl.kszzsjjf.png/246x0w.jpg')
-.setDescription(`**آلغاز ماين كرافت . | \`\`\`${minecraft[Math.floor(Math.random() * minecraft.length)]} \`\`\`** :thinking:  `)
-
-               .setTimestamp()
-
-message.channel.sendEmbed(client);
-message.react("??")
-}
-
-});
 
 
 
@@ -267,7 +249,7 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 
 
-
+/*
 client.on('ready',async () => {
 setInterval(function(){
          var currentTime = new Date(),
@@ -313,7 +295,7 @@ setInterval(function(){
 client.channels.find('id', '356375188256063499').setName(`『 الوقت ↩ ${hours2}:${minutes} 』`)
 }, 5000);
        
-    });
+    }); */
 
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Members 🎮"));//here 
@@ -469,7 +451,7 @@ client.on('message', message => {
     if (message.member.voiceChannel) {
       message.member.voiceChannel.join()
         .then(connection => { 
-          message.reply('I have successfully connected to the channel!');
+          message.reply('هنالك خطأ ما');
         })
         .catch(console.log);
     } else {
@@ -491,64 +473,8 @@ client.on('message', message => {
   }
 });
 
-client.on('guildCreate', guild => {
-  client.channels.get("211969554061066243").send(`**
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__
-Server Count: __${guild.memberCount}__**`)
-});
-client.on('guildDelete', guild => {
-  client.channels.get("211969554061066243").send(`**
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__
-Server Count: __${guild.memberCount}__**`)
-});
 
 
-client.on('guildMemberAdd', member => {
-let channel = member.guild.channels.find('name', 'الشات');
-let memberavatar = member.user.avatarURL
-  if (!channel) return; 
-let embed = new Discord.RichEmbed()
-    .setColor('000000')
-    .setThumbnail(memberavatar)
-    .addField('Welcome to AZRO FOR GAMES ! منور السيرفر يا غالي :heart_eyes:  !',`${member},`)
-            .addField('👔| انت العضو رقم',`${member.guild.memberCount}`) 
-                                   
- .setFooter("Jackeo","https://i.imgur.com/yAEMXVx.png") 
-    .setTimestamp()
-
-  channel.sendEmbed(embed);
-});
-
-client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.find('name', 'log');
-    if (!channel) {
-        console.log("!channel fails");
-        return;
-    }
-    if (member.id == client.user.id) {
-        return;
-    }
-    console.log('made it till here!');
-    var guild;
-    while (!guild)
-        guild = client.guilds.find("name", "wlc")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            if (dat[Inv])
-                if (dat[Inv] < Invite.uses) {
-                    console.log(3);
-                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
- channel.send(` **:hearts:  تم دعوته من قبل ** ${Invite.inviter} :hearts: `)            
- }
-            dat[Inv] = Invite.uses;
-        })
-    })
-});
 
 client.on("message", (message) => {
            if (message.channel.type === "dm") {
@@ -581,40 +507,6 @@ client.on('message', message => {
     }
 });
 
-var userData = {};
-client.on("message", function(message){
-if (message.content.startsWith(prefix + "rank")) {
-	if (!userData[message.author.id]) {
-		userData[message.author.id] = {Money:0,Xp:0,Level:0}
-	}
-     var mentionned = message.mentions.users.first();
-
-      var x5bzm;
-      if(mentionned){
-          var x5bzm = mentionned;
-      } else {
-          var x5bzm = message.author;
-
-      }
-
-	
-	var CulLevel = Math.floor(0.25 * Math.sqrt(userData[message.author.id].Xp +1));
-	if (CulLevel > userData[message.author.id].Level) {userData[message.author.id].Level +=CulLevel}
-	let pEmbed = new Discord.RichEmbed()
-	.setColor("Random")
-	.addField("» UserName :", message.author.tag)
-	.addField("» Level :", userData[message.author.id].Level)
-	.addField("» XP :",Math.floor(userData[message.author.id].Xp))
-	message.channel.send(pEmbed);
-}
-if (!userData[message.author.id]) {
-	userData[message.author.id] = {Money:0,Xp:0,Level:0,Like:0}
-	}
-
-userData[message.author.id].Xp+= 0.25;
-userData[message.author.id].Money+= 0.25;
-
-});
 
 devs = ['211969554061066243']
 
