@@ -223,7 +223,7 @@ client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ $
 
 
 
-
+/*
 client.on('message', async message => {
   if(message.content.startsWith(prefix + "رسالة")) {
     let i = client.users.size;
@@ -237,7 +237,7 @@ client.on('message', async message => {
       s.send(args).catch(e => i--);
     });
   }
-});
+}); */
 
 //voise online
 client.on('voiceStateUpdate', (old, now) => {
@@ -295,8 +295,8 @@ setInterval(function(){
 client.channels.find('id', '356375188256063499').setName(`『 الوقت ↩ ${hours2}:${minutes} 』`)
 }, 5000);
        
-    }); */
-
+    }); 
+// ميوت
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Members 🎮"));//here 
     });
@@ -407,7 +407,7 @@ client.on('message', async message => {
       mention.setMute(false);
       message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:  **  `);
   }
-});
+}); */
 
 
 
