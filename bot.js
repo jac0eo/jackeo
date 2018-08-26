@@ -460,6 +460,7 @@ client.on('message', message => {
   }
 });
 
+/*
 client.on('message', message => {
   if (message.content.startsWith('العيد')) {
     const voiceChannel = message.member.voiceChannel;
@@ -471,7 +472,7 @@ client.on('message', message => {
         dispatcher.on('end', () => voiceChannel.leave());
       });
   }
-});
+}); */
 
 
 
@@ -659,7 +660,7 @@ client.on('message', function(message) {
             .setFooter(`Requested by ${message.author.username}`)
             message.channel.sendEmbed(Date15);
    }
-}); */
+}); 
 
 const profile = JSON.parse(fs.readFileSync('./profile.json', "utf8"));
 
@@ -771,6 +772,6 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 }
 
       });
-
+*/
 
 client.login(process.env.BOT_TOKEN);
