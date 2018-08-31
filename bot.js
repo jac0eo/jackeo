@@ -224,7 +224,6 @@ if(!args) return  Jackeo.channel.send(":black_medium_square: **قم بوضع ر�
             Day = currentTime.getDate();
      var Jackeo3d = new Discord.RichEmbed()
      .setAuthor(Jackeo.author.username , Jackeo.author.avatarURL)
-     .setThumbnail(men.avatarURL)
      .setDescription(`**:black_medium_square:  هل انت موافق لآرسال هذه الصراحة  ؟  \nمحتوي الرسالة : ${args}**`)
      .setTimestamp() 
      .setFooter(`- By , message.author.name .`)
