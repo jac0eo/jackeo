@@ -218,7 +218,6 @@ client.on('message',   Jackeo =>{
                               if(Jackeo.content.startsWith('.sr7')) {
                               if(Jackeo.channel.type === "dm"){
 if(!args) return  Jackeo.channel.send(":black_medium_square: **قم بوضع رسالة الصراحة **");
-if(!men) return  Jackeo.channel.send(":black_medium_square:**قم بوضع ايدي المراد مصارحتة , ربما يكون الشخص غير موجود في سيرفرات مشتركة بينك وبينة لذلك لن يستطيع البوت الأرسال** ");
                       var currentTime = new Date(),
             Year = currentTime.getFullYear(),
             Month = currentTime.getMonth() + 1,
