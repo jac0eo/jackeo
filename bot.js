@@ -233,7 +233,7 @@ if(!men) return  Jackeo.channel.send(":black_medium_square:**قم بوضع اي�
  message.react('✅').then(r=>{
  message.react('❎').then(r=>{            
     var kk = (reaction, user) => reaction.emoji.name === '✅' && user.id === Jackeo.author.id;    
-    var nn = (reaction, user) => reaction.emoji.name === '❌' && user.id === Jackeo.author.id;
+    var nn = (reaction, user) => reaction.emoji.name === '❎' && user.id === Jackeo.author.id;
     var kkk = message.createReactionCollector(kk, { time: 60000 });
     var nnn = message.createReactionCollector(nn, { time: 60000 });
 kkk.on("collect", r => {
