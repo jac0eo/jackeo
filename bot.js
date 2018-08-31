@@ -210,54 +210,6 @@ message.channel.sendEmbed(cat);
 
 
 
-client.on('message',   Jackeo =>{
-    
-    var  args = Jackeo.content.split(" ").slice(2).join(" ")
-    var men = Jackeo.mentions.users.first()|| client.users.get(Jackeo.content.split(' ')[1])
-    var  mas = Jackeo.author
-                              if(Jackeo.content.startsWith('.sr7')) {
-                              if(Jackeo.channel.type === "dm"){
-if(!args) return  Jackeo.channel.send(":black_medium_square: **قم بوضع رسالة الصراحة **");
-                      var currentTime = new Date(),
-            Year = currentTime.getFullYear(),
-            Month = currentTime.getMonth() + 1,
-            Day = currentTime.getDate();
-     var Jackeo3d = new Discord.RichEmbed()
-     .setAuthor(Jackeo.author.username , Jackeo.author.avatarURL)
-     .setDescription(`**:black_medium_square:  هل انت موافق لآرسال هذه الصراحة  ؟  \nمحتوي الرسالة : ${args}**`)
-     .setTimestamp() 
-     .setFooter(`- By , message.author.name .`)
-     Jackeo.channel.send(Jackeo3d).then(message => {
- message.react('✅').then(r=>{
- message.react('❎').then(r=>{            
-    var kk = (reaction, user) => reaction.emoji.name === '✅' && user.id === Jackeo.author.id;    
-    var nn = (reaction, user) => reaction.emoji.name === '❎' && user.id === Jackeo.author.id;
-    var kkk = message.createReactionCollector(kk, { time: 60000 });
-    var nnn = message.createReactionCollector(nn, { time: 60000 });
-kkk.on("collect", r => {
-          const embed = new Discord.RichEmbed()
-               .setThumbnail("https://cdn.discordapp.com/attachments/429056808561278979/450412294078332948/download.jpg")   
-               .setColor("RANDOM")
-               .addField('**• الرسالة : ** ', `<@${men.id}>` , true)
-                    .addField('**• لقد قام شخص ما بمصارحتك **' ,       ` __${args}__ ` , true)
-                    .addField('**• اليوم والوقت والتاريخ :**' , Day + "-" + Month + "-" + Year , true)
-          client.users.get(men.id).sendEmbed(embed)
-          Jackeo.reply(`لقد تم ارسال الصراحه للشخص \n <@${men.id}>`)
-message.delete()
-          Jackeo.delete();
-})
-nnn.on("collect", r => {
-message.delete()
-Jackeo.reply("`**تم الغاء الصراحة**`")
-Jackeo.delete();
-})
-})
-}) 
-})
-}
-}
-});
-
 
 
 
@@ -825,8 +777,10 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 client.on('message' , message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "ping")) {
- message.channel.send('Pong...').then((msg) => {
-      msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);
+var PinG = `${message.createdTimestamp - message.createdTimestamp}`
+var ApL = `${Math.round(client.ping)}`
+ message.channel.send('pong').then((msg) => {
+      msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
  })
   }  
  });
