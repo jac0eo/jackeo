@@ -215,7 +215,7 @@ client.on('message',   Jackeo =>{
     var  args = Jackeo.content.split(" ").slice(2).join(" ")
     var men = Jackeo.mentions.users.first()|| client.users.get(Jackeo.content.split(' ')[1])
     var  mas = Jackeo.author
-                              if(Jackeo.content.startsWith(prefix + 'sr7')) {
+                              if(Jackeo.content.startsWith('.sr7')) {
                               if(Jackeo.channel.type === "dm"){
 if(!args) return  Jackeo.channel.send(":black_medium_square: **قم بوضع رسالة الصراحة **");
 if(!men) return  Jackeo.channel.send(":black_medium_square:**قم بوضع ايدي المراد مصارحتة , ربما يكون الشخص غير موجود في سيرفرات مشتركة بينك وبينة لذلك لن يستطيع البوت الأرسال** ");
