@@ -777,7 +777,7 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 client.on('message' , message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "ping")) {
-var PinG = `${message.createdTimestamp - message.createdTimestamp}`
+var PinG = `${msg.createdTimestamp - message.createdTimestamp}`
 var ApL = `${Math.round(client.ping)}`
  message.channel.send('pong').then((msg) => {
       msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
