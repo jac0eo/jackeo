@@ -215,7 +215,7 @@ client.on('message',   Jackeo =>{
     var  args = Jackeo.content.split(" ").slice(2).join(" ")
     var men = Jackeo.mentions.users.first()|| client.users.get(Jackeo.content.split(' ')[1])
     var  mas = Jackeo.author
-                              if(Jackeo.content.startsWith(prefix + 'صراحة')) {
+                              if(Jackeo.content.startsWith(prefix + 'sr7')) {
                               if(Jackeo.channel.type === "dm"){
 if(!args) return  Jackeo.channel.send(":black_medium_square: **قم بوضع رسالة الصراحة **");
 if(!men) return  Jackeo.channel.send(":black_medium_square:**قم بوضع ايدي المراد مصارحتة , ربما يكون الشخص غير موجود في سيرفرات مشتركة بينك وبينة لذلك لن يستطيع البوت الأرسال** ");
@@ -240,9 +240,9 @@ kkk.on("collect", r => {
           const embed = new Discord.RichEmbed()
                .setThumbnail("https://cdn.discordapp.com/attachments/429056808561278979/450412294078332948/download.jpg")   
                .setColor("RANDOM")
-               .addField('**• السلام عليكم ** ', `<@${men.id}>` , true)
+               .addField('**• الرسالة : ** ', `<@${men.id}>` , true)
                     .addField('**• لقد قام شخص ما بمصارحتك **' ,       ` __${args}__ ` , true)
-                    .addField('**• تاريخ المصارحة**' , Day + "-" + Month + "-" + Year , true)
+                    .addField('**• اليوم والوقت والتاريخ :**' , Day + "-" + Month + "-" + Year , true)
           client.users.get(men.id).sendEmbed(embed)
           Jackeo.reply(`لقد تم ارسال الصراحه للشخص \n <@${men.id}>`)
 message.delete()
