@@ -772,7 +772,7 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 
       });
 */
-message
+//message
 
 client.on('message' , message => {
   if(message.author.bot) return;
