@@ -1,2 +1,2 @@
-# discord.jpel is here
-jackeo 
+$ plz don't زرف ملفاتي يرحم امك
+sone
