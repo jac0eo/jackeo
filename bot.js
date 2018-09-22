@@ -5,7 +5,6 @@ const owner = ['211969554061066243'];
 const id = ['211969554061066243', '' , '' , '' , ''];
 const ms = require("ms");
 const fs = require('fs');
-const Canvas = require("canvas");
 const jimp = require("jimp");
 const ytdl = require('ytdl-core');
 const request = require('request');
