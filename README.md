@@ -1,2 +1,1 @@
-$ plz don't زرف ملفاتي يرحم امك
-sone
+Do not take my files
