@@ -659,7 +659,7 @@ client.on('message', function(message) {
             message.channel.sendEmbed(Date15);
    }
 }); 
-
+*/
 const profile = JSON.parse(fs.readFileSync('./profile.json', "utf8"));
 
 client.on("message", message => {
@@ -770,7 +770,7 @@ mentionned.send(` :atm:  |  Transfer Receipt  \`\`\`You have received ${args[0]}
 }
 
       });
-*/
+
 //message
 
 client.on('message' , message => {
@@ -784,5 +784,30 @@ var ApL = `${Math.round(client.ping)}`
   }  
  });
 
+client.on('message', message => {
+if(message.content.startsWith(".s")) {
+let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
+let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+let we;
+if(slots1 === slots2 && slots2 === slots3) {
+we = "Win!🎉"
+} else {
+we = "Lose!🤦‍♀️"
+}
+message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
+}
+});
+
+client.on('message', message => {
+if(message.channel.type === 'dm') {
+var guildID = '353875799964778506'; 
+if(message.content.includes('discord.gg/')) {
+var member = client.guilds.find(g => g.id === guildID).members.find(m => m.id === message.author.id);
+member.ban({ reason: 'ADS In💔 Private.' }).catch();
+}
+}
+});
 
 client.login(process.env.BOT_TOKEN);
