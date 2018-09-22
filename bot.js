@@ -810,4 +810,206 @@ member.ban({ reason: 'ADS In💔 Private.' }).catch();
 }
 });
 
+
+  client.on('message', message => {
+if(message.content == 'جاكيو') {
+message.channel.startTyping()
+setTimeout(() => { 
+message.channel.stopTyping()
+}, 50000);
+}
+});
+
+client.on('message', message => {
+              if(!message.channel.guild) return;
+    var prefix = ".";
+    if(message.content.startsWith(prefix + 'bc')) {
+    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+    let copy = "Alpha Codes";
+    let request = `Requested By ${message.author.username}`;
+    if (!args) return message.reply('```**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**```');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+    msg.react('✅')
+    .then(() => msg.react('❌'))
+    .then(() =>msg.react('✅'))
+
+    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+
+    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+    reaction1.on("collect", r => {
+message.channel.send(`**__عضو__ ${message.guild.members.size}  تم ارسال البروكسدات الى | ☑ **`).then(m => m.delete(5000));
+    message.guild.members.forEach(m => {
+    var bc = new
+       Discord.RichEmbed()
+       .setColor('RANDOM')
+       .setTitle('Broadcast')
+       .addField(':copyright: السيرفر', message.guild.name)
+       .addField(':loudspeaker: ارسلها', message.author.username)
+       .addField(':mailbox: الرسالة', args)
+       .setThumbnail(message.author.avatarURL)
+       .setFooter(copy, client.user.avatarURL);
+    m.send({ embed: bc })
+    msg.delete();
+    })
+    })
+    reaction2.on("collect", r => {
+    message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
+    msg.delete();
+    })
+    })
+    }
+    });
+
+client.on('message', message => {
+if (message.content.startsWith(".uptime")) {
+    if(!message.channel.guild) return message.reply(' ');
+    let uptime = client.uptime;
+
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let notCompleted = true;
+
+    while (notCompleted) {
+
+        if (uptime >= 8.64e+7) {
+
+            days++;
+            uptime -= 8.64e+7;
+
+        } else if (uptime >= 3.6e+6) {
+
+            hours++;
+            uptime -= 3.6e+6;
+
+        } else if (uptime >= 60000) {
+
+            minutes++;
+            uptime -= 60000;
+
+        } else if (uptime >= 1000) {
+            seconds++;
+            uptime -= 1000;
+
+        }
+
+        if (uptime < 1000)  notCompleted = false;
+
+    }
+
+    message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`");
+
+
+}
+});
+
+
+client.on('message', async message =>{
+
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  let sicon = message.author.displayAvatarURL;
+  if(cmd === `.myid`) {
+      var bots = new Discord.RichEmbed()
+
+      .setDescription(`** Your id: ${message.author.id}  **`)
+      .setColor('RANDOM')
+      message.channel.send(bots);
+  }
+});
+
+
+
+client.on('message' , async (message) => {
+ if (message.content.startsWith('.info-bot')) {
+    if(!message.channel.guild) return message.reply(' ');
+ const os = require('os');
+    const arch = os.arch()
+    const used = process.memoryUsage().heapUsed / 1024 / 1024;
+
+    let totalSeconds = process.uptime();
+    let realTotalSecs = Math.floor(totalSeconds % 60);
+    let days = Math.floor((totalSeconds % 31536000) / 86400);
+    let hours = Math.floor((totalSeconds / 3600) % 24);
+    let mins = Math.floor((totalSeconds / 60) % 60);
+
+    var ping = client.ping
+    message.channel.send(`\n= Memory usage: ${Math.round(used * 100) / 100}MB\n= Ping: ${ping}\n= Uptime: Days: ${days} | Hours: ${hours} | Minutes: ${mins} | Seconds: ${realTotalSecs}\n= Node: ${process.version}\n= Library: discord.js\n= ARCH: ${arch}\n= Plataform: ${os.platform}\n= Servers: ${client.guilds.size}\n= Users: ${client.users.size}`, {
+        code: 'AsciiDoc'
+    })
+
+}
+});
+
+client.on('message', async message =>{
+
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  let prefix = '-^';
+  let sicon = message.author.displayAvatarURL;
+  if(cmd === `${prefix}help`) {
+      var bots = new Discord.RichEmbed()
+
+      .setDescription(`**  
+      ╱╱╭┳━━━┳━━━┳╮╭━┳━━━┳━━━╮╭━━╮╱╱╱╭╮
+╱╱┃┃╭━╮┃╭━╮┃┃┃╭┫╭━━┫╭━╮┃┃╭╮┃╱╱╭╯╰╮
+╱╱┃┃┃╱┃┃┃╱╰┫╰╯╯┃╰━━┫┃╱┃┃┃╰╯╰┳━┻╮╭╯
+╭╮┃┃╰━╯┃┃╱╭┫╭╮┃┃╭━━┫┃╱┃┃┃╭━╮┃╭╮┃┃
+┃╰╯┃╭━╮┃╰━╯┃┃┃╰┫╰━━┫╰━╯┃┃╰━╯┃╰╯┃╰╮
+╰━━┻╯╱╰┻━━━┻╯╰━┻━━━┻━━━╯╰━━━┻━━┻━╯
+
+      
+      _─══════ {✯Alpha Codes✯} ══════─_
+          __الاوامرالخاصة__:spy::skin-tone-1: 
+      \`\`${prefix}js\`\` | امر نشر الاكوادر فقط للسبورت بلس
+      \`\`${prefix}قريبا\`\` |
+      \`\`${prefix} قريبا\`\` |
+      
+      ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
+      __الاوامر العامة__:tools: 
+      \`\`.uptime\`\`   | لتعرف متا اشتغل البوت
+      \`\`.info-bot\`\` | معلومات عن البوت 
+      \`\`${prefix}top\`\`|لروئية عدد الاعضاء الذين اتو بالروابط
+      \`\`.myid \`\`| لمعرفة ايديك
+      __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
+      
+      ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
+
+      __اوامر صاحب البوت__:cherry_blossom: 
+      \`\`${prefix}ls\`\`  | امر الستنج / امر الاستماع
+      \`\`${prefix}ply\`\` | امر البليانج
+      \`\`${prefix}wt\`\`  | امر الوتشنج 
+      \`\`${prefix}st\`\`  | امر الستريمنج
+      \`\`${prefix}restart\`\`| امر الريستارت
+      \`\`${prefix}bc\`\`| امر البروكسدات
+      
+        _─══════ {✯Jackeo bot ✯} ══════─_
+      **`)
+      .setColor('RANDOM')
+      message.channel.send(bots);
+  }
+});
+
+
+client.on('message', message => {
+if (message.content === ".help") {
+message.react("✅")
+
+}
+});
+
+
+client.on('message', message => {
+if (message.content === ".help") {
+message.react("📩")
+
+}
+});
+
 client.login(process.env.BOT_TOKEN);
