@@ -15,7 +15,7 @@ const path = require('path');
 const YouTube = require('simple-youtube-api');
 const fetchVideoInfo = require('youtube-info');
 const ytApiKey = 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8';
-const youtube = new YouTube(ytApiKey); 
+const youtube = new YouTube(ytApiKey);
 
 var cooldownGames = new Set();
 var cooldownSurvival = new Set();
@@ -36,6 +36,7 @@ let youtubeSearched = false;
 let selectUser;
 let stopReac = false;
 let ReactionRoles = [];
+
 
 client.on('ready', function(){
     var ms = 60000 ;
@@ -1032,6 +1033,8 @@ message.react("📩")
 });
 
 
+
+// الموسيقى
 client.on('message', async message => {
 	if(message.author.bot) return;
 	if(message.channel.type === 'dm') return;
