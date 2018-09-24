@@ -1047,7 +1047,6 @@ client.on('message', async message => {
 	switch (command.slice(1).toLowerCase()) {
 
 		case "play":
-			if(!message.member.hasPermission('Connect')) return message.reply('**لا تملك صلاحية الاتصال بالروم **');
 			if(args.length == 0 && queue.length > 0) {
 				if(!message.member.voiceChannel) {
 					let notVoiceChannel = new Discord.RichEmbed()
