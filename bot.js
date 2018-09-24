@@ -38,6 +38,18 @@ let stopReac = false;
 let ReactionRoles = [];
 
 
+    var express = require('express');
+    var path = require('path');
+    const app = express();    
+    
+    
+    app.get('/', function(request, response) {
+        response.sendFile(path.join(__dirnam.e + '/index.html'));
+    });
+    
+    var PORT = process.env.PORT || 3000;
+    app.listen(PORT);
+
 client.on('ready', function(){
     var ms = 60000 ;
   var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`]; 
