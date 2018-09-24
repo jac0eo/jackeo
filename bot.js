@@ -21,21 +21,7 @@ var cooldownGames = new Set();
 var cooldownSurvival = new Set();
 var cooldownSetName = new Set();
 
-let queue = [];
-let songsQueue = [];
-let isPlaying = false;
-let dispatcher = null;
-let voiceChannel = null;
-let skipRequest = 0;
-let skippers = [];
-let ytResultList = [];
-let ytResultAdd = [];
-let re = /^(?:[1-5]|0[1-5]|10)$/;
-let regVol = /^(?:([1][0-9][0-9])|200|([1-9][0-9])|([0-9]))$/;
-let youtubeSearched = false;
-let selectUser;
-let stopReac = false;
-let ReactionRoles = [];
+
 
 client.on('ready', function(){
     var ms = 60000 ;
