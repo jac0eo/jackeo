@@ -970,7 +970,7 @@ client.on('message', async message =>{
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-  let prefix = '-^';
+  let prefix = '.';
   let sicon = message.author.displayAvatarURL;
   if(cmd === `${prefix}help`) {
       var bots = new Discord.RichEmbed()
@@ -1037,6 +1037,7 @@ message.react("📩")
 client.on('message', async message => {
 	if(message.author.bot) return;
 	if(message.channel.type === 'dm') return;
+        const prefix = '.'
 
 	let messageContent = message.content.split(" ");
 	let command = messageContent[0];
