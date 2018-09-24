@@ -37,19 +37,6 @@ let selectUser;
 let stopReac = false;
 let ReactionRoles = [];
 
-
-    var express = require('express');
-    var path = require('path');
-    const app = express();    
-    
-    
-    app.get('/', function(request, response) {
-        response.sendFile(path.join(__dirnam.e + '/index.html'));
-    });
-    
-    var PORT = process.env.PORT || 3000;
-    app.listen(PORT);
-
 client.on('ready', function(){
     var ms = 60000 ;
   var setGame = [`جاكيو بوت`,` المستخدمين : ${client.users.size}`]; 
@@ -997,7 +984,7 @@ client.on('message', async message =>{
 ╰━━┻╯╱╰┻━━━┻╯╰━┻━━━┻━━━╯╰━━━┻━━┻━╯
 
       
-      _─══════ {✯Alpha Codes✯} ══════─_
+      _─══════ {✯Jackeo Bot✯} ══════─_
           __الاوامرالخاصة__:spy::skin-tone-1: 
       \`\`${prefix}js\`\` | امر نشر الاكوادر فقط للسبورت بلس
       \`\`${prefix}قريبا\`\` |
@@ -1021,7 +1008,7 @@ client.on('message', async message =>{
       \`\`${prefix}restart\`\`| امر الريستارت
       \`\`${prefix}bc\`\`| امر البروكسدات
       
-        _─══════ {✯Jackeo bot ✯} ══════─_
+        _─══════ {✯Jackeo bot✯} ══════─_
       **`)
       .setColor('RANDOM')
       message.channel.send(bots);
@@ -1059,7 +1046,7 @@ client.on('message', async message => {
 	switch (command.slice(1).toLowerCase()) {
 
 		case "play":
-			if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('**اوامر الموسيقى لهذا البوت خاصه للادارة فقط**');
+			if(!message.member.hasPermission('Connect')) return message.reply('**لا تملك صلاحية الاتصال بالروم **');
 			if(args.length == 0 && queue.length > 0) {
 				if(!message.member.voiceChannel) {
 					let notVoiceChannel = new Discord.RichEmbed()
