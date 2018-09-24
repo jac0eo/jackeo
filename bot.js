@@ -9,12 +9,15 @@ const jimp = require("jimp");
 const ytdl = require('ytdl-core');
 const request = require('request');
 const getYoutubeID = require('get-youtube-id');
+const child_process = require("child_process");
 const moment = require("moment");
 const axios = require('axios');
 const path = require('path');
 const YouTube = require('simple-youtube-api');
 const fetchVideoInfo = require('youtube-info');
 const ytApiKey = 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8';
+const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
+
 const youtube = new YouTube(ytApiKey);
 
 var cooldownGames = new Set();
