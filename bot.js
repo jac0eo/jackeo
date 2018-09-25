@@ -1744,6 +1744,7 @@ client.on('message', function(message) {
 
 client.login(process.env.BOT_TOKEN);
 //Cards
+/*
 const Card = new Discord.Client();
 const code = '/';
 
@@ -1801,7 +1802,7 @@ ${thisMessage}\`\`\`
 ══════════════════❃═══════════════════
 **وصف البطاقة📋**: ${boi}
 **نشرت بواسطة📌**: ${message.author} `); 
-          }
+         }
         }
     );
 });
@@ -1812,6 +1813,7 @@ ${thisMessage}\`\`\`
 }
 );
       })}});
+*/
 
 
 Card.login(process.env.BOT_TOKEN2);
