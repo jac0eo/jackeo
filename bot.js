@@ -1770,11 +1770,7 @@ Card.on('message',async message => {
         let boi;
         msg.edit(':scroll: **| من فضلك اكتب وصف البطاقة او معلومات عنها الأن... :pencil2: **').then(msg => {
   
-            message.channel.awaitMessages(filter, {
-              max: 1,
-              time: 90000,
-              errors: ['time']
-            })
+
 
                 .then(collected => {
                   collected.first().delete();
@@ -1812,6 +1808,8 @@ ${thisMessage}\`\`\`
       );
     });
 }
-      })});
+);
+      })}});
+
 
 Card.login(process.env.BOT_TOKEN2);
