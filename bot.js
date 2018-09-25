@@ -1769,12 +1769,11 @@ Card.on('message',async message => {
         thisMessage = collected.first().content;
         let boi;
         msg.edit(':scroll: **| من فضلك اكتب وصف البطاقة او معلومات عنها الأن... :pencil2: **').then(msg => {
-  
+  })
 
 
                 .then(collected => {
                   collected.first().delete();
-                boi2 = collected.first().content;
         msg.edit(':shield: **| [ هل انت متأكد من نشر البطاقة | [ نعم ] او [ لا**');
    message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
           max: 1,
