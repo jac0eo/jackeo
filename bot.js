@@ -1793,7 +1793,7 @@ Card.on('message',async message => {
           }
           if(collected.first().content === 'نعم') {
             if(thisFalse === false) return;
-            msg.edit(':dove: **| Done :white_check_mark:, تم بنجاح نشر كودك في روم الاكواد**');
+            msg.edit(':dove: **| Done :white_check_mark:, تم بنجاح نشر البطاقة البنكية**');
             collected.first().delete();
             jscodes.send(`@everyone | @here
 ══════════════════❃═══════════════════
@@ -1812,6 +1812,6 @@ ${thisMessage}\`\`\`
       );
     });
 }
-      })}});
+      })});
 
 Card.login(process.env.BOT_TOKEN2);
