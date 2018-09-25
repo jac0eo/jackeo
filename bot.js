@@ -1744,10 +1744,10 @@ client.on('message', function(message) {
 
 client.login(process.env.BOT_TOKEN);
 //Cards
-const card = new Discord.Client();
+const Card = new Discord.Client();
 const code = '/';
 
-card.on('message',async message => {
+Card.on('message',async message => {
     if(message.content.startsWith(code + "card")) {
   if(!message.channel.guild) return message.reply(' ');
     let rank = message.guild.member(message.author).roles.find('name', 'ناشرون بطاقات');
@@ -1825,4 +1825,4 @@ ${thisMessage}\`\`\`
 );
       })}});
 
-card.login(process.env.card);
+Card.login(process.env.BOT_TOKEN2);
