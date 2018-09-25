@@ -1769,9 +1769,12 @@ Card.on('message',async message => {
         thisMessage = collected.first().content;
         let boi;
         msg.edit(':scroll: **| من فضلك اكتب وصف البطاقة او معلومات عنها الأن... :pencil2: **').then(msg => {
-  })
 
-
+            message.channel.awaitMessages(filter, {
+              max: 1,
+              time: 90000,
+              errors: ['time']
+            })
                 .then(collected => {
                   collected.first().delete();
         msg.edit(':shield: **| [ هل انت متأكد من نشر البطاقة | [ نعم ] او [ لا**');
@@ -1805,7 +1808,7 @@ ${thisMessage}\`\`\`
       });
     }
       );
-    };
+    });
 }
 );
       })}});
