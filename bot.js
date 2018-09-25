@@ -1744,7 +1744,7 @@ client.on('message', function(message) {
 
 client.login(process.env.BOT_TOKEN);
 //Cards
-
+const card = new Discord.Client();
 const code = '/';
 
 card.on('message',async message => {
