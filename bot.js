@@ -1775,17 +1775,7 @@ Card.on('message',async message => {
               time: 90000,
               errors: ['time']
             })
-            .then(collected => {
-              collected.first().delete();
-              boi = collected.first().content;
-              let boi2;
-              msg.edit(':man_in_tuxedo: **| من فضلك اكتب من صنع هذا الكود الأن... :pencil2: **').then(msg => {
-  
-                message.channel.awaitMessages(filter, {
-                  max: 1,
-                  time: 90000,
-                  errors: ['time']
-                })
+
                 .then(collected => {
                   collected.first().delete();
                 boi2 = collected.first().content;
