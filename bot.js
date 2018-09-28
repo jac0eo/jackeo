@@ -792,7 +792,7 @@ var ApL = `${Math.round(client.ping)}`
  });
 
 client.on('message', message => {
-  if(message.content.startsWith(prefix + "ping")) {
+  if(message.content.startsWith(prefix + "s")) {
 let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
 let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
 let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
@@ -922,6 +922,10 @@ client.on('message', async message =>{
   let args = messageArray.slice(1);
   let sicon = message.author.displayAvatarURL;
   if(cmd === `.myid`) {
+message.channel.startTyping()
+setTimeout(() => { 
+message.channel.stopTyping()
+}, 50000);
       var bots = new Discord.RichEmbed()
 
       .setDescription(`** Your id: ${message.author.id}  **`)
