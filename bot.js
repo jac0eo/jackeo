@@ -143,7 +143,11 @@ message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲Φ♔⌘|🎵💔😍`)
  
 }
 }); */
-
+   
+client.on('ready', () => {
+var j0k = client.channels.get("458298626469265408").catch(console.error);
+if (j0k) j0k.join();
+});
 
 client.on('message', message => {
     if (message.content.startsWith("تهكير")) {
@@ -198,7 +202,7 @@ Year  = currentTime.getFullYear(),
 Month = currentTime.getMonth() + 1,
 day   = currentTime.getDate()
 
-client.channels.find('id', '353991730196119552').setName(`『 التاريخ ↩ ${Year}/${Month}/${day} 』`)
+client.channels.find('id', '353991730196119552').setName(`『 التاريخ ↩ ${Year}/${Month}/${day} 』`).catch(console.error);
 }, 5000);
 
 });
@@ -221,10 +225,10 @@ message.channel.sendEmbed(cat);
 
 
 client.on("guildMemberAdd", (member) => {
-client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
+client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`}).catch(console.error);
 })
 client.on("guildMemberRemove", (member) => {
-client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
+client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`}).catch(console.error);
 })
 
 
@@ -488,7 +492,7 @@ client.on("message", (message) => {
       if (message.author.id === client.user.id) return;
      let jackeo = new Discord.RichEmbed()
             .setTimestamp()
-                .setTitle("هذة ارسل للبوت رسالة")
+                .setTitle("هذة ارسل للبوت رسالة").catch(console.error);
                 .addField(`من:`, `<@${message.author.id}>`)
                     .setColor("RANDOM")
                    .setThumbnail(message.author.displayAvatarURL)
