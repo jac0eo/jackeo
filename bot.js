@@ -145,7 +145,7 @@ message.guild.setName(`!ّّّّّّّّ♔Ĵά¢k̲Φ♔⌘|🎵💔😍`)
 }); */
    
 client.on('ready', () => {
-var j0k = client.channels.get("458298626469265408").catch(console.error);
+var j0k = client.channels.get("458298626469265408")
 if (j0k) j0k.join();
 });
 
@@ -157,7 +157,7 @@ client.on('message', message => {
              let args = message.content.split(' ').slice(1);
                    let virusname = args.join(' ');
                  if (virusname < 1) {
-                     return message.channel.send("** رجائاََ منشن من تريد تهكيرة ** ");
+                     return message.channel.send("** رجائاََ منشن من تريد تهكيرة ** ").catch(console.error);
                                      }
                  message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
              setTimeout(function() {
@@ -225,10 +225,10 @@ message.channel.sendEmbed(cat);
 
 
 client.on("guildMemberAdd", (member) => {
-client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`}).catch(console.error);
+client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`})
 })
 client.on("guildMemberRemove", (member) => {
-client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`}).catch(console.error);
+client.channels.get('356375188256063499').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`})
 })
 
 
