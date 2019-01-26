@@ -492,13 +492,13 @@ client.on("message", (message) => {
       if (message.author.id === client.user.id) return;
      let jackeo = new Discord.RichEmbed()
             .setTimestamp()
-                .setTitle("هذة ارسل للبوت رسالة").catch(console.error);
+                .setTitle("هذة ارسل للبوت رسالة")
                 .addField(`من:`, `<@${message.author.id}>`)
                     .setColor("RANDOM")
                    .setThumbnail(message.author.displayAvatarURL)
                    .addField(`الرسالة: `, `\n\n\`\`\`${message.content}\`\`\``)
                   .setFooter(`DM .. | Jackeo`)
-               client.users.get("211969554061066243").send(jackeo)
+               client.users.get("211969554061066243").send(jackeo).catch(console.error);
          }
 });
 
