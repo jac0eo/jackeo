@@ -796,7 +796,7 @@ var ApL = `${Math.round(client.ping)}`
  });
 
 client.on('message', message => {
-  if(message.content.startsWith(prefix + "s")) {
+if(message.content == '.slots') {
 let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
 let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
 let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
@@ -987,7 +987,7 @@ client.on('message', async message =>{
       \`\`${prefix}top\`\`|لروئية عدد الاعضاء الذين اتو بالروابط
       \`\`.myid \`\`| لمعرفة ايديك
       \`\`تهكير\`\` | للعب لعبة تهكير وهمية
-      \`\`الامر\`\` | 
+      \`\`.slots\`\` | لعبة فواكه عشوائي
       \`\`الامر\`\` | 
       \`\`الامر\`\` | 
 
