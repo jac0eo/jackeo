@@ -988,7 +988,16 @@ client.on('message', async message =>{
       \`\`الامر\`\` | 
 
 __الاوامر فقط للسيرفرات __:no_entry: :no_entry_sign: 
-      
+
+      ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
+
+         __اوامر الاغاني__:musical_note: :purple_heart: 
+\`\`.play\`\`  | لتشغيل الاغنية  
+\`\`.stop\`\` | لايقاف الاغنية
+\`\`.join\`\` | لدخول البوت للروم
+\`\`.unpause\`\` | اعادة تشغيل الاغنية
+\`\`.pause\`\` | لايقاف موقت للاغنية
+
       ∞⋅∾◅▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▻∾⋅∞
 
       __اوامر صاحب البوت__:cherry_blossom: 
@@ -1512,7 +1521,7 @@ client.on('message', message => {
 		let embed = new Discord.RichEmbed()
          .setColor("36393f")
          .setDescription(`**
-         [Commands Help.]
+         [Commands.]
 ${prefix}play [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
 ${prefix}skip ->  يتخطى الأغنية الحالية
 ${prefix}playlist ->  يعرض قائمة التشغيل الحالية
@@ -1565,8 +1574,8 @@ client.on('message', function(message) {
 	const mess = message.content.toLowerCase();
 	const args = message.content.split(' ').slice(1).join(' ');
 
-	if (mess.startsWith('play')) {
-		if (!message.member.voiceChannel) return message.reply('** You Are Not In VoiceChannel **');
+	if (mess.startsWith('.play')) {
+		if (!message.member.voiceChannel) return message.reply('** لم تدخل في روم صوتي **');
 		// if user is not insert the URL or song title
 		if (args.length == 0) {
 			let play_info = new Discord.RichEmbed()
@@ -1615,7 +1624,7 @@ client.on('message', function(message) {
 			});
 		}
 	}
-	else if (mess.startsWith('skip')) {
+	else if (mess.startsWith('.skip')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':gear: **تم التخطي**').then(() => {
 			skip_song(message);
@@ -1631,19 +1640,19 @@ client.on('message', function(message) {
 		dispatcher.setVolume(1 * args / 50);
 		message.channel.sendMessage(` **${dispatcher.volume*50}** قمت بتحديث الصوت الى:`);
 	}
-	else if (mess.startsWith('pause')) {
+	else if (mess.startsWith('.pause')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':gear: **تم الايقاف مؤقت**').then(() => {
 			dispatcher.pause();
 		});
 	}
-	else if (mess.startsWith('unpause')) {
+	else if (mess.startsWith('.unpause')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':gear: **تم اعاده التشغيل**').then(() => {
 			dispatcher.resume();
 		});
 	}
-	else if (mess.startsWith('stop')) {
+	else if (mess.startsWith('.stop')) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.reply(':name_badge: **تم الايقاف**');
 		var server = server = servers[message.guild.id];
@@ -1653,7 +1662,7 @@ client.on('message', function(message) {
 		if (!message.member.voiceChannel) return message.reply('**عفوا ,انت غير موجود في روم صوتي**');
 		message.member.voiceChannel.join().then(message.react('✅'));
 	}
-	else if (mess.startsWith('play')) {
+	else if (mess.startsWith('.play')) {
 		getID(args, function(id) {
 			add_to_queue(id);
 			fetchVideoInfo(id, function(err, videoInfo) {
